@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "peter",
+  "risk": "3",
+  "title": "5 low-level CALL bools not checked for failure",
+  "issueId": 4,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/4"
+}
