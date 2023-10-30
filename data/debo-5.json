@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "debo",
+  "risk": "2",
+  "title": "[M-02] Controlled low level call in the AuctionDemo contract",
+  "issueId": 5,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/5"
+}
