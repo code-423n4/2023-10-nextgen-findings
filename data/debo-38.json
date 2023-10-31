@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "debo",
+  "risk": "2",
+  "title": "[M-13] Return value of low level call not checked in RandomizerRNG contract",
+  "issueId": 38,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/38"
+}
