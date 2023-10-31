@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xbrett8571",
+  "risk": "3",
+  "title": "Artist payment addresses can be changed without consent, enabling potential fraud in NextGenMinter contract.",
+  "issueId": 41,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/41"
+}
