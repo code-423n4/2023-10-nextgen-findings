@@ -1,6 +1,8 @@
-### Problem
+### Problem 1 
 
 In contract "RandomPool" in file XRandoms.sol below, random word "Acai" is twice as likely to be picked as any other word, because both "wordsList" at index "id" == 0 and "id" == 1 give "Acai". Therefore this list is not uniformly random
+
+https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/XRandoms.sol
 
 ```
     function getWord(uint256 id) private pure returns (string memory) {
@@ -23,4 +25,52 @@ In contract "RandomPool" in file XRandoms.sol below, random word "Acai" is twice
         }
         }
 ```
+### Problem 2
+
+Public function "returnHighestBid()" is inefficient in logic, as the for-loop is not required.
+
+https://github.com/code-423n4/2023-10-nextgen/blob/71d055b623b0d027886f1799739b7f785b5bc7cd/smart-contracts/AuctionDemo.sol#L65
+
+The function is given as below:
+```
+    function returnHighestBid(uint256 _tokenid) public view returns (uint256) {
+        uint256 index;
+        if (auctionInfoData[_tokenid].length > 0) {
+            uint256 highBid = 0;
+            for (uint256 i=0; i< auctionInfoData[_tokenid].length; i++) {
+                if (auctionInfoData[_tokenid][i].bid > highBid && auctionInfoData[_tokenid][i].status == true) {
+                    highBid = auctionInfoData[_tokenid][i].bid;
+                    index = i;
+                }
+            }
+            if (auctionInfoData[_tokenid][index].status == true) {
+                return highBid;
+            } else {
+                return 0;
+            }
+        } else {
+            return 0;
+        }
+    }
+```
+
+But is more efficient without the for-loop
+
+```
+    function returnHighestBid(uint256 _tokenid) public view returns (uint256) {
+        uint256 index;
+        uint256 length = auctionInfoData[_tokenid].length;
+        if (length > 0) {
+            if (auctionInfoData[_tokenid][length - 1].status == true) {
+                return auctionInfoData[_tokenid][length - 1].bid;
+            } else {
+                return 0;
+            }
+        } else {
+            return 0;
+        }
+    }
+```
+
+
 
