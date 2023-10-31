@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "critical-or-high",
+  "risk": "3",
+  "title": "It's possible to mint more NFTs than _maxAllowance due to lack of re-entrancy protection",
+  "issueId": 43,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/43"
+}
