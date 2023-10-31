@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "oualidpro",
+  "risk": "2",
+  "title": "`tokenHash` is not truly random - possibility of predictably minting a specific tokenHash",
+  "issueId": 26,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/26"
+}
