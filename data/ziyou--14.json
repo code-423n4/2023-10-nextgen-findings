@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ziyou-",
+  "risk": "2",
+  "title": "The check for the updateAdminContract function is ineffective.",
+  "issueId": 14,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/14"
+}
