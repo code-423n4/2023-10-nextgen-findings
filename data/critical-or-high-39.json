@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "critical-or-high",
+  "risk": "3",
+  "title": "DoS - Airdrop fails due to one recipient reverts",
+  "issueId": 39,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/39"
+}
