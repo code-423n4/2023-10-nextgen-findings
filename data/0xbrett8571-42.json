@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xbrett8571",
+  "risk": "2",
+  "title": "Function admins can bypass collection admin roles, potentially leading to unauthorized access in NextGenCore contract.",
+  "issueId": 42,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/42"
+}
