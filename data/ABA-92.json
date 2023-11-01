@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ABA",
+  "risk": "3",
+  "title": "Frontrunning the highest winning bid and having users funds permanently blocked can happen by bidding in the same block as the wining claim",
+  "issueId": 92,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/92"
+}
