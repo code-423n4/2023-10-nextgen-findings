@@ -17,7 +17,7 @@ The highest bidder will receive the token after an auction finishes, the owner o
 
 
 
-Admin roles can only be registered on the Admin Contract.
+1. Admin roles can only be registered on the Admin Contract.
 
 NextGenAdmins.sol it seems to be well-structured, to ensure that only admin roles can be registered on this contract.  AdminRequired modifier restricts access to certain functions. However, you need to make sure that this contract is indeed the Admin Contract. You can do this by modifying the constructor to check if the caller is the owner and that the contract hasn't already been set as an Admin Contract.
 
@@ -69,7 +69,7 @@ contract NextGenAdmins is Ownable {
 In this modified version, the constructor now checks if the caller is the owner before setting the contract as an Admin Contract. This way, only the owner can designate this contract as the Admin Contract.
 
 
-Global Admins can only be registered by the Admin Contract owner. (NextGenAdmins.sol)
+2. Global Admins can only be registered by the Admin Contract owner. (NextGenAdmins.sol)
 
 
 To ensure that the Global Admins can only be registered by the Admin Contract owner, you should modify the registerAdmin function to include a check that only allows the owner to register global admins. Here's the modified function for NextGenAdmins.sol:
@@ -84,7 +84,7 @@ With this modification, only the owner of the Admin Contract can register global
 
 
 
-Function and Collection admins can only be registered by global admins. (NextGenAdmins.sol)
+3.Function and Collection admins can only be registered by global admins. (NextGenAdmins.sol)
 
 
 
@@ -117,7 +117,7 @@ function registerCollectionAdmin(uint256 _collectionID, address _address, bool _
 With these modifications, only Global Admins can register Function Admins and Collection Admins, as they are required to have the adminPermissions[msg.sender] check in these functions. This ensures that these admin roles can only be registered by Global Admins.
 
 
-Specific admin roles can call the functions of the smart contracts.(NextGenAdmins.sol)
+4. Specific admin roles can call the functions of the smart contracts.(NextGenAdmins.sol)
 
 To allow specific admin roles to call the functions of the smart contract, you can create additional modifiers for each type of admin (e.g., FunctionAdmin and CollectionAdmin) and use them in the functions that should be accessible only by these admin roles. Here's the modified the NextGenAdmins.sol code: 
 // Modifier for Function Admins
@@ -160,7 +160,7 @@ function someFunctionForCollectionAdmin(uint256 _collectionID) public Collection
 With these modifications, you've created two new modifiers: FunctionAdmin and CollectionAdmin, which check whether the caller has the necessary admin roles to access certain functions. You can apply these modifiers to the relevant functions to control access based on admin roles.
 
 
-Only artists can sign their collections. (NextGenAdmins.sol)
+5. Only artists can sign their collections. (NextGenAdmins.sol)
 
 To ensure that only artists can sign their collections, you can create a modifier that checks if the caller is the artist of the collection and apply this modifier to the function that allows signing collections. Here's a modified version of yourNextGenAdmins.sol  contract:
 
@@ -201,7 +201,7 @@ You can apply the OnlyArtist modifier to other functions that should only be cal
 
 
 
-NFTDelegation is the only delegation management contract that will be used. (NextGenRandomizerNXT.sol)
+6. NFTDelegation is the only delegation management contract that will be used. (NextGenRandomizerNXT.sol)
 
 
 To ensure that NFTDelegation is the only delegation management contract that will be used in the provided code, you can modify the FunctionAdminRequired modifier to check for the specific delegation contract address (NFTDelegation). Here's the modified NextGenRandomizerNXT.sol  code:
@@ -279,7 +279,7 @@ contract NextGenRandomizerNXT {
 In this modified code, the NFTDelegation contract is imported, and an instance of it is declared in the contract. The FunctionAdminRequired modifier is also modified to ensure that only the NFTDelegation contract can call the functions, and it checks whether the sender is a valid delegation. This modification ensures that only the specified delegation management contract (NFTDelegation) can interact with this contract.
 
 
-Once a hash is set for a specific token it cannot be altered.
+7. Once a hash is set for a specific token it cannot be altered.
 
 
 To ensure that once a hash is set for a specific token, it cannot be altered. To achieve this, here are some considerations and suggestions:
@@ -309,13 +309,13 @@ contract NextGenRandomizerNXT is Ownable {
 
 With this approach, every time the token hash is updated, an event TokenHashUpdated is emitted. This event will provide a public log of changes, and it will be impossible to alter historical hash values once they have been logged.
 
-Once a hash is set for a specific token it cannot be altered.(2)
+7.1 Once a hash is set for a specific token it cannot be altered.(2)
 
 RandomizerVRF.sol
 The current code indicates that the random hash is generated by the Randomizer contract when calculateTokenHash is called, and it is then set in the Core contract using gencoreContract.setTokenHash. This ensures that the hash is set directly from the Randomizer contract and not by external actors.
 In summary, the code appears to follow good practices for ensuring the integrity of token hashes, and the provided access control and event logging mechanisms enhance security and transparency. 
 
-The emergencyWithdraw() function sends the funds to the admin contract owner.
+8. The emergencyWithdraw() function sends the funds to the admin contract owner.
 
 To ensure that the emergencyWithdraw function sends the funds to the admin contract owner, you need to make a small change to the function. You should directly transfer the balance to the admin's address instead of calling the admin's address as a function.
 Here's the modified emergencyWithdraw function:
@@ -330,7 +330,7 @@ function emergencyWithdraw() public FunctionAdminRequired(this.emergencyWithdraw
 
 In this updated code, the transfer function is used to directly send the balance to the admin's address. This should be a safer way to handle the transfer of funds in an emergency withdrawal function.
 
-Once a collection is frozen (locked) its data cannot be altered.(NextGenCore.sol)
+9. Once a collection is frozen (locked) its data cannot be altered.(NextGenCore.sol)
 
 To ensure that a collection's data cannot be altered once it is frozen, you can add a modifier to the functions that should be restricted after the collection is frozen. Here is a modified version of your smart contract with the necessary modifier:
 
@@ -383,7 +383,7 @@ contract NextGenCore is ERC721Enumerable, Ownable, ERC2981 {
 I've added the CollectionNotFrozen modifier to the functions that should be restricted after the collection is frozen. This modifier checks if the collection is frozen before allowing the function to proceed. If the collection is frozen, it will prevent any data alterations.
 
 
-Airdrop/mint can only be done from the Minter contract.(MinterContract.sol)
+10. Airdrop/mint can only be done from the Minter contract.(MinterContract.sol)
 
 To ensure that the Airdrop() and mint() functions can only be called from the Minter contract, you can use the onlyOwner modifier from the Ownable contract that your contract inherits from. This will restrict access to only the owner of the contract, which in your case would be the Minter contract.
 Here's the modified MinterContract.sol code for both the Airdrop() and mint() functions with the onlyOwner modifier applied:
@@ -411,108 +411,105 @@ By adding the onlyMinter modifier to both functions, only the owner (the Minter 
 
 
 
-The highest bidder will receive the token after an auction finishes, the owner of the token will receive the funds and all other participants will get refunded.
+11. The highest bidder will receive the token after an auction finishes, the owner of the token will receive the funds and all other participants will get refunded.
 
-So maybe I missed something but to ensure that the highest bidder receives the token after an auction finishes, the owner of the token receives the funds, and all other participants get refunded, I believe you need to implement an auction system within your smart contract. Here's a basic outline of how you can structure your contract to support such an auction system: 
-Here is an example code: 
+auctionDemo, seems well designed for conducting auctions of NFTs (ERC-721 tokens) where the highest bidder receives the token and all other participants receive refunds. The contract includes important functionality, but we can make some improvements to enhance security and code readability. Here are some suggestions and explanations:
+Input Validation: validate inputs to your functions. Add explicit checks to ensure that input parameters are valid.
+Events: The events you've defined are good, but you may want to provide more details, like the specific token being auctioned. Additionally, emit events after successful state changes.
+Modifiers and Error Messages: Consider breaking down complex conditions into separate checks for better readability.
+Fallback Function: Implement a fallback function or receive function for receiving Ether in case users send Ether to the contract directly. This should be used to prevent accidental loss of Ether.
+Consider using OpenZeppelin: OpenZeppelin offers a battle-tested library for creating 
+
+
+Here's a revised version of your contract with some improvements:
+
+
 // SPDX-License-Identifier: MIT
+
 pragma solidity ^0.8.19;
 
-contract YourAuctionContract {
-    address public owner;
-    address public highestBidder;
-    uint256 public highestBid;
+import "./IMinterContract.sol";
+import "./IERC721.sol";
+import "./Ownable.sol";
+import "./INextGenAdmins.sol";
 
-    // Define the token you're auctioning
-    IERC721 public token; // Import the IERC721 interface
+contract AuctionDemo is Ownable {
+    event ClaimAuction(address indexed _winner, uint256 indexed tokenId, uint256 refundAmount);
+    event CancelBid(address indexed _bidder, uint256 indexed tokenId, uint256 refundAmount);
 
-    mapping(address => uint256) public refunds;
+    IMinterContract public minter;
+    INextGenAdmins public adminsContract;
+    address gencore;
 
-    enum AuctionStatus { Open, Closed }
-    AuctionStatus public auctionStatus;
-
-    event AuctionStarted(address tokenAddress);
-    event BidPlaced(address bidder, uint256 amount);
-    event AuctionEnded(address highestBidder, uint256 highestBid);
-    event Refund(address recipient, uint256 amount);
-
-    constructor(address _tokenAddress) {
-        owner = msg.sender;
-        token = IERC721(_tokenAddress);
-        auctionStatus = AuctionStatus.Closed;
+    constructor(address _minter, address _gencore, address _adminsContract) {
+        minter = IMinterContract(_minter);
+        gencore = _gencore;
+        adminsContract = INextGenAdmins(_adminsContract);
     }
 
-    modifier onlyOwner() {
-        require(msg.sender == owner, "Only the owner can call this function");
+    modifier OnlyActiveAuction(uint256 _tokenId) {
+        require(block.timestamp <= minter.getAuctionEndTime(_tokenId), "Auction has ended");
+        require(minter.getAuctionStatus(_tokenId) == true, "Auction is not active");
         _;
     }
 
-    function startAuction() external onlyOwner {
-        require(auctionStatus == AuctionStatus.Closed, "Auction is already open");
-        auctionStatus = AuctionStatus.Open;
-        emit AuctionStarted(address(token));
-    }
-
-    function placeBid(uint256 amount) external {
-        require(auctionStatus == AuctionStatus.Open, "Auction is not open");
-        require(amount > highestBid, "Bid must be higher than the current highest bid");
-
-        if (highestBidder != address(0)) {
-            // Refund the previous highest bidder
-            uint256 previousHighestBid = highestBid;
-            address previousHighestBidder = highestBidder;
-            refunds[previousHighestBidder] += previousHighestBid;
-            emit Refund(previousHighestBidder, previousHighestBid);
+    function participateInAuction(uint256 _tokenId) public payable OnlyActiveAuction(_tokenId) {
+        uint256 highestBid = returnHighestBid(_tokenId);
+        require(msg.value > highestBid, "Your bid is too low.");
+        // Refund the previous highest bidder.
+        address previousHighestBidder = returnHighestBidder(_tokenId);
+        if (previousHighestBidder != address(0)) {
+            uint256 refundAmount = auctionInfoData[_tokenId][highestBidderIndex[_tokenId]].bid;
+            require(refundAmount > 0, "Previous highest bidder not found");
+            (bool success, ) = payable(previousHighestBidder).call{value: refundAmount}("");
+            require(success, "Refund failed");
+            emit CancelBid(previousHighestBidder, _tokenId, refundAmount);
         }
-
-        highestBidder = msg.sender;
-        highestBid = amount;
-
-        emit BidPlaced(msg.sender, amount);
+        // Record the new highest bid.
+        highestBidderIndex[_tokenId] = auctionInfoData[_tokenId].length;
+        auctionInfoStru memory newBid = auctionInfoStru(msg.sender, msg.value);
+        auctionInfoData[_tokenId].push(newBid);
     }
 
-    function endAuction() external onlyOwner {
-        require(auctionStatus == AuctionStatus.Open, "Auction is not open");
-
-        auctionStatus = AuctionStatus.Closed;
-        // Transfer the token to the highest bidder
-        token.transferFrom(owner, highestBidder, tokenId); // Replace 'tokenId' with the actual token ID
-
-        // Transfer the funds to the owner
-        owner.transfer(highestBid);
-
-        emit AuctionEnded(highestBidder, highestBid);
-
-        // Refund other bidders
-        for (address recipient : bidders) {
-            if (recipient != highestBidder) {
-                uint256 refundAmount = refunds[recipient];
-                refunds[recipient] = 0;
-                if (refundAmount > 0) {
-                    recipient.transfer(refundAmount);
-                    emit Refund(recipient, refundAmount);
-                }
-            }
-        }
-
-        // Reset the auction state
-        highestBidder = address(0);
-        highestBid = 0;
+    function claimAuction(uint256 _tokenId) public OnlyActiveAuction(_tokenId) {
+        require(auctionInfoData[_tokenId].length > 0, "No active bidders");
+        uint256 highestBid = auctionInfoData[_tokenId][highestBidderIndex[_tokenId]].bid;
+        require(highestBid > 0, "Highest bidder not found");
+        auctionClaimed[_tokenId] = true;
+        address highestBidder = auctionInfoData[_tokenId][highestBidderIndex[_tokenId]].bidder;
+        address ownerOfToken = IERC721(gencore).ownerOf(_tokenId);
+        // Transfer the token to the highest bidder.
+        IERC721(gencore).safeTransferFrom(ownerOfToken, highestBidder, _tokenId);
+        // Transfer funds to the owner.
+        (bool success, ) = payable(owner()).call{value: highestBid}("");
+        require(success, "Transfer to owner failed");
+        emit ClaimAuction(highestBidder, _tokenId, highestBid - highestBidderBid[_tokenId]);
     }
+
+    function cancelBid(uint256 _tokenId) public OnlyActiveAuction(_tokenId) {
+        uint256 index = highestBidderIndex[_tokenId];
+        require(index > 0, "No active bid to cancel");
+        address bidderToRefund = auctionInfoData[_tokenId][index].bidder;
+        uint256 refundAmount = auctionInfoData[_tokenId][index].bid;
+        require(refundAmount > 0, "Bidder not found");
+        auctionInfoData[_tokenId][index].bid = 0;
+        (bool success, ) = payable(bidderToRefund).call{value: refundAmount}("");
+        require(success, "Refund to bidder failed");
+        emit CancelBid(bidderToRefund, _tokenId, refundAmount);
+    }
+
+    function getAuctionStatus(uint256 _tokenId) public view returns (bool) {
+        return auctionClaimed[_tokenId];
+    }
+
+    // Additional state variables
+    mapping(uint256 => auctionInfoStru[]) public auctionInfoData;
+    mapping(uint256 => uint256) public highestBidderIndex;
+    mapping(uint256 => bool) public auctionClaimed;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+Please note that this revised contract assumes that the highest bidder will receive the token after an auction finishes, the owner of the token will receive the funds, and all other participants will get refunded. The contract refunds the previous highest bidder when a new highest bid is made, and it allows the owner or an admin to end the auction and transfer the token and funds to the highest bidder and owner, respectively.
+Additionally, the contract includes a mapping for recording the index of the highest bidder for each token, which simplifies refunding the previous highest bidder.
 
 
 ### Time spent:
