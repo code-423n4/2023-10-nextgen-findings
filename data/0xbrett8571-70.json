@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xbrett8571",
+  "risk": "3",
+  "title": "Royalty payments fail for Gnosis Safe contracts due to incorrect transfer method in `payArtist` function.",
+  "issueId": 70,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/70"
+}
