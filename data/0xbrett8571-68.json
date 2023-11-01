@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xbrett8571",
+  "risk": "2",
+  "title": "`payArtist` function lacks address verification, enabling malicious modification of payment destinations, risking fund diversion.",
+  "issueId": 68,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/68"
+}
