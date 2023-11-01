@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "rvierdiiev",
+  "risk": "3",
+  "title": "Attacker can win auction without competition",
+  "issueId": 65,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/65"
+}
