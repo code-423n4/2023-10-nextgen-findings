@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xE1",
+  "risk": "3",
+  "title": "Bidder can lose money if it is a ERC4337 or any smart contract account that can´t be paid",
+  "issueId": 91,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/91"
+}
