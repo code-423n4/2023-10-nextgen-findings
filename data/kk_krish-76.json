@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "kk_krish",
+  "risk": "2",
+  "title": "`NextGenMinter::burnToMint()` Multiple NFTs can be minted by burning just one NFT (Cross functional re-entrancy)",
+  "issueId": 76,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/76"
+}
