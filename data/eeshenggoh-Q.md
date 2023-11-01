@@ -15,8 +15,18 @@ There isn't a need for combining Artist and Admin since you can add 2 modifers i
       _;
     }
 ```
-It's a waste of gas deploying and using the `ArtistOrAdminRequired` for validation.
-
-Instead just create another Modifer of `ArtistRequired` and use `FunctionAdminRequired`
 
 https://github.com/code-423n4/2023-10-nextgen/blob/ff8cfc5529ee4a567e1ce1533b4651d6626d1def/smart-contracts/MinterContract.sol#L143C1-L153C6
+
+It's a waste of gas deploying and using the `ArtistOrAdminRequired` for validation.
+
+Instead, just create another Modifer of `ArtistRequired` and use `FunctionAdminRequired`
+
+
+
+###########################
+For this Admin contract `smart-contracts/NextGenAdmins.sol`. There is no event emitted when change of Admins, it is best practice to emit events on these functions.
+
+https://github.com/code-423n4/2023-10-nextgen/blob/ff8cfc5529ee4a567e1ce1533b4651d6626d1def/smart-contracts/NextGenAdmins.sol#L1C1-L87C2
+
+Generally, events are used to inform the calling application about the current state of the contract, with the help of the logging facility of EVM. Events notify the applications about the change made to the contracts and applications which can be used to execute the dependent logic
