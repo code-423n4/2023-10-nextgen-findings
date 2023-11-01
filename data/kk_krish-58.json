@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "kk_krish",
+  "risk": "2",
+  "title": "Both whitelist and public minters can mint more NFTs than MaxAllowance through re-entrancy",
+  "issueId": 58,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/58"
+}
