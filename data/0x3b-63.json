@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0x3b",
+  "risk": "3",
+  "title": "A bidder can DoS the auction and stuck the NFT and users funds in the contract ",
+  "issueId": 63,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/63"
+}
