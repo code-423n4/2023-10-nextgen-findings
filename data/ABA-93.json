@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ABA",
+  "risk": "3",
+  "title": "Auctioned NFT holder transfer approval is never given to the auction contract",
+  "issueId": 93,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/93"
+}
