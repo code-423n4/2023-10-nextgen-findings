@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xbrett8571",
+  "risk": "2",
+  "title": "Incompatible Ether Transfers in `payArtist()` function uses `.call()` to forward Ether to recipient addresses.",
+  "issueId": 72,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/72"
+}
