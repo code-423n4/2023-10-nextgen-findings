@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ZdravkoHr",
+  "risk": "2",
+  "title": "Collections data in minter contract can be set multiple times",
+  "issueId": 87,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/87"
+}
