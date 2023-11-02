@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "emerald7017",
+  "risk": "2",
+  "title": "Minter contract employs one Merkle root for entire `allowlist` phase, enabling pre-generated proofs for later minting advantage.",
+  "issueId": 139,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/139"
+}
