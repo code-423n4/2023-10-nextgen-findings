@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "evmboi32",
+  "risk": "3",
+  "title": "Auctioned tokens not put into escrow can cause everybody who bid on the auction to lose money.",
+  "issueId": 150,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/150"
+}
