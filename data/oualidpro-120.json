@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "oualidpro",
+  "risk": "3",
+  "title": "Not checking if a token is under an auction or not leads to winner funds lose for ever",
+  "issueId": 120,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/120"
+}
