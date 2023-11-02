@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xAleko",
+  "risk": "2",
+  "title": "updateCollectionInfo - invalid _index if statement",
+  "issueId": 130,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/130"
+}
