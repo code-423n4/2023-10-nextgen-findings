@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ABA",
+  "risk": "2",
+  "title": "Team defined split percentage are not taken into consideration",
+  "issueId": 97,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/97"
+}
