@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "emerald7017",
+  "risk": "2",
+  "title": "RandomizerNXT uses a custom `randomPool` library, risking weak entropy.",
+  "issueId": 138,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/138"
+}
