@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "evmboi32",
+  "risk": "2",
+  "title": "Users are not refunded after the purchase of the nft. In case they get refunded the collectionTotalAmount[_collectionId] will be wrong.",
+  "issueId": 158,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/158"
+}
