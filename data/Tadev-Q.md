@@ -11,6 +11,7 @@ The documentation clearly says :
 "While the Core contract is all on-chain and never changes, admins can update the smart contract addresses of the Minter, Admin and Randomizer contracts to provide new features."
 
 This means that there is no situation in which the Core contract is updated, deployed to a new address, and then existent randomizers stay the same but are updated by an admin to change `gencoreContract` value.
+Morever, being able to update `gencoreContract` value in the specification context generates a risk of making the randomizer contract uncallable by the real Core contract in `_mintProcessing()` function (the call will revert with `gencoreContract.setTokenHash()` call in the callback of the randomizer.
 
 `updateCoreContract()` function should be removed from the 3 randomizer contracts to follow the specification.
 
