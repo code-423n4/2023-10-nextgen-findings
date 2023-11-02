@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "emerald7017",
+  "risk": "2",
+  "title": "NextGenCore allows mutable token metadata via `changeTokenData()` and `updateImagesAndAttributes()`, risking desynchronization and confusion.",
+  "issueId": 136,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/136"
+}
