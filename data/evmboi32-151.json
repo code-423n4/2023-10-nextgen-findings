@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "evmboi32",
+  "risk": "2",
+  "title": "Token ```cannot``` be auctioned more than ```one``` time. Would make sense to auction as many times as users want.",
+  "issueId": 151,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/151"
+}
