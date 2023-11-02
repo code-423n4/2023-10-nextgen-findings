@@ -21,4 +21,21 @@ If you only keep the `address gencore` variable, just wrap it into a contract ty
 INextGenCore(gencore).setTokenHash(...)
 ```
 
-## [G‑02] 
+## [G‑02] Useless `tokenToRequest` mapping in RandomizerRNG and RandomizerVRF contracts should be removed
+
+Both RandomizerRNG and RandomizerVRF contracts declare a mapping `mapping(uint256 => uint256) public tokenToRequest`, and it is only use to store `requestId` in the `requestRandomWords()` function. But this value is never used, and I don't see any utility in storing the requestId corresponding to a minted token in the Randomizer contract.
+
+While the bot report suggests to merge these following 2 mappings using struct/nested mappings in both contracts (N33 and G04 issues) : 
+
+```
+    mapping(uint256 => uint256) public tokenToRequest;
+    mapping(uint256 => uint256) public tokenIdToCollection;
+```
+
+I propose to simply remove `tokenToRequest` variable, as it is unused and has no utility. This will save gas compared to creating a merged data structure without the need to do it.
+
+## [G‑03]
+
+
+
+
