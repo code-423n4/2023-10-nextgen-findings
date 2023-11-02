@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "emerald7017",
+  "risk": "2",
+  "title": "Manipulating Token Hashes from Randomness Contracts, An attacker could set token hashes directly, undermining randomness and scarcity.",
+  "issueId": 96,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/96"
+}
