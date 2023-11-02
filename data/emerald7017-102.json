@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "emerald7017",
+  "risk": "3",
+  "title": "Auction May Fail Due to Unapproved Token Transfers and Manipulable Payment Logic.",
+  "issueId": 102,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/102"
+}
