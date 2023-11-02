@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Draiakoo",
+  "risk": "2",
+  "title": "Artist address can be changed once the artist has called the artistSignature() function",
+  "issueId": 159,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/159"
+}
