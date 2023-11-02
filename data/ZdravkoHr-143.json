@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ZdravkoHr",
+  "risk": "2",
+  "title": "The contract does not support allowlist minting period after a public one",
+  "issueId": 143,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/143"
+}
