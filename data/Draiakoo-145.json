@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Draiakoo",
+  "risk": "3",
+  "title": "Hacker can drain all auctionDemo contract funds by winning a bid and leaving NFT owner without anything",
+  "issueId": 145,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/145"
+}
