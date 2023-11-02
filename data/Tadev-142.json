@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Tadev",
+  "risk": "2",
+  "title": "Randomizer contracts are able to update the NextGenCore contract address while documentation says Core contract is all on-chain, never changes, and admins cannot update its address",
+  "issueId": 142,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/142"
+}
