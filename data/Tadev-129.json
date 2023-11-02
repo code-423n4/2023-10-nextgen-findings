@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Tadev",
+  "risk": "2",
+  "title": "`updateAdminsContract(address)` function in RandomizerNXT contract doesn't check if the proposed new admin address implements `isAdminContract()`",
+  "issueId": 129,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/129"
+}
