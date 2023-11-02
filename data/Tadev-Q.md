@@ -1,22 +1,4 @@
-## [L‑01] Randomizer contracts are able to update the NextGenCore contract address while documentation says Core contract is all on-chain, never changes, and admins cannot update its address
-
-https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/RandomizerNXT.sol#L49
-
-https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/RandomizerRNG.sol#L66
-
-https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/RandomizerVRF.sol#L99
-
-The documentation clearly says :
-
-"While the Core contract is all on-chain and never changes, admins can update the smart contract addresses of the Minter, Admin and Randomizer contracts to provide new features."
-
-This means that there is no situation in which the Core contract is updated, deployed to a new address, and then existent randomizers stay the same but are updated by an admin to change `gencoreContract` value.
-Morever, being able to update `gencoreContract` value in the specification context generates a risk of making the randomizer contract uncallable by the real Core contract in `_mintProcessing()` function (the call will revert with `gencoreContract.setTokenHash()` call in the callback of the randomizer.
-
-`updateCoreContract()` function should be removed from the 3 randomizer contracts to follow the specification.
-
-
-## [L‑02] It is not clear how RandomizerRNG contract will be funded in order to be able to call `requestRandomWords()` function
+## [L‑01] It is not clear how RandomizerRNG contract will be funded in order to be able to call `requestRandomWords()` function
 
 RandomizerRNG contract, contrary to other randomizers, needs to send ETH when calling `arrngController.requestRandomWords()` function, in order to request and then obtain random numbers to generate the unique hash of the token.
 
@@ -25,5 +7,52 @@ Currently, there are 2 payable functions : `requestRandomWords()` and `receive()
 
 In this configuration, there is no transparency in how the contract will be funded, by who, and users cannot be sure that the randomizer will always work, as it depends on its funding which is not programmatically determined.
 
+
+## [L‑02] `requestRandomWords()` function in RandomizerRNG contract shouldn't be payable and should be internal or private
+
+The RandomizerRNG includes the following 2 functions : 
+
+```
+ function requestRandomWords(uint256 tokenid, uint256 _ethRequired) public payable {
+        require(msg.sender == gencore);
+        uint256 requestId = arrngController.requestRandomWords{value: _ethRequired}(1, (address(this)));
+        tokenToRequest[tokenid] = requestId;
+        requestToToken[requestId] = tokenid;
+    }
+
+  function calculateTokenHash(uint256 _collectionID, uint256 _mintIndex, uint256 _saltfun_o) public {
+        require(msg.sender == gencore);
+        tokenIdToCollection[_mintIndex] = _collectionID;
+        requestRandomWords(_mintIndex, ethRequired);
+    }
+```
+
+Given the documentation and implementation of NextGenCore contract, there is only one valid path : 
+
+- NextGenCore calls `calculateTokenHash()` function without sending value. NextGenCore doesn't make any direct call to `requestRandomWords()` function. As `requestRandomWords()` also requires that `msg.sender == gencore`, it should be a private function (or internal, at least) while removing the check for msg.sender.
+
+- `calculateTokenHash()` function internally calls `requestRandomWords()` function, without sending ETH. There is actually no way to call `requestRandomWords()` function while sending ETH, thats why `payable` should be removed. The final call to `arrngController.requestRandomWords()` function will use ETH balance of the contract to send `_ethRequired` ETH value. 
+
+That being said, I propose to modify these functions as follows : 
+
+```
+  function calculateTokenHash(uint256 _collectionID, uint256 _mintIndex, uint256 _saltfun_o) external {
+        require(msg.sender == gencore); // use a custom error to save gas
+        tokenIdToCollection[_mintIndex] = _collectionID;
+        requestRandomWords(_mintIndex, ethRequired);
+    }
+
+ function requestRandomWords(uint256 tokenid, uint256 _ethRequired) internal {
+        uint256 requestId = arrngController.requestRandomWords{value: _ethRequired}(1, (address(this)));
+        tokenToRequest[tokenid] = requestId;
+        requestToToken[requestId] = tokenid;
+    }
+```
+
 ## [L‑03]
+
+
+  
+
+
 
