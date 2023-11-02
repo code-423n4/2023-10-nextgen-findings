@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "evmboi32",
+  "risk": "3",
+  "title": "A user can buy NFTs from an auction for as little as 1 wei causing users to lose money",
+  "issueId": 148,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/148"
+}
