@@ -53,7 +53,29 @@ https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b2
 This string variable `tokdata` should also be removed, and `_tokendata` should be used wherever `tokdata` is currently used.
 
 
-## [G‑04]
+## [G‑04] 2 variables are created and assigned to the same value in `burnToMint()` function in NextGenMinterContract. One of them should be removed.
+
+https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/MinterContract.sol#L264
+
+https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/MinterContract.sol#L267
+
+Both `collectionTokenMintIndex` and `mintIndex` variables are assigned to `gencore.viewTokensIndexMin(_mintCollectionID) + gencore.viewCirSupply(_mintCollectionID)`. 
+
+This is redondant. Hence, `mintIndex` should me removed, as there is an important check just after `collectionTokenMintIndex` declaration and assignment. Also, `mintIndex` should be replace where it used : 
+
+```
+gencore.burnToMint(mintIndex, _burnCollectionID, _tokenId, _mintCollectionID, _saltfun_o, burner);
+```
+should be:
+```
+gencore.burnToMint(collectionTokenMintIndex, _burnCollectionID, _tokenId, _mintCollectionID, _saltfun_o, burner);
+```
+
+
+## [G‑05]
+
+
+
 
 
 
