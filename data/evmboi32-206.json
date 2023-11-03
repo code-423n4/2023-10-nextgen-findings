@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "evmboi32",
+  "risk": "3",
+  "title": "Minting tokens with ```burnToMint``` can ```bypass``` the max number of tokens the user can mint during the public mint",
+  "issueId": 206,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/206"
+}
