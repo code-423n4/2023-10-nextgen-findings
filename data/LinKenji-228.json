@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "LinKenji",
+  "risk": "3",
+  "title": "Direct `.call()` style Ether transfers prevent Gnosis Safe compatibility, breaking payment workflows.",
+  "issueId": 228,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/228"
+}
