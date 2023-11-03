@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "bdmcbri",
+  "risk": "2",
+  "title": "minting of new tokens prevented with timePeriod of zero",
+  "issueId": 243,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/243"
+}
