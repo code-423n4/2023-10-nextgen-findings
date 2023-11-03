@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "BugzyVonBuggernaut",
+  "risk": "2",
+  "title": "Naive ERC721 receiver implementation can lead to a permanent locking of all bidder's capital",
+  "issueId": 181,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/181"
+}
