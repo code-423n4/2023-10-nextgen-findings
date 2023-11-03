@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "LinKenji",
+  "risk": "2",
+  "title": "Unchecked addresses invite typosquatting; lack of checksums leads to erroneous payments.",
+  "issueId": 196,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/196"
+}
