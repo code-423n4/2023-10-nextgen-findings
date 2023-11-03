@@ -21,9 +21,10 @@ If you only keep the `address gencore` variable, just wrap it into a contract ty
 INextGenCore(gencore).setTokenHash(...)
 ```
 
+
 ## [G‑02] Useless `tokenToRequest` mapping in RandomizerRNG and RandomizerVRF contracts should be removed
 
-Both RandomizerRNG and RandomizerVRF contracts declare a mapping `mapping(uint256 => uint256) public tokenToRequest`, and it is only use to store `requestId` in the `requestRandomWords()` function. But this value is never used, and I don't see any utility in storing the requestId corresponding to a minted token in the Randomizer contract.
+Both RandomizerRNG and RandomizerVRF contracts declare a mapping `mapping(uint256 => uint256) public tokenToRequest`, and it is only used to store `requestId` in the `requestRandomWords()` function. But this value is never used, and I don't see any utility in storing the requestId corresponding to a minted token in the Randomizer contract.
 
 While the bot report suggests to merge these following 2 mappings using struct/nested mappings in both contracts (N33 and G04 issues) : 
 
@@ -34,7 +35,21 @@ While the bot report suggests to merge these following 2 mappings using struct/n
 
 I propose to simply remove `tokenToRequest` variable, as it is unused and has no utility. This will save gas compared to creating a merged data structure without the need to do it.
 
-## [G‑03]
+
+## [G‑03] A useless variable is created in `mint()` function in NextGenMinterContract and should be removed.
+
+https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/MinterContract.sol#L198C7-L198C7
+
+At the beginning of the `mint()` function in NextGenMinterContract contract, a variable called `col` is declared and set : 
+```
+uint256 col = _collectionID;
+```
+While `_collectionID` variable could be used in the rest of the function, declaring `col` costs gas without any reason. This variable should be removed, and `_collectionID` should be used wherever `col` is currently used.
+
+
+## [G‑04]
+
+
 
 
 
