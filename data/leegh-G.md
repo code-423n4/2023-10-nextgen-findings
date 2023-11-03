@@ -59,36 +59,7 @@ File: smart-contract/NextGenCore.sol
 ```
 [[L345-L356]](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenCore.sol#L345-L356)
 
-### [G-03] Identical require statements exist both in caller and callee function.
-"require(msg.sender == gencore);" will be checked in "requestRandomWords", there is no need to check it in its caller "calculateTokenHash".
-```solidity
-File: smart-contracts/RandomizerRNG.sol
-40:    function requestRandomWords(uint256 tokenid, uint256 _ethRequired) public payable {
-41:        require(msg.sender == gencore);
-           ...
-46:    }
-
-53:    function calculateTokenHash(uint256 _collectionID, uint256 _mintIndex, uint256 _saltfun_o) public {
-54:        require(msg.sender == gencore);
-55:        tokenIdToCollection[_mintIndex] = _collectionID;
-56:        requestRandomWords(_mintIndex, ethRequired);
-57:    }
-
-File: smart-contracts/RandomizerVRF.sol
-52:    function requestRandomWords(uint256 tokenid) public {
-53:        require(msg.sender == gencore);
-           ...
-63:    }
-
-71:    function calculateTokenHash(uint256 _collectionID, uint256 _mintIndex, uint256 _saltfun_o) public {
-72:        require(msg.sender == gencore);
-73:        tokenIdToCollection[_mintIndex] = _collectionID;
-74:        requestRandomWords(_mintIndex);
-75:    }
-```
-[[L40-L57]](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerRNG.sol#L40-L57) | [[L52-L75]](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerVRF.sol#L52-L75)
-
-### [G-04] Unnecessary tokenId to collectionId mapping.
+### [G-03] Unnecessary tokenId to collectionId mapping.
 Collection id can be calculated by "tokenId / 1e10", which is more efficient than using a mapping storage.
 ```solidity
 File: smart-contracts/NextGenCore.sol
@@ -96,12 +67,3 @@ File: smart-contracts/NextGenCore.sol
 68:    mapping (uint256 => uint256) private tokenIdsToCollectionIds;
 ```
 [[L67-L68]](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenCore.sol#L67-L68)
-
-### [G-05] Redundant require statement.
-The require statement in L223 is redundant and not accurate enough. L224 alone is good enough.
-```solidity
-File: smart-contracts/MinterContract.sol
-223:            require(_numberOfTokens <= gencore.viewMaxAllowance(col), "Change no of tokens");
-224:            require(gencore.retrieveTokensMintedPublicPerAddress(col, msg.sender) + _numberOfTokens <= gencore.viewMaxAllowance(col), "Max");
-```
-[[L223-L224]](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L223-L224)
