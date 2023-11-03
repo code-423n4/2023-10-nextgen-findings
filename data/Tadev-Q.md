@@ -62,7 +62,7 @@ It would be a good idea to update the owner to be a DAO, once deployed. This wou
 `reservedMinTokensIndex` and `reservedMaxTokensIndex` are both members of the `collectionAdditonalDataStructure` struct. They are supposed to bound all available tokens for a collection.
 In the following scenario  :
 - A new collection is created with `createCollection()` function
-- The collection admin (or higher credential) calls `setCollectionData()`, passing 0 as value for `_collectionTotalSupply` variable. This will generate the following result : 
+- The collection admin (or higher credential) calls `setCollectionData()`, passing 0 as value for `_collectionTotalSupply` variable. The result will be : 
 
 ```
 collectionAdditionalData[_collectionID].reservedMinTokensIndex = (_collectionID * 10000000000);
@@ -73,7 +73,17 @@ reservedMinTokensIndex = reservedMaxTokensIndex + 1
 This situation could be avoided by adding a check that `_collectionTotalSupply` is strictly greater than 0.
 
 
-## [L‑05]
+## [L‑05] It is possible to make 2 calls to `setCollectionData()` function and modify `collectionTotalSupply` value in the second one.
+
+Documentation clearly says : 
+"After its initial call, the setCollectionData() function can be called to update the artists eth address, the max purchases during public minting and the final supply time."
+
+Nevertheless, if you firstly call `setCollectionData()` function with a value of 0 for `_collectionTotalSupply`, you can make another call to set `collectionTotalSupply` value. 
+
+To respect the specification, i would recommend to do the same thing as in [L‑04] : adding a check at the beginning of `setCollectionData()` function that `_collectionTotalSupply` input is strictly greater than 0.
+
+
+## [L‑06]
 
 
 
