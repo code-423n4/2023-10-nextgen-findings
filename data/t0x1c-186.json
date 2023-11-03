@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "t0x1c",
+  "risk": "3",
+  "title": "Reentrancy allows attacker to mint more than `maxCollectionPurchases` or max-allowance",
+  "issueId": 186,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/186"
+}
