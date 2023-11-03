@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "evmboi32",
+  "risk": "3",
+  "title": "A user can ```reenter``` the mint function during the ```public``` or ```allowlist``` mint phases and mint as ```many tokens``` as he wants.",
+  "issueId": 188,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/188"
+}
