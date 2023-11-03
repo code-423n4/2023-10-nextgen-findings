@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "8olidity",
+  "risk": "2",
+  "title": "decreaserate may be  0 due to division before multiplication precision issues.",
+  "issueId": 177,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/177"
+}
