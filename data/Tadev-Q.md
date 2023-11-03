@@ -83,7 +83,7 @@ Nevertheless, if you firstly call `setCollectionData()` function with a value of
 To respect the specification, i would recommend to do the same thing as in [L‑04] : adding a check at the beginning of `setCollectionData()` function that `_collectionTotalSupply` input is strictly greater than 0.
 
 
-## [L‑06] Unnecessary and redondant check in `mint()` function in MinterContract
+## [L‑06] Unnecessary and redondant check in `mint()` function in NextGenMinterContract
 
 https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/MinterContract.sol#L223-L224
 
