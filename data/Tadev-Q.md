@@ -50,14 +50,35 @@ That being said, I propose to modify these functions as follows :
 ```
 
 
-## [L‑03] `emergencyWithdraw()` function of RandomizerRNG contract can be called by only one admin, who is able to withdraw all funds to the wallet of the owner of NextGenAdmins contract.
+## [L‑03] `emergencyWithdraw()` function of RandomizerRNG contract can be called by only one FunctionAdmin, who is able to withdraw all funds to the wallet of the owner of NextGenAdmins contract.
 
 As it is currently designed, `emergencyWithdraw()` function introduces a centralization risk, as any admin authorized to call this function could execute a withdrawal of all funds to the wallet of the owner of NextGenAdmins contract. This way, any allowed admin could decide by himself to block the contract ands its ability to generate random hashes and send them to the Core contract.
 
 It would be a good idea to update the owner to be a DAO, once deployed. This would allow more granularity is the way withdrawal of funds can be executed.
 
 
-## [L‑04]
+## [L‑04] There is a situation in which `reservedMinTokensIndex` value is greater than `reservedMaxTokensIndex` value in NextGenCore contract storage
+
+`reservedMinTokensIndex` and `reservedMaxTokensIndex` are both members of the `collectionAdditonalDataStructure` struct. They are supposed to bound all available tokens for a collection.
+In the following scenario  :
+- A new collection is created with `createCollection()` function
+- The collection admin (or higher credential) calls `setCollectionData()`, passing 0 as value for `_collectionTotalSupply` variable. This will generate the following result : 
+
+```
+collectionAdditionalData[_collectionID].reservedMinTokensIndex = (_collectionID * 10000000000);
+collectionAdditionalData[_collectionID].reservedMaxTokensIndex = (_collectionID * 10000000000) + 0 - 1;
+
+reservedMinTokensIndex = reservedMaxTokensIndex + 1
+```
+This situation could be avoided by adding a check that `_collectionTotalSupply` is strictly greater than 0.
+
+
+## [L‑05]
+
+
+
+
+
 
 
 
