@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xAsen",
+  "risk": "3",
+  "title": "AuctionDemo.sol - a winner can claimAuction AND cancel his bid",
+  "issueId": 183,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/183"
+}
