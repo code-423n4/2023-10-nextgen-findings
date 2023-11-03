@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "8olidity",
+  "risk": "2",
+  "title": "The highest bidder can immediately execute `cancelBid` after successfully executing `claimAuction`",
+  "issueId": 171,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/171"
+}
