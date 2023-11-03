@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "cccz",
+  "risk": "3",
+  "title": "When block.timestamp == minter.getAuctionEndTime(_tokenid), participateToAuction(), cancelBid(), cancelAllBids() and claimAuction() can all be called",
+  "issueId": 210,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/210"
+}
