@@ -73,7 +73,7 @@ reservedMinTokensIndex = reservedMaxTokensIndex + 1
 This situation could be avoided by adding a check that `_collectionTotalSupply` is strictly greater than 0.
 
 
-## [L‑05] It is possible to make 2 calls to `setCollectionData()` function and modify `collectionTotalSupply` value in the second one.
+## [L‑05] It is possible to make 2 calls to `setCollectionData()` function in NextGenCore contract and modify `collectionTotalSupply` value in the second one.
 
 Documentation clearly says : 
 "After its initial call, the setCollectionData() function can be called to update the artists eth address, the max purchases during public minting and the final supply time."
@@ -83,8 +83,28 @@ Nevertheless, if you firstly call `setCollectionData()` function with a value of
 To respect the specification, i would recommend to do the same thing as in [L‑04] : adding a check at the beginning of `setCollectionData()` function that `_collectionTotalSupply` input is strictly greater than 0.
 
 
-## [L‑06]
+## [L‑06] Unnecessary and redondant check in `mint()` function in MinterContract
 
+https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/MinterContract.sol#L223-L224
+
+During the public mint period (phase ==2), a call to the `mint()` function will trigger a check that the number of tokens the user requested to mint is not too much. In order to do that, the function needs to compare : 
+- The number of tokens the user is willing to mint (`_numberOfTokens`) + the number of tokens already minted by the user
+- `gencore.viewMaxAllowance(col)`, which returns `maxCollectionPurchases`
+
+This means only the following check is required : 
+```
+require(gencore.retrieveTokensMintedPublicPerAddress(col, msg.sender) + _numberOfTokens <= gencore.viewMaxAllowance(col), "Max");
+```
+
+The check executed just before is clearly redondant and not sufficient, as it only checks that `_numberOfTokens` is lower than `maxCollectionPurchases`:
+```
+require(_numberOfTokens <= gencore.viewMaxAllowance(col), "Change no of tokens");
+```
+
+I suggest to keep only the 2nd check, and delete the first check.
+
+
+## [L‑07]
 
 
 
