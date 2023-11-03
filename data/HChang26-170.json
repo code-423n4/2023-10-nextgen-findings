@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "HChang26",
+  "risk": "3",
+  "title": "DoS `claimAuction()` Can Cause Fund Lockup",
+  "issueId": 170,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/170"
+}
