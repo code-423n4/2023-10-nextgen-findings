@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xfave",
+  "risk": "2",
+  "title": "NextGenCore#setDefaultRoyalties - Centralisation Risk: Admin can set high royalties that to claim 100% of sales",
+  "issueId": 240,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/240"
+}
