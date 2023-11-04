@@ -126,7 +126,43 @@ It could be a good idea to add the fowolling check (or ideally, with a custom er
 require(_maxCollectionPurchases <= _collectionTotalSupply, "aberrant value");
 ````
 
+## [L‑09] Order of parameters in `setCollectionCosts()` function is not consistent with `collectionPhasesDataStructure` struct. 
+
+`collectionPhasesDataStructure` struct is represented as follows : 
+```
+    struct collectionPhasesDataStructure {
+        uint256 allowlistStartTime;
+        uint256 allowlistEndTime;
+        uint256 publicStartTime;
+        uint256 publicEndTime;
+        bytes32 merkleRoot;
+        uint256 collectionMintCost;
+        uint256 collectionEndMintCost;
+        uint256 timePeriod;
+        uint256 rate;
+        uint8 salesOption;
+        address delAddress;
+    }
+```
+
+`setCollectionCosts` function actually switched `timePeriod` and `rate` position : 
+
+```
+   function setCollectionCosts(
+        uint256 _collectionID,
+        uint256 _collectionMintCost,
+        uint256 _collectionEndMintCost,
+        uint256 _rate,
+        uint256 _timePeriod,
+        uint8 _salesOption,
+        address _delAddress
+    ) 
+```
+This is error-prone, and the order of parameters should be modified in `setCollectionCosts()` function.
+
+
 ## [L‑09]
+
 
 
 
