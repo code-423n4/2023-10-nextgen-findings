@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "y4y",
+  "risk": "3",
+  "title": "Potential DoS when a contract participates in an auction.",
+  "issueId": 270,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/270"
+}
