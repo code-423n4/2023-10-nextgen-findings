@@ -119,10 +119,6 @@ This means `status` is already false during the execution of this function. Henc
 ```
 
 
-## [G‑07]
-
-
-
 
 
 
