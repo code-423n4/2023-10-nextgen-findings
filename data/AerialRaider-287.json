@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "AerialRaider",
+  "risk": "2",
+  "title": "if the _mintProcessing call fails the functions airDropTokens() and burnToMint() may result in a denial of service ",
+  "issueId": 287,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/287"
+}
