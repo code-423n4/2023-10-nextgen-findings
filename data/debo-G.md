@@ -325,5 +325,51 @@ SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas
 `smart-contracts/RandomizerNXT.sol#L20-L20`
 The contract NextGenRandomizerNXT is using the state variable randoms multiple times in the function calculateTokenHash.
 SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/RandomizerRNG.sol#L20-L20`
+The contract NextGenRandomizerRNG is using the state variable requestToToken multiple times in the function fulfillRandomWords.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/RandomizerVRF.sol#L33-L33`
+The contract NextGenRandomizerVRF is using the state variable requestToToken multiple times in the function fulfillRandomWords.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/NextGenCore.sol#L26-L26`
+The contract NextGenCore is using the state variable newCollectionIndex multiple times in the function .
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/NextGenCore.sol#L26-L26`
+The contract NextGenCore is using the state variable newCollectionIndex multiple times in the function createCollection.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/NextGenCore.sol#L41-L41`
+The contract NextGenCore is using the state variable collectionInfo multiple times in the function createCollection.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/NextGenCore.sol#L57-L57`
+The contract NextGenCore is using the state variable collectionAdditionalData multiple times in the functions setCollectionData; addRandomizer; airDropTokens;
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/NextGenCore.sol#L80-L80`
+The contract NextGenCore is using the state variable tokensAirdropPerAddress multiple times in the function airDropTokens.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/NextGenCore.sol#L57-L57`
+The contract NextGenCore is using the state variable collectionAdditionalData multiple times in the function mint.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/NextGenCore.sol#L74-L74`
+The contract NextGenCore is using the state variable tokensMintedPerAddress multiple times in the function mint.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/NextGenCore.sol#L77-L77`
+The contract NextGenCore is using the state variable tokensMintedAllowlistAddress multiple times in the function mint.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/NextGenCore.sol#L57-L57`
+The contract NextGenCore is using the state variable collectionAdditionalData multiple times in the function burn.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/NextGenCore.sol#L83-L83`
+The contract NextGenCore is using the state variable burnAmount multiple times in the function burn.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/NextGenCore.sol#L57-L57`
+The contract NextGenCore is using the state variable collectionAdditionalData multiple times in the function burnToMint.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/NextGenCore.sol#L68-L68`
+The contract NextGenCore is using the state variable tokenIdsToCollectionIds multiple times in the function retrieveGenerativeScript.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/NextGenCore.sol#L95-L95`
+The contract NextGenCore is using the state variable tokenImageAndAttributes multiple times in the function retrievetokenImageAndAttributes.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+
 **Remediation**
 Storage variables read multiple times inside a function should instead be cached in the memory the first time (costing 1 SLOAD) and then read from this cache to avoid multiple SLOADs.
