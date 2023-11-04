@@ -69,3 +69,13 @@ The following array was detected to be used inside loop without caching it's val
 The following array was detected to be used inside loop without caching it's value in memory: _recipients.
 **Remediation**
 Consider storing the array length of the variable before the loop and use the stored length instead of fetching it in each iteration.
+## [G-04] CHEAPER INEQUALITIES IN IF()
+**Impact**
+The contract was found to be doing comparisons using inequalities inside the if statement.
+When inside the if statements, non-strict inequalities (>=, <=) are usually cheaper than the strict equalities (>, <).
+**Remediation**
+It is recommended to go through the code logic, and, if possible, modify the strict inequalities with the non-strict ones to save ~3 gas as long as the logic of the code is not affected.
+**Location**
+```txt
+smart-contracts/AuctionDemo.sol#L67-L67
+```
