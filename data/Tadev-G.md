@@ -36,7 +36,7 @@ While the bot report suggests to merge these following 2 mappings using struct/n
 I propose to simply remove `tokenToRequest` variable, as it is unused and has no utility. This will save gas compared to creating a merged data structure without the need to do it.
 
 
-## [G‑03] Useless variables are created in `mint()` and `burnOrSwapExternalToMint()` functions in NextGenMinterContract and should be removed.
+## [G‑03] Useless variables are created in `mint()`, `burnOrSwapExternalToMint()` and `payArtist()` functions in NextGenMinterContract and should be removed.
 
 https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/MinterContract.sol#L198C7-L198C7
 
@@ -52,10 +52,17 @@ https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b2
 
 This string variable `tokdata` should also be removed, and `_tokendata` should be used wherever `tokdata` is currently used.
 
-All this also applies for `burnOrSwapExternalToMint()` function, with the same 2 variables
+All this also applies for `burnOrSwapExternalToMint()` function, with the same 2 variables.
+
+For `payArtist()` function, 3 variables are created inside the function, but this is redondant and they should me removed : 
+```
+address tm1 = _team1;
+address tm2 = _team2;
+uint256 colId = _collectionID;
+```
 
 
-## [G‑04] 2 variables are created and assigned to the same value in `burnToMint()` function in NextGenMinterContract. One of them should be removed.
+## [G‑04] 2 variables are created and assigned to the same value in `burnToMint()` and `mintAndAuction()` functions in NextGenMinterContract. One of them should be removed.
 
 https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/MinterContract.sol#L264
 
@@ -72,6 +79,7 @@ should be:
 ```
 gencore.burnToMint(collectionTokenMintIndex, _burnCollectionID, _tokenId, _mintCollectionID, _saltfun_o, burner);
 ```
+This is the case in both `burnToMint()` and `mintAndAuction()` functions.
 
 
 ## [G‑05] Useless if statement in `mint()` function and `burnToMint()` function in NextGenCore contract should be removed
@@ -94,7 +102,24 @@ Moreover, if calling theses functions was possible while totalSupply is reached,
 I suggest to remove this if statement that will consume gas with no reason.
 
 
-## [G‑06]
+## [G‑06] Unnecessary assignment of `collectionArtistPrimaryAddresses[_collectionID].status` variable to `false` in `proposePrimaryAddressesAndPercentages()` and `proposeSecondaryAddressesAndPercentages()` functions in NextGenMinterContract
+
+https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/MinterContract.sol#L389
+
+https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/MinterContract.sol#L403
+
+Both functions use this check :
+```
+        require (collectionArtistPrimaryAddresses[_collectionID].status == false, "Already approved");
+```
+
+This means `status` is already false during the execution of this function. Hence, the following line can be removed in both functions :
+```
+        collectionArtistPrimaryAddresses[_collectionID].status = false;
+``` 
+
+
+## [G‑07]
 
 
 
