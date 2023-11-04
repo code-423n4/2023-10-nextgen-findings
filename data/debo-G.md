@@ -265,3 +265,41 @@ smart-contracts/NextGenCore.sol#L80-L80
 ```
 **Remediation**
 It is suggested to modify the code so that multiple mappings using the address->id parameter are combined into a struct.
+## [G-06] STORAGE VARIABLE CACHING IN MEMORY
+**POC**
+The `AuctionDemo.sol` contract uses the minter state variable multiple times in the participateToAuction function. 
+This results in multiple SLOAD operations, which are more expensive than MLOAD/MSTORE operations.
+Here is a proof of concept (POC) that demonstrates how storing the minter state variable in memory could save gas:
+```
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.19;
+
+import "./IMinterContract.sol";
+import "./IERC721.sol";
+import "./Ownable.sol";
+import "./INextGenAdmins.sol";
+
+contract auctionDemo is Ownable {
+
+    // ...
+
+    // participate to auction
+    function participateToAuction(uint256 _tokenid) public payable {
+        IMinterContract memory minterMemory = minter;
+        require(msg.value > returnHighestBid(_tokenid) && block.timestamp <= minterMemory.getAuctionEndTime(_tokenid) && minterMemory.getAuctionStatus(_tokenid) == true);
+        auctionInfoStru memory newBid = auctionInfoStru(msg.sender, msg.value, true);
+        auctionInfoData[_tokenid].push(newBid);
+    }
+
+    // ...
+
+}
+```
+In this POC, the minter state variable is stored in memory at the start of the participateToAuction function. This memory variable is then used in the require statement, reducing the number of SLOAD operations and potentially saving gas.
+`smart-contracts/AuctionDemo.sol#L26-L26`
+**Impact**
+The contract auctionDemo is using the state variable minter multiple times in the function participateToAuction.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+**Remediation**
+Storage variables read multiple times inside a function should instead be cached in the memory the first time (costing 1 SLOAD) and then read from this cache to avoid multiple SLOADs.
