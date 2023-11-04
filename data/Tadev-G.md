@@ -36,7 +36,7 @@ While the bot report suggests to merge these following 2 mappings using struct/n
 I propose to simply remove `tokenToRequest` variable, as it is unused and has no utility. This will save gas compared to creating a merged data structure without the need to do it.
 
 
-## [G‑03] 2 useless variables are created in `mint()` function in NextGenMinterContract and should be removed.
+## [G‑03] Useless variables are created in `mint()` and `burnOrSwapExternalToMint()` functions in NextGenMinterContract and should be removed.
 
 https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/MinterContract.sol#L198C7-L198C7
 
@@ -51,6 +51,8 @@ The same applies for `tokdata` variable, which is declared and assigned to `_tok
 https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/MinterContract.sol#L201
 
 This string variable `tokdata` should also be removed, and `_tokendata` should be used wherever `tokdata` is currently used.
+
+All this also applies for `burnOrSwapExternalToMint()` function, with the same 2 variables
 
 
 ## [G‑04] 2 variables are created and assigned to the same value in `burnToMint()` function in NextGenMinterContract. One of them should be removed.
@@ -72,7 +74,7 @@ gencore.burnToMint(collectionTokenMintIndex, _burnCollectionID, _tokenId, _mintC
 ```
 
 
-## [G‑05]
+## [G‑05 
 
 
 
