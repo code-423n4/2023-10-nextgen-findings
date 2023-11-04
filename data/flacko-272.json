@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "flacko",
+  "risk": "3",
+  "title": "Minting can be reentered because mint allowance is updated after the mint itself",
+  "issueId": 272,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/272"
+}
