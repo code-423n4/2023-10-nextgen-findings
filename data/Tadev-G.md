@@ -119,7 +119,29 @@ This means `status` is already false during the execution of this function. Henc
 ``` 
 
 
-## [G‑07]
+## [G‑07] `returnHighestBid()` function's logic in AuctionDemo contract should be simplified, and therefore would prevent the risk of permanent DOS due to non-shrinking array
+
+https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/AuctionDemo.sol#L65
+
+Current implementation executes a loop to find the highest bid, and uses checks about `auctionInfoData[_tokenid][index].status`.
+
+All this logic doesn't seem necessary, as `participateToAuction()` function is the only way to register a new `auctionInfoStru` struct and push it into the array. Moreover, `participateToAuction()` function checks that `msg.value > returnHighestBid(_tokenid)` : this means the array is necessarily sorted, from lower to higher.
+
+I propose to modify the gas consuming current implementation for this simpler one : 
+```
+    function returnHighestBid(uint256 _tokenid) public view returns (uint256) {
+        if (auctionInfoData[_tokenid].length > 0) {
+            return auctionInfoData[_tokenid][auctionInfoData[_tokenid].length - 1].bid;
+        } else {
+            return 0;
+        }
+    }
+```
+This would save a lot of gas, especially if many bids have been done. 
+
+
+## [G‑08]
+
 
 
 
