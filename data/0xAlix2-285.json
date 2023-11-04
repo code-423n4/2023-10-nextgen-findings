@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xAlix2",
+  "risk": "3",
+  "title": "`mintAndAuction` can't be called for on collections that are using sales model 1",
+  "issueId": 285,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/285"
+}
