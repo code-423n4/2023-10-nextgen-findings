@@ -2,6 +2,34 @@
 **Impact**
 Developers can save around 10 opcodes and some gas if the constructors are defined as payable.
 However, it should be noted that it comes with risks because payable constructors can accept ETH during deployment.
+**POC**
+Here is a proof of concept (POC) for defining constructors as payable in Solidity:
+```sol
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+contract PayableConstructor {
+    uint256 public value;
+
+    // Payable constructor
+    constructor() payable {
+        // The value variable is set to the amount of wei sent with the contract deployment
+        value = msg.value;
+    }
+}
+```
+In this POC, the constructor is defined as payable, which means it can accept ETH during the deployment of the contract. The value variable is set to the amount of wei sent with the contract deployment (msg.value).
+
+To deploy this contract while sending ETH, you would use something like this in your deployment script (assuming you're using Truffle):
+```js
+const PayableConstructor = artifacts.require("PayableConstructor");
+
+module.exports = function(deployer) {
+  // Deploy the contract with 10 ETH
+  deployer.deploy(PayableConstructor, {value: web3.utils.toWei("10", "ether")});
+};
+```
+While this can save some gas because it avoids the need for a separate function to accept ETH, it comes with risks. If the contract deployment fails for any reason, the sent ETH could be lost. Therefore, it's recommended to only use payable constructors when you have a specific reason to do so and understand the risks involved.
 **Remediation**
 It is suggested to mark the constructors as payable to save some gas. 
 Make sure it does not lead to any adverse effects in case an upgrade pattern is involved.
@@ -19,6 +47,33 @@ smart-contracts/MinterContract.sol#L129-L133
 **Impact**
 The contract was found to be performing comparisons using inequalities inside the require statement. 
 When inside the require statements, non-strict inequalities (>=, <=) are usually costlier than strict equalities (>, <).
+**POC**
+Here is a proof of concept (POC) for using strict inequalities inside the require statement in Solidity:
+```sol
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+contract InequalityComparison {
+    uint256 public value;
+
+    // Function that uses non-strict inequality in require statement
+    function setValueNonStrict(uint256 _value) public {
+        // This require statement uses a non-strict inequality
+        require(_value >= 0, "Value must be non-negative");
+        value = _value;
+    }
+
+    // Function that uses strict inequality in require statement
+    function setValueStrict(uint256 _value) public {
+        // This require statement uses a strict inequality
+        require(_value > 0, "Value must be positive");
+        value = _value;
+    }
+}
+```
+In this POC, the setValueNonStrict function uses a non-strict inequality (>=) in its require statement, while the setValueStrict function uses a strict inequality (>).
+
+While the difference in gas costs between these two types of inequalities is usually small, using strict inequalities can be slightly more efficient. However, the choice between non-strict and strict inequalities should primarily be based on the logic of your contract, not gas optimisation.
 **Remediation**
 It is recommended to go through the code logic, and, if possible, modify the non-strict inequalities with the strict ones to save ~3 gas as long as the logic of the code is not affected.
 **Locations**
@@ -52,6 +107,37 @@ smart-contracts/MinterContract.sol#L361-L361
 During each iteration of the loop, reading the length of the array uses more gas than is necessary. 
 In the most favourable scenario, in which the length is read from a memory variable, storing the array length in the stack can save about 3 gas per iteration. 
 In the least favourable scenario, in which external calls are made during each iteration, the amount of gas wasted can be significant.
+**POC**
+Here is a proof of concept (POC) for optimising gas usage by storing the array length in a stack variable instead of reading it from memory during each iteration of a loop:
+```sol
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+contract ArrayLengthOptimization {
+    uint256[] public array;
+
+    // Function that reads array length from memory during each iteration
+    function sumArrayNonOptimized() public view returns (uint256) {
+        uint256 sum = 0;
+        for (uint256 i = 0; i < array.length; i++) {
+            sum += array[i];
+        }
+        return sum;
+    }
+
+    // Function that stores array length in a stack variable
+    function sumArrayOptimized() public view returns (uint256) {
+        uint256 sum = 0;
+        uint256 length = array.length;
+        for (uint256 i = 0; i < length; i++) {
+            sum += array[i];
+        }
+        return sum;
+    }
+}
+```
+In this POC, the sumArrayNonOptimized function reads the array length from memory during each iteration of the loop, while the sumArrayOptimized function stores the array length in a stack variable before the loop starts.
+The optimized function can save about 3 gas per iteration, which can add up to significant savings for large arrays. However, the actual savings will depend on the specific details of your contract and the current gas price.
 **Locations**
 `smart-contracts/AuctionDemo.sol#L90-L94`
 The following array was detected to be used inside loop without caching it's value in memory: auctionInfoData.
@@ -73,6 +159,57 @@ Consider storing the array length of the variable before the loop and use the st
 **Impact**
 The contract was found to be doing comparisons using inequalities inside the if statement.
 When inside the if statements, non-strict inequalities (>=, <=) are usually cheaper than the strict equalities (>, <).
+**POC**
+The contract uses strict inequalities in several places, such as in the participateToAuction function where it checks if the sent value is greater than the highest bid, and in the returnHighestBid function where it checks if a bid is greater than the current highest bid.
+Here is a proof of concept (POC) that demonstrates how changing these to non-strict inequalities could save gas:
+```sol
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.19;
+
+import "./IMinterContract.sol";
+import "./IERC721.sol";
+import "./Ownable.sol";
+import "./INextGenAdmins.sol";
+
+contract auctionDemo is Ownable {
+
+    // ...
+
+    // participate to auction
+    function participateToAuction(uint256 _tokenid) public payable {
+        require(msg.value >= returnHighestBid(_tokenid) && block.timestamp <= minter.getAuctionEndTime(_tokenid) && minter.getAuctionStatus(_tokenid) == true);
+        auctionInfoStru memory newBid = auctionInfoStru(msg.sender, msg.value, true);
+        auctionInfoData[_tokenid].push(newBid);
+    }
+
+    // get highest bid
+    function returnHighestBid(uint256 _tokenid) public view returns (uint256) {
+        uint256 index;
+        if (auctionInfoData[_tokenid].length > 0) {
+            uint256 highBid = 0;
+            for (uint256 i=0; i< auctionInfoData[_tokenid].length; i++) {
+                if (auctionInfoData[_tokenid][i].bid >= highBid && auctionInfoData[_tokenid][i].status == true) {
+                    highBid = auctionInfoData[_tokenid][i].bid;
+                    index = i;
+                }
+            }
+            if (auctionInfoData[_tokenid][index].status == true) {
+                return highBid;
+            } else {
+                return 0;
+            }
+        } else {
+            return 0;
+        }
+    }
+
+    // ...
+
+}
+```
+In this POC, the strict inequalities in the participateToAuction and returnHighestBid functions have been changed to non-strict inequalities. 
+This should result in slightly lower gas costs when these functions are called.
 **Remediation**
 It is recommended to go through the code logic, and, if possible, modify the strict inequalities with the non-strict ones to save ~3 gas as long as the logic of the code is not affected.
 **Location**
