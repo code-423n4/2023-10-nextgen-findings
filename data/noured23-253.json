@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "noured23",
+  "risk": "3",
+  "title": "Reentrancy vulnerability in cancelAllBids ",
+  "issueId": 253,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/253"
+}
