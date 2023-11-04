@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Fitro",
+  "risk": "2",
+  "title": "MinterContract.sol, if a user sends more Ether when using mint() or burnToMint(), they forfeit the excess funds sent.",
+  "issueId": 276,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/276"
+}
