@@ -385,6 +385,11 @@ SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas
 `smart-contracts/MinterContract.sol#L119-L119`
 The contract NextGenMinterContract is using the state variable dmc multiple times in the function mint.
 SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
-
+`smart-contracts/MinterContract.sol#L26-L26`
+The contract NextGenMinterContract is using the state variable lastMintDate multiple times in the function mintAndAuction.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/MinterContract.sol#L32-L32`
+The contract NextGenMinterContract is using the state variable burnOrSwapIds multiple times in the function initializeExternalBurnOrSwap.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
 **Remediation**
 Storage variables read multiple times inside a function should instead be cached in the memory the first time (costing 1 SLOAD) and then read from this cache to avoid multiple SLOADs.
