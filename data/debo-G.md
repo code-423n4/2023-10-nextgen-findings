@@ -370,6 +370,21 @@ SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas
 `smart-contracts/NextGenCore.sol#L95-L95`
 The contract NextGenCore is using the state variable tokenImageAndAttributes multiple times in the function retrievetokenImageAndAttributes.
 SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/MinterContract.sol#L59-L59`
+The contract NextGenMinterContract is using the state variable collectionPhases multiple times in the function setCollectionCosts.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/MinterContract.sol#L118-L118`
+The contract NextGenMinterContract is using the state variable gencore multiple times in the function airDropTokens.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/MinterContract.sol#L23-L23`
+The contract NextGenMinterContract is using the state variable collectionTotalAmount multiple times in the function mint.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/MinterContract.sol#L26-L26`
+The contract NextGenMinterContract is using the state variable lastMintDate multiple times in the function mint.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/MinterContract.sol#L119-L119`
+The contract NextGenMinterContract is using the state variable dmc multiple times in the function mint.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
 
 **Remediation**
 Storage variables read multiple times inside a function should instead be cached in the memory the first time (costing 1 SLOAD) and then read from this cache to avoid multiple SLOADs.
