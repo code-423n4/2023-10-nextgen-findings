@@ -126,7 +126,7 @@ It could be a good idea to add the fowolling check (or ideally, with a custom er
 require(_maxCollectionPurchases <= _collectionTotalSupply, "aberrant value");
 ````
 
-## [L‑09] Order of parameters in `setCollectionCosts()` function is not consistent with `collectionPhasesDataStructure` struct. 
+## [L‑09] Order of parameters in `setCollectionCosts()` function is not consistent with `collectionPhasesDataStructure` struct. The same applies for the order of return variables in `retrieveCollectionPhases()` function
 
 `collectionPhasesDataStructure` struct is represented as follows : 
 ```
@@ -158,16 +158,27 @@ require(_maxCollectionPurchases <= _collectionTotalSupply, "aberrant value");
         address _delAddress
     ) 
 ```
-This is error-prone, and the order of parameters should be modified in `setCollectionCosts()` function.
+`retrieveCollectionPhases()` function returns variables of the struct in the following order: 
+```
+collectionPhases[_collectionID].allowlistStartTime,
+collectionPhases[_collectionID].allowlistEndTime,
+collectionPhases[_collectionID].merkleRoot,
+collectionPhases[_collectionID].publicStartTime,
+collectionPhases[_collectionID].publicEndTime
+```
+`merkleroot` variable should be returned after `publicEndTime` to increase consistency.
 
 
-## [L‑09] There is no check in `setCollectionPhases()` function in NextGenMinterContract to make sure that `_allowlistStartTime < _allowlistEndTime` and `_publicStartTime < _publicEndTime`
+This is error-prone, and the order of parameters should be modified in `setCollectionCosts()` function, as well as the order of return variables in `retrieveCollectionPhases()` function.
+
+
+## [L‑10] There is no check in `setCollectionPhases()` function in NextGenMinterContract to make sure that `_allowlistStartTime < _allowlistEndTime` and `_publicStartTime < _publicEndTime`
 
 `setCollectionPhases()` function can be called with wrong values for  `_allowlistStartTime`, `_allowlistEndTime`, `_publicStartTime` and `_publicEndTime`. This could lead to a collection not working correctly. 
 It could be a good idea to a check to make sure `_allowlistStartTime > _allowlistEndTime` and `_publicStartTime > _publicEndTime`.
 
 
-## [L‑10] Lack of precision in `proposePrimaryAddressesAndPercentages()` and `proposeSecondaryAddressesAndPercentages` functions for percentages
+## [L‑11] Lack of precision in `proposePrimaryAddressesAndPercentages()` and `proposeSecondaryAddressesAndPercentages` functions for percentages
 
 All percentage system uses 100 as the total value than can be splitted.
 
@@ -182,7 +193,7 @@ Both function use this check :
 This means all percentages could only be integer value, as `artistPercentage` is an integer between 0 and 100. It is not possible to choose, for example,  `_add1Percentage` representing 6.5%. This could be improved to allow more granularity in the way funds are splitted between artist's addresses and the team's addresses. Using 1000 or 10 000 as a base for the percentage system would allow this.
 
 
-## [L‑11]
+## [L‑12]
 
 
 
