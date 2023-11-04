@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "openwide",
+  "risk": "3",
+  "title": "Highest bidder can refund their bid in`claimAuction` re-entrancy via `_checkOnERC721Received`  into `cancelBid` / `cancelAllBids`",
+  "issueId": 289,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/289"
+}
