@@ -50,11 +50,11 @@ That being said, I propose to modify these functions as follows :
 ```
 
 
-## [L‑03] `emergencyWithdraw()` function of RandomizerRNG contract can be called by only one FunctionAdmin, who is able to withdraw all funds to the wallet of the owner of NextGenAdmins contract.
+## [L‑03] `emergencyWithdraw()` function of RandomizerRNG contract and NextGenMinterContract contract can be called by only one FunctionAdmin, who is able to withdraw all funds to the wallet of the owner of NextGenAdmins contract.
 
 As it is currently designed, `emergencyWithdraw()` function introduces a centralization risk, as any admin authorized to call this function could execute a withdrawal of all funds to the wallet of the owner of NextGenAdmins contract. This way, any allowed admin could decide by himself to block the contract ands its ability to generate random hashes and send them to the Core contract.
 
-It would be a good idea to update the owner to be a DAO, once deployed. This would allow more granularity is the way withdrawal of funds can be executed.
+It would be a good idea to consider modifying the withdraw logic or creating additional checks to make sure `emergencyWithdraw()` can only be executed after the approval of several admins.
 
 
 ## [L‑04] There is a situation in which `reservedMinTokensIndex` value is greater than `reservedMaxTokensIndex` value in NextGenCore contract storage
@@ -199,9 +199,6 @@ Both function use this check :
         );
 ```
 This means all percentages could only be integer value, as `artistPercentage` is an integer between 0 and 100. It is not possible to choose, for example,  `_add1Percentage` representing 6.5%. This could be improved to allow more granularity in the way funds are splitted between artist's addresses and the team's addresses. Using 1000 or 10 000 as a base for the percentage system would allow this.
-
-
-## [L‑12]
 
 
 
