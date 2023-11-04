@@ -74,9 +74,9 @@ gencore.burnToMint(collectionTokenMintIndex, _burnCollectionID, _tokenId, _mintC
 ```
 
 
-## [G‑05] Useless if statement in `mint()` function in NextGenCore contract should be removed
+## [G‑05] Useless if statement in `mint()` function and `burnToMint()` function in NextGenCore contract should be removed
 
-The `mint()` function of  NextGenCore contract uses a if statement to decide whether or not it should proceed to `_mintprocessing()` and achieve minting process : 
+The `mint()` function and `burnToMint()` function  of  NextGenCore contract both use an if statement to decide whether or not it should proceed to `_mintprocessing()` and achieve minting process : 
 
 ```
      if (
@@ -84,8 +84,12 @@ The `mint()` function of  NextGenCore contract uses a if statement to decide whe
                 >= collectionAdditionalData[_collectionID].collectionCirculationSupply
         ) {...}
 ```
-This check is actually not necessary, as this function can only be called by `mint()` and `burnOrSwapExternalToMint()` functions of the Minter contract. Theses functions already make sure the totalSupply is not reached. Hence, there is no situation in which `mint()` function in NextGenCore contract can be called without satisfying the condition of this if statement.
-Moreover, if calling this function was possible while totalSupply is reached, this would mean that it could be possible to increase `collectionCirculationSupply` value beyond `collectionTotalSupply`, as the `_mintprocessing` function wouldn't be executed while `collectionCirculationSupply` would be incremented by one, without any revert.
+This check is actually not necessary, as:
+- `mint()` function can only be called by `mint()` and `burnOrSwapExternalToMint()` functions of the Minter contract
+- `burnToMint()` function can only be called by `burnToMint()` function of the Minter contract. 
+
+Theses functions already make sure the totalSupply is not reached. Hence, there is no situation in which `mint()` function or `burnToMint()` function in NextGenCore contract can be called without satisfying the condition of this if statement.
+Moreover, if calling theses functions was possible while totalSupply is reached, this would mean that it could be possible to increase `collectionCirculationSupply` value beyond `collectionTotalSupply`, as the `_mintprocessing` function wouldn't be executed while `collectionCirculationSupply` would be incremented by one, without any revert.
 
 I suggest to remove this if statement that will consume gas with no reason.
 
