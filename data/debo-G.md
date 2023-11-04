@@ -47,3 +47,25 @@ smart-contracts/MinterContract.sol#L339-L339
 smart-contracts/MinterContract.sol#L360-L360
 smart-contracts/MinterContract.sol#L361-L361
 ```
+## [G-03] ARRAY LENGTH CACHING
+**Impact**
+During each iteration of the loop, reading the length of the array uses more gas than is necessary. 
+In the most favourable scenario, in which the length is read from a memory variable, storing the array length in the stack can save about 3 gas per iteration. 
+In the least favourable scenario, in which external calls are made during each iteration, the amount of gas wasted can be significant.
+**Locations**
+`smart-contracts/AuctionDemo.sol#L90-L94`
+The following array was detected to be used inside loop without caching it's value in memory: auctionInfoData.
+`smart-contracts/AuctionDemo.sol#L110-L119`
+The following array was detected to be used inside loop without caching it's value in memory: auctionInfoData.
+`smart-contracts/AuctionDemo.sol#L136-L142`
+The following array was detected to be used inside loop without caching it's value in memory: auctionInfoData.
+`smart-contracts/NextGenAdmins.sol#L51-L53`
+The following array was detected to be used inside loop without caching it's value in memory: _selector.
+`smart-contracts/NextGenCore.sol#L282-L287`
+The following array was detected to be used inside loop without caching it's value in memory: _tokenId.
+`smart-contracts/NextGenCore.sol#L453-L455`
+The following array was detected to be used inside loop without caching it's value in memory: scripttext.
+`smart-contracts/MinterContract.sol#L184-L191`
+The following array was detected to be used inside loop without caching it's value in memory: _recipients.
+**Remediation**
+Consider storing the array length of the variable before the loop and use the stored length instead of fetching it in each iteration.
