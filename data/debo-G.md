@@ -216,3 +216,52 @@ It is recommended to go through the code logic, and, if possible, modify the str
 ```txt
 smart-contracts/AuctionDemo.sol#L67-L67
 ```
+## [G-05] OPTIMIZING ADDRESS ID MAPPING
+**Impact**
+Combining multiple address/ID mappings into a single mapping using a struct enhances storage efficiency, simplifies code, and reduces gas costs, resulting in a more streamlined and cost-effective smart contract design.
+It saves storage slot for the mapping and depending on the circumstances and sizes of types, it can avoid a Gsset (20000 gas) per mapping combined. 
+Reads and subsequent writes can also be cheaper when a function requires both values and they fit in the same storage slot.
+**POC**
+Here is a proof of concept (POC) for combining multiple mappings into a single mapping using a struct in 
+Solidity:
+```sol
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+contract CombinedMapping {
+    // Define a struct to hold multiple values
+    struct Data {
+        uint256 id;
+        address addr;
+    }
+
+    // Single mapping that uses the struct
+    mapping (uint256 => Data) public dataMap;
+
+    // Function to set values in the combined mapping
+    function setData(uint256 key, uint256 _id, address _addr) public {
+        Data storage data = dataMap[key];
+        data.id = _id;
+        data.addr = _addr;
+    }
+
+    // Function to get values from the combined mapping
+    function getData(uint256 key) public view returns (uint256, address) {
+        Data storage data = dataMap[key];
+        return (data.id, data.addr);
+    }
+}
+```
+In this POC, the CombinedMapping contract uses a struct (Data) to hold multiple values (id and addr) in a single mapping (dataMap). 
+The setData function sets values in the combined mapping, and the getData function retrieves values from the combined mapping.
+This design is more storage-efficient and cost-effective than using separate mappings for each value. 
+It saves a storage slot for each mapping combined, which can avoid a 20000 gas cost (SSTORE opcode) per mapping. 
+Reads and subsequent writes can also be cheaper when a function requires both values and they fit in the same storage slot.
+**Locations**
+```txt
+smart-contracts/NextGenCore.sol#L74-L74
+smart-contracts/NextGenCore.sol#L77-L77
+smart-contracts/NextGenCore.sol#L80-L80
+```
+**Remediation**
+It is suggested to modify the code so that multiple mappings using the address->id parameter are combined into a struct.
