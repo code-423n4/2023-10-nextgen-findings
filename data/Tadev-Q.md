@@ -161,7 +161,28 @@ require(_maxCollectionPurchases <= _collectionTotalSupply, "aberrant value");
 This is error-prone, and the order of parameters should be modified in `setCollectionCosts()` function.
 
 
-## [L‑09]
+## [L‑09] There is no check in `setCollectionPhases()` function in NextGenMinterContract to make sure that `_allowlistStartTime < _allowlistEndTime` and `_publicStartTime < _publicEndTime`
+
+`setCollectionPhases()` function can be called with wrong values for  `_allowlistStartTime`, `_allowlistEndTime`, `_publicStartTime` and `_publicEndTime`. This could lead to a collection not working correctly. 
+It could be a good idea to a check to make sure `_allowlistStartTime > _allowlistEndTime` and `_publicStartTime > _publicEndTime`.
+
+
+## [L‑10] Lack of precision in `proposePrimaryAddressesAndPercentages()` and `proposeSecondaryAddressesAndPercentages` functions for percentages
+
+All percentage system uses 100 as the total value than can be splitted.
+
+Both function use this check : 
+```
+    require(
+            _add1Percentage + _add2Percentage + _add3Percentage
+                == collectionRoyaltiesPrimarySplits[_collectionID].artistPercentage,
+            "Check %"
+        );
+```
+This means all percentages could only be integer value, as `artistPercentage` is an integer between 0 and 100. It is not possible to choose, for example,  `_add1Percentage` representing 6.5%. This could be improved to allow more granularity in the way funds are splitted between artist's addresses and the team's addresses. Using 1000 or 10 000 as a base for the percentage system would allow this.
+
+
+## [L‑11]
 
 
 
