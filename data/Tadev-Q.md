@@ -101,10 +101,33 @@ The check executed just before is clearly redondant and not sufficient, as it on
 require(_numberOfTokens <= gencore.viewMaxAllowance(col), "Change no of tokens");
 ```
 
-I suggest to keep only the 2nd check, and delete the first check.
+I suggest to keep only the 2nd check, and delete the first check. This would also save gas.
 
 
-## [L‑07]
+## [L‑07] `minterContract` variable type in NextGenCore contract should be changed to be consistent
+
+NextGenCore declares in its storage 2 variables related to other contracts : 
+```
+    // external contracts declaration
+    INextGenAdmins private adminsContract;
+    address public minterContract;
+```
+Both are named as ''contract'', while their type is not consistent. 
+I recommend to replace `address public minterContract` with `IMinterContract(address public minterContract)`, and modify subsequent code where this variable is used (either to wrap it or to unwrap it).
+
+
+## [L‑08] Add a safety check in `setCollectionData()` function in NextGenCore contract to make sure `_maxCollectionPurchases < _collectionTotalSupply` 
+
+Currently, there is no sanity check for all uint256 values that are passed to `setCollectionData()` function (except `_collectionTotalSupply <= 10000000000`).
+This means some error from any admin could lead to a collection with ``_maxCollectionPurchases < _collectionTotalSupply`, which is not supposed to happen.
+
+It could be a good idea to add the fowolling check (or ideally, with a custom error): 
+```
+require(_maxCollectionPurchases <= _collectionTotalSupply, "aberrant value");
+````
+
+## [L‑09]
+
 
 
 
