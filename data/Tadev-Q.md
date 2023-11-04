@@ -104,7 +104,7 @@ require(_numberOfTokens <= gencore.viewMaxAllowance(col), "Change no of tokens")
 I suggest to keep only the 2nd check, and delete the first check. This would also save gas.
 
 
-## [L‑07] `minterContract` variable type in NextGenCore contract should be changed to be consistent
+## [L‑07] `minterContract` variable type in NextGenCore contract and `gencore` variable type in AuctionDemo contract should be changed to be consistent
 
 NextGenCore declares in its storage 2 variables related to other contracts : 
 ```
@@ -114,6 +114,14 @@ NextGenCore declares in its storage 2 variables related to other contracts :
 ```
 Both are named as ''contract'', while their type is not consistent. 
 I recommend to replace `address public minterContract` with `IMinterContract(address public minterContract)`, and modify subsequent code where this variable is used (either to wrap it or to unwrap it).
+
+In AuctionDemo contract, state variables are declared as follows : 
+```
+IMinterContract public minter;
+INextGenAdmins public adminsContract;
+address gencore;
+```
+`address gencore` should be replaced by `INextGenCore public gencoreContract` or `IERC721 public gencore` (after importing GenCoreContract if the first solution is chosen). This would increase consistency. This variable is used only twice, and is wrapped each time into an `IERC721` type. Changing the type of the variable would prevent from doing this wrapping.
 
 
 ## [L‑08] Add a safety check in `setCollectionData()` function in NextGenCore contract to make sure `_maxCollectionPurchases < _collectionTotalSupply` 
