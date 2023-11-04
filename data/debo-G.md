@@ -301,5 +301,29 @@ In this POC, the minter state variable is stored in memory at the start of the p
 **Impact**
 The contract auctionDemo is using the state variable minter multiple times in the function participateToAuction.
 SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/AuctionDemo.sol#L50-L50`
+The contract auctionDemo is using the state variable auctionInfoData multiple times in the function returnHighestBid.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/AuctionDemo.sol#L50-L50`
+The contract auctionDemo is using the state variable auctionInfoData multiple times in the function returnHighestBidder.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/AuctionDemo.sol#L26-L26`
+The contract auctionDemo is using the state variable minter multiple times in the function claimAuction.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/AuctionDemo.sol#L28-L28`
+The contract auctionDemo is using the state variable gencore multiple times in the function claimAuction.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/AuctionDemo.sol#L50-L50`
+The contract auctionDemo is using the state variable auctionInfoData multiple times in the function claimAuction.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/AuctionDemo.sol#L53-L53`
+The contract auctionDemo is using the state variable auctionClaim multiple times in the function claimAuction.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/AuctionDemo.sol#L50-L50`
+The contract auctionDemo is using the state variable auctionInfoData multiple times in the function cancelBid.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
+`smart-contracts/RandomizerNXT.sol#L20-L20`
+The contract NextGenRandomizerNXT is using the state variable randoms multiple times in the function calculateTokenHash.
+SLOADs are expensive (100 gas after the 1st one) compared to MLOAD/MSTORE (3 gas each).
 **Remediation**
 Storage variables read multiple times inside a function should instead be cached in the memory the first time (costing 1 SLOAD) and then read from this cache to avoid multiple SLOADs.
