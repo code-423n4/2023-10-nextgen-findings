@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "REKCAH",
+  "risk": "3",
+  "title": "Attacker steals all stored amount in contract by reentrancy.",
+  "issueId": 318,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/318"
+}
