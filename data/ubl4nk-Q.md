@@ -61,4 +61,33 @@ https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b2
 https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L267
 https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L359
 https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L362
+### 3. Consider adding functions for checking mint phases
+1. Add these 2 functions in MinterContract:
+```solidity 
+function isPhase1(uint256 col) external view returns(bool) {
+    return block.timestamp >= collectionPhases[col].allowlistStartTime &&
+            block.timestamp <= collectionPhases[col].allowlistEndTime;
+}
+
+function isPhase2(uint256 col) external view returns(bool) {
+    return block.timestamp >= collectionPhases[col].publicStartTime && 
+                    block.timestamp <= collectionPhases[col].publicEndTime;
+}
+```
+2. Replace this functions where ever you want to check mint phase, for example:
+```solidity
+        if (block.timestamp >= collectionPhases[col].allowlistStartTime && block.timestamp <= collectionPhases[col].allowlistEndTime) 
+        {
+```
+can be replaced with:
+```solidity
+if (isPhase1(col)) 
+{
+```
+Related links:
+https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L345
+https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L351
+https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L260
+https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L221
+https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L202
 
