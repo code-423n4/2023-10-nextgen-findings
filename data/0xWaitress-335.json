@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xWaitress",
+  "risk": "2",
+  "title": "minting multiple tokens in 1 go versus 1 by 1 yield a different cost for collection that has a positive rate that increases with circulating supply",
+  "issueId": 335,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/335"
+}
