@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "DanielArmstrong",
+  "risk": "3",
+  "title": "Since there is no penalty at cancel in auction, attacker can manipulate the price.",
+  "issueId": 315,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/315"
+}
