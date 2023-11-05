@@ -1,22 +1,5 @@
 I went over all of the "Never to broken" statements.  Listed my findings in order. 
 
-Properties that should NEVER be broken under any circumstance:
-Admin roles can only be registered on the Admin Contract.
-Global Admins can only be registered by the Admin Contract owner.
-Function and Collection admins can only be registered by global admins.
-Specific admin roles can call the functions of the smart contracts.
-Only artists can sign their collections.
-NFTDelegation is the only delegation management contract that will be used.
-Payments can only be made when royalties are set, the artist proposes addresses and percentages, and an admin approves them.(not completed)
-Once a hash is set for a specific token it cannot be altered.
-The emergencyWithdraw() function sends the funds to the admin contract owner.
-Once a collection is frozen (locked) its data cannot be altered.
-Airdrop/mint can only be done from the Minter contract.
-The random hash is calculated from a Randomizer contract. (no solution proposed) 
-The highest bidder will receive the token after an auction finishes, the owner of the token will receive the funds and all other participants will get refunded.
-
-
-
 1. Admin roles can only be registered on the Admin Contract.
 
 NextGenAdmins.sol it seems to be well-structured, to ensure that only admin roles can be registered on this contract.  AdminRequired modifier restricts access to certain functions. However, you need to make sure that this contract is indeed the Admin Contract. You can do this by modifying the constructor to check if the caller is the owner and that the contract hasn't already been set as an Admin Contract.
@@ -204,7 +187,7 @@ You can apply the OnlyArtist modifier to other functions that should only be cal
 6. NFTDelegation is the only delegation management contract that will be used. (NextGenRandomizerNXT.sol)
 
 
-To ensure that NFTDelegation is the only delegation management contract that will be used in the provided code, you can modify the FunctionAdminRequired modifier to check for the specific delegation contract address (NFTDelegation). Here's the modified NextGenRandomizerNXT.sol  code:
+To ensure that NFTDelegation is the only delegation management contract that will be used, you can modify the FunctionAdminRequired modifier to check for the specific delegation contract address (NFTDelegation). Here's the modified NextGenRandomizerNXT.sol  code:
 // SPDX-License-Identifier: MIT
 
 /**
@@ -512,5 +495,7 @@ Please note that this revised contract assumes that the highest bidder will rece
 Additionally, the contract includes a mapping for recording the index of the highest bidder for each token, which simplifies refunding the previous highest bidder.
 
 
+
+
 ### Time spent:
-8 hours
+16 hours
