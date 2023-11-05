@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "pipidu83",
+  "risk": "3",
+  "title": "```NextGenCore``` contract will not get refunded if it sends too much funds in ```requestRandomWords``` in the ```RandomizerRNG.sol``` contract",
+  "issueId": 304,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/304"
+}
