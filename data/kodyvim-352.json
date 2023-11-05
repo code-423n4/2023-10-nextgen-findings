@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "kodyvim",
+  "risk": "3",
+  "title": "A single bidder can DoS claimAuction",
+  "issueId": 352,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/352"
+}
