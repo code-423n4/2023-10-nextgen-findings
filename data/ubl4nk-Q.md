@@ -11,7 +11,7 @@ function setCollectionData(
                 (collectionFreeze[_collectionID] == false) && 
                 (_collectionTotalSupply <= 10000000000), "err/freezed");
 ```
-The condition `(_collectionTotalSupply <= 10000000000)` should be removed, change the code like this:
+The condition `(_collectionTotalSupply <= 10000000000)` should be removed from this line and move it some lines after, change the code like this:
 ```solidity
     function setCollectionData(
         uint256 _collectionID, 
