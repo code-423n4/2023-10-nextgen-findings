@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0x180db",
+  "risk": "3",
+  "title": "Reentrant attack allows an attacker to win the auction and receive the token without making a payment",
+  "issueId": 339,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/339"
+}
