@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "pipidu83",
+  "risk": "2",
+  "title": "```updateImagesAndAttributes``` does not check if ```_tokenId``` ```_images``` and ```_attributes``` have the same length",
+  "issueId": 301,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/301"
+}
