@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "_eperezok",
+  "risk": "3",
+  "title": "Auction funds are locked forever if highest bidder doesn’t implement `IERC721Receiver`",
+  "issueId": 368,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/368"
+}
