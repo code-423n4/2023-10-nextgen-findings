@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "_eperezok",
+  "risk": "3",
+  "title": "Reentrancy on `MinterContract::mint` allows users to surpase their max allowance at all phases",
+  "issueId": 367,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/367"
+}
