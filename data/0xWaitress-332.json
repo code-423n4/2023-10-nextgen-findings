@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xWaitress",
+  "risk": "2",
+  "title": "different collection shares the same _mintIndex in the genCore, leading to failure if the _mintIndex is already used up by another randomizer/collection",
+  "issueId": 332,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/332"
+}
