@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xWaitress",
+  "risk": "2",
+  "title": "merkleProof in burnOrSwapExternalToMint does not include msg.sender, another approvee can frontrun to call the tx",
+  "issueId": 342,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/342"
+}
