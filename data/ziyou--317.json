@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ziyou-",
+  "risk": "2",
+  "title": "If collectionCirculationSupply is greater than collectionTotalSupply, there is no rollback operation.",
+  "issueId": 317,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/317"
+}
