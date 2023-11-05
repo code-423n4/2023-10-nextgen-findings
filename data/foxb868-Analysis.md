@@ -216,7 +216,7 @@ The modular architecture allows each component to focus on a specific role while
 
 # Detailed Analysis 
 
-I reviewed the codebase in depth focusing on the key areas outlined in the provided attack vectors. Here are some highlights from my analysis:
+I reviewed the codebase in depth focusing on the key areas outlined in the area of interest.
 
 **Access Controls**
 
@@ -734,6 +734,8 @@ require(artistAddress != address(0), "Zero address");
 Adopting the above recommendations would further improve security and upgradability in line with latest standards.
 
 My conclusion. The NextGen contracts appear well-architected, but need a deeper look to mitigate all the areas i outlined in my analysis.
+
+
 
 ### Time spent:
 22 hours
