@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "pipidu83",
+  "risk": "2",
+  "title": "```collectionAdditionalData[_collectionID].collectionCirculationSupply``` can be arbitrarily increased to any amount once ```collectionAdditionalData[_collectionID].collectionTotalSupply >= collectionAdditionalData[_collectionID].collectionCirculationSupply```",
+  "issueId": 300,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/300"
+}
