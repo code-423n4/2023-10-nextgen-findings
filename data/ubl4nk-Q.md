@@ -12,19 +12,20 @@ function setCollectionData(
                 (_collectionTotalSupply <= 10000000000), "err/freezed");
 ```
 The condition `(_collectionTotalSupply <= 10000000000)` should be removed from this line and move it some lines after, change the code like this:
-```solidity
-    function setCollectionData(
-        uint256 _collectionID, 
-        address _collectionArtistAddress, 
-        uint256 _maxCollectionPurchases, 
-        uint256 _collectionTotalSupply, 
-        uint _setFinalSupplyTimeAfterMint) public CollectionAdminRequired(_collectionID, this.setCollectionData.selector) 
-    {
-        require((isCollectionCreated[_collectionID] == true) && 
-                (collectionFreeze[_collectionID] == false) , "err/freezed");
-        
-        if (collectionAdditionalData[_collectionID].collectionTotalSupply == 0) { // @audit totalSupply can not change after setting totalSupply
-            require((_collectionTotalSupply <= 10000000000), "Some error");
+```diff
+--- a/smart-contracts/NextGenCore.sol
++++ b/smart-contracts/NextGenCore.sol
+@@ -145,8 +145,9 @@ contract NextGenCore is ERC721Enumerable, Ownable, ERC2981 {
+     // only _collectionArtistAddress , _maxCollectionPurchases can change after total supply is set
+
+     function setCollectionData(uint256 _collectionID, address _collectionArtistAddress, uint256 _maxCollectionPurchases, uint256 _collectionTotalSupply, uint _setFinalSupplyTimeAfterMint) public CollectionAdminRequired(_collectionID, this.setCollectionData.selector) {
+-        require((isCollectionCreated[_collectionID] == true) && (collectionFreeze[_collectionID] == false) && (_collectionTotalSupply <= 10000000000), "err/freezed");
++        require((isCollectionCreated[_collectionID] == true) && (collectionFreeze[_collectionID] == false), "err/freezed");
+         if (collectionAdditionalData[_collectionID].collectionTotalSupply == 0) {
++                       require(_collectionTotalSupply <= 10000000000, "_collectionTotalSupply should be less than (or equal to) 10000000000");
+             collectionAdditionalData[_collectionID].collectionArtistAddress = _collectionArtistAddress;
+             collectionAdditionalData[_collectionID].maxCollectionPurchases = _maxCollectionPurchases;
+             collectionAdditionalData[_collectionID].collectionCirculationSupply = 0;
 
 ```
 There is no need to check `_collectionTotalSupply` while the `collectionTotalSupply` is already set.
