@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xWaitress",
+  "risk": "2",
+  "title": "_collectionEndMintCost should be less than collectionMintCost for the getPrice function to implement salesOption2, but there is no such check",
+  "issueId": 338,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/338"
+}
