@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "degensec",
+  "risk": "3",
+  "title": "Winning auction bid is sent to the contract owner, not token owner",
+  "issueId": 321,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/321"
+}
