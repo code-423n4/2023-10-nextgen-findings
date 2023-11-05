@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xE1",
+  "risk": "2",
+  "title": "Smart contract accounts can lose money when interacting with AuctionDemo.sol",
+  "issueId": 350,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/350"
+}
