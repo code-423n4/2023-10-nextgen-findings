@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "pipidu83",
+  "risk": "2",
+  "title": "```returnIndex``` will revert if ```id``` is greater than or equal to 101",
+  "issueId": 292,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/292"
+}
