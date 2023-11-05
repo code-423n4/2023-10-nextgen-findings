@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xWaitress",
+  "risk": "2",
+  "title": "Auction has a fixed endTime facilitating MEV trader to send in bid at the endBlock through bundle",
+  "issueId": 310,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/310"
+}
