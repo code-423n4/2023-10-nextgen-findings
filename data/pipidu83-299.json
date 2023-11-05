@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "pipidu83",
+  "risk": "3",
+  "title": "```emergencyWithdraw``` should revert if transfer is unsuccessful",
+  "issueId": 299,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/299"
+}
