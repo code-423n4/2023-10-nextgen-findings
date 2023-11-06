@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0x3b",
+  "risk": "2",
+  "title": "When using the `merkleRoot` for a second mint some unexpected behaviurs could occur ",
+  "issueId": 379,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/379"
+}
