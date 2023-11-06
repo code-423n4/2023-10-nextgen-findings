@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "amaechieth",
+  "risk": "2",
+  "title": "Auctioned NFT Holder can DOS an auction causing loss of funds to all bidders",
+  "issueId": 404,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/404"
+}
