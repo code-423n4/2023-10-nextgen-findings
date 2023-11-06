@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "xAriextz",
+  "risk": "3",
+  "title": "We can directly use the mint instead of burnToMint for the mintpasses, avoiding to burn any NFTs",
+  "issueId": 409,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/409"
+}
