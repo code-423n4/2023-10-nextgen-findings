@@ -19,13 +19,6 @@ File: smart-contracts/XRandoms.sol
 ```
 [[L27-L32]](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/XRandoms.sol#L27-L32)
 
-### [L-02] The ether sended with ```mint``` should be greater than (>) instead of greater than or equal to (>=) the price of minted tokens, as the ether include gas fee as well.
-```solidity
-File: smart-contracts/MinterContract.sol
-233:        require(msg.value >= (getPrice(col) * _numberOfTokens), "Wrong ETH");
-```
-[[L233]](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L233)
-
 
 ## Non-Critical
 ### [N-01] Function mutability can be restricted to pure.
