@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "tallo",
+  "risk": "2",
+  "title": "Lack of minimum and maximum auction duration leads to multiple vulnerabilities",
+  "issueId": 420,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/420"
+}
