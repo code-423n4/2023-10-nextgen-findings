@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "_eperezok",
+  "risk": "2",
+  "title": "Tokens can be minted with invalid data in `MinterContract::burnOrSwapExternalToMint`",
+  "issueId": 371,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/371"
+}
