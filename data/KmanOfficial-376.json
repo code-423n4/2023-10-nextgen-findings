@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "KmanOfficial",
+  "risk": "2",
+  "title": "For proposals of split addresses and percentages, do not allow percentages for addresses which are address(0), to ensure no loss of funds",
+  "issueId": 376,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/376"
+}
