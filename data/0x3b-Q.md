@@ -5,9 +5,16 @@
 | [L-03]  | People can set their hash to 0x00 |                                                                                                                                                                                                                                                 
 | [L-04]  | If randomizer is changed while a mint is happening token hash will be 0 |                                          
 | [L-05]  | Emergency functions should not perform external calls |
+| [L-06]  | Users can mint a few NFTs at once with sales option 3 |
 
 ### [L-01] Changing `gencore` will effect the mints
 Admins are able to change the gencore used by the minter with the help of [updateCoreContract](). However such change will effect any minting that are held, as the information inside gencore ([whitelists](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L261), [mint counts](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L213C50-L213C82), [cirSupply](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L220) and so on) is used in the minting process.
+
+Example:
+1. Mint on sales option 3 happens. Start price of 1 ETH, 100 minted with 0.01 ETN increase => 2ETH current price.
+2. Admin changes gencore
+3. The same NFT is scheduled for another sales option 3.
+4. It's price will start again from 1ETH , as [gencore.viewCirSupply(_collectionId)](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol) will return 0.
 
 
 ### [L-02] [getPrice](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L540) uses different time checks from both [mint](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L202) and [burnToMint](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L260)
@@ -39,3 +46,12 @@ The NFTs will have a hash of 0.
 ### [L-05] Emergency functions should not perform external calls 
 
 [emergencyWithdraw](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L461-L466) as the name suggest does a emergent withdraw. Emergent means that most likely a hack has happened and the protocol is looking to rescue the funds. However the function calls `adminsContract.owner()` which in direct contradiction with the emergency state. This may cause an issue if `adminsContract` is compromised. I suggest to have this address in storage or to be an input to the function. 
+
+### [L-06] Users can mint a few NFTs at once with sales option 3 
+When using sales option 3, [mint](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L240-L253) sets `lastMintDate` and `timeOfLastMint`. However it does not set them to the current mint time, but to the expected unlock time, unlike the [docs](https://seize-io.gitbook.io/nextgen/for-creators/sales-models) periodic Sale Example scheme.
+
+Example:
+Mint with 10 min time between mints.
+1. Mint starts at 24/07/2023 14:00
+2. First user mints at 24/07/2023 14:03
+3. The second user is able to mint at 24/07/2023 14:10
