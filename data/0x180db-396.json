@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0x180db",
+  "risk": "3",
+  "title": "Reentrant attack allows an attacker to mint more tokens than permitted per address",
+  "issueId": 396,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/396"
+}
