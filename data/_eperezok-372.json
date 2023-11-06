@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "_eperezok",
+  "risk": "2",
+  "title": "`MinterContract::burnOrSwapExternalToMint` consumes allowance from the current phase",
+  "issueId": 372,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/372"
+}
