@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Al-Qa-qa",
+  "risk": "2",
+  "title": "Protocol Contracts can be changed in `NextGenCore`, but they can't in `AuctionDemo`.",
+  "issueId": 390,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/390"
+}
