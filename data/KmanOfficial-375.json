@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "KmanOfficial",
+  "risk": "2",
+  "title": "Wrong initialised keyHash for Chainlink VRF Randomizer  ",
+  "issueId": 375,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/375"
+}
