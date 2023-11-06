@@ -26,17 +26,6 @@ File: smart-contracts/MinterContract.sol
 ```
 [[L233]](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L233)
 
-### [L-03] ```reservedMaxTokensIndex``` is set wrongly in ```setFinalSupply```
-The calculation of ```reservedMaxTokensIndex``` should be: ```maxIndex = base + totalSupply - 1 + minIndex```. However, the ```reservedMinTokensIndex``` is missed in L310.
-```solidity
-File: smart-contracts/NextGenCore.sol
-307:    function setFinalSupply(uint256 _collectionID) public FunctionAdminRequired(this.setFinalSupply.selector) {
-308:        require (block.timestamp > IMinterContract(minterContract).getEndTime(_collectionID) + collectionAdditionalData[_collectionID].setFinalSupplyTimeAfterMint, "Time has not passed");
-309:        collectionAdditionalData[_collectionID].collectionTotalSupply = collectionAdditionalData[_collectionID].collectionCirculationSupply;
-310:        collectionAdditionalData[_collectionID].reservedMaxTokensIndex = (_collectionID * 10000000000) + collectionAdditionalData[_collectionID].collectionTotalSupply - 1;
-311:    }
-```
-[[L307-L311]](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenCore.sol#L307-L311)
 
 ## Non-Critical
 ### [N-01] Function mutability can be restricted to pure.
@@ -211,3 +200,11 @@ File: smart-contracts/MinterContract.sol
 567:        }
 ```
 [[L345-L356]](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L345-L356) | [[L532-L567]](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L532-L567)
+
+### [N-09] Use ```reservedMinTokensIndex``` instead of ```_collectionID * 10000000000```.
+In ```setFinalSupply```, use ```reservedMinTokensIndex``` instead of ```_collectionID * 10000000000``` to calculate ```reservedMaxTokensIndex``` for readability.
+```solidity
+File: smart-contracts/NextGenCore.sol
+310:        collectionAdditionalData[_collectionID].reservedMaxTokensIndex = (_collectionID * 10000000000) + collectionAdditionalData[_collectionID].collectionTotalSupply - 1;
+```
+[[L307-L311]](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenCore.sol#L310)
