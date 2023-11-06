@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ayden",
+  "risk": "3",
+  "title": "Incorrect callbackGasLimit value is configured which led to chainlink VRF service callback revert",
+  "issueId": 378,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/378"
+}
