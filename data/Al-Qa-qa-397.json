@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Al-Qa-qa",
+  "risk": "2",
+  "title": "Insecure Auction Mechanism Allows Fraudulent Bidders to Win by Bidding Slightly Higher",
+  "issueId": 397,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/397"
+}
