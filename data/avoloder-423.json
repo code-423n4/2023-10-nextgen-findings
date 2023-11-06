@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "avoloder",
+  "risk": "2",
+  "title": "Public minting will not work if there is an overlap between allowListTime and publicTime",
+  "issueId": 423,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/423"
+}
