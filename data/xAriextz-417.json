@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "xAriextz",
+  "risk": "3",
+  "title": "Attacker may be able to claim the auction NFT after creating a DoS for the rest of the users by placing multiple small bids ",
+  "issueId": 417,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/417"
+}
