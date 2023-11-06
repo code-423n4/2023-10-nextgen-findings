@@ -104,3 +104,21 @@ function updateModifiableCollectionData(uint256 _collectionID, address _collecti
 }
 ```
 2. Update the comment to include _setFinalSupplyTimeAfterMint or disallow setFinalSupplyTimeAfterMint to be reset after totalSupply is set.
+
+# [QA1] All funds in MinterContract are vulnerable to a single leaked key
+
+**Effected Contract:** MinterContract.sol
+
+## Summary
+The function `emergencyWithdraw` has a high risk profile for the protocol. If the particular private key with the function admin role `emergencyWithdraw` is exposed, anybody who has the key could drain all eth from the contract. The risk profile for this reaches **all** collections in the protocol.
+
+To reduce the risk profile of the exposure of a single key, it's recommended to use OpenZeppellin's `Pausable` library. With this extension, the Minter can be paused by one signer, with recovery functionality only runnable when the contract is paused, accessible only by separate signers. This 2-step pause-and-recover functionality is much harder to socially engineer. An attacker would need to expose 2 or more private keys to be able to access emergency functionality.
+
+[OpenZeppellin Pausable Library](https://docs.openzeppelin.com/contracts/2.x/api/lifecycle)
+
+Instances:
+- https://github.com/code-423n4/2023-10-nextgen/blob/main/hardhat/smart-contracts/MinterContract.sol#L461
+
+
+## Recommendations
+1. Add a Pausable function to the MinterContract with a modifier that only allows a user with `Pausable` role to call it. Add the modifier `whenPaused()` to the `emergencyWithdraw` function.
