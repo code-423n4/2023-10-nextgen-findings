@@ -201,10 +201,26 @@ Both function use this check :
 This means all percentages could only be integer value, as `artistPercentage` is an integer between 0 and 100. It is not possible to choose, for example,  `_add1Percentage` representing 6.5%. This could be improved to allow more granularity in the way funds are splitted between artist's addresses and the team's addresses. Using 1000 or 10 000 as a base for the percentage system would allow this.
 
 
+## [L‑12] Minting period (either allowlist phase or public phase) could start although artist didn't sign the collection
 
+As precised by the sponsor in the discord channel of the contest:
+"artists will need to sign the collection before even minting starts, this will be an agreement between team and artist".
 
+But currently, minting period could start although artist didn't sign the collection, there is no check preventing this for happening.
 
+Therefore, I suggest to add a getter fonction in NextGenCore contract:
+```
+   function hasArtistSigned(uint256 _collectionID) public view returns (bool) {
+        return artistSigned[_collectionID];
+    }
+```
+and a check in `setCollectionCosts()` function in NextGenMinterContract :
+```
+require(gencore.hasArtistSigned(_collectionID), "artist didn't sign"); // custom error ideally
+```
+This would ensure the whole minting part of the process of emitting a collection will begin after artist signed it.
 
-
-
-
+INextGenCore interface should also me modified to add the function : 
+```
+    function hasArtistSigned(uint256 _collectionID) external view returns (bool);
+```
