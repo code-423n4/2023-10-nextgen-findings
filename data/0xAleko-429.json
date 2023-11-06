@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xAleko",
+  "risk": "3",
+  "title": "returnHighestBidder returns not highest bidder.",
+  "issueId": 429,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/429"
+}
