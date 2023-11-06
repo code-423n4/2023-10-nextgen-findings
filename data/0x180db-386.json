@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0x180db",
+  "risk": "3",
+  "title": "A bid from an invalid ERC721Receiver will be locked in the Auction Smart Contract",
+  "issueId": 386,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/386"
+}
