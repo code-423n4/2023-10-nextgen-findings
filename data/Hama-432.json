@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Hama",
+  "risk": "2",
+  "title": "Incorrect Ether Transfer to Token Owner",
+  "issueId": 432,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/432"
+}
