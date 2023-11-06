@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0x3b",
+  "risk": "2",
+  "title": "Multiple mints can brick any form of `salesOption` 3 mintings",
+  "issueId": 380,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/380"
+}
