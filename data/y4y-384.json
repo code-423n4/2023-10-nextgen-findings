@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "y4y",
+  "risk": "3",
+  "title": "If `auctionEndTime` is set to be less than `block.timestamp`, token can't be auctioned again",
+  "issueId": 384,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/384"
+}
