@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "unix515",
+  "risk": "3",
+  "title": "returnHighestBidder does not return the highest bidder",
+  "issueId": 405,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/405"
+}
