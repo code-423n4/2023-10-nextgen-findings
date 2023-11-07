@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Zac",
+  "risk": "3",
+  "title": "Highest bidder can frontrun late bidder and prevent their refund",
+  "issueId": 503,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/503"
+}
