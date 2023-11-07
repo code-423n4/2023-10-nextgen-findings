@@ -91,8 +91,8 @@ https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b2
 https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L221
 https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L202
 
-### 4. `mintIndex` is calculated twice in `burnToMint`
-Once [here:](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L264C9-L264C125)
+### 4. `mintIndex` is calculated twice in `burnToMint` and `burnOrSwapExternalToMint`
+For example in `burnToMint` it is defined once [here:](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L264C9-L264C125)
 ```solidity
 collectionTokenMintIndex = gencore.viewTokensIndexMin(_mintCollectionID) + gencore.viewCirSupply(_mintCollectionID);
 ```
@@ -105,3 +105,6 @@ uint256 mintIndex = gencore.viewTokensIndexMin(_mintCollectionID) + gencore.view
 Related links:
 https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L267
 https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L267C9-L267C118
+
+https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L359
+https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L362
