@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "tpiliposian",
+  "risk": "3",
+  "title": "Lack of Unfreeze Mechanism for Frozen Collections",
+  "issueId": 470,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/470"
+}
