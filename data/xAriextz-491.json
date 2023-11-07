@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "xAriextz",
+  "risk": "3",
+  "title": "Push payments when claiming auctions can be DDoS, leading winner not being able to receive the NFT",
+  "issueId": 491,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/491"
+}
