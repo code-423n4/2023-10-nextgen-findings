@@ -53,7 +53,7 @@ https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b2
 
 Add missing checks for the `id` parameter, as written in the descriptions.
 
-# 3. Missing zero address checks on setter function
+# 3. Missing zero address checks on setter functions
 
 ## Description
 
@@ -66,9 +66,26 @@ In the `RandomizerRNG.sol` and `RandomizerVRF.sol` contracts, the `updateCoreCon
     }
 ```
 
+In the `RandomizerNXT.sol` there are missing checks in the following functions:
+
+```solidity
+    function updateRandomsContract(address _randoms) public FunctionAdminRequired(this.updateRandomsContract.selector) {
+        randoms = IXRandoms(_randoms);
+    }
+
+    function updateAdminsContract(address _admin) public FunctionAdminRequired(this.updateAdminsContract.selector) {
+        adminsContract = INextGenAdmins(_admin);
+    }
+
+    function updateCoreContract(address _gencore) public FunctionAdminRequired(this.updateCoreContract.selector) { 
+        gencore = _gencore;
+        gencoreContract = INextGenCore(_gencore);
+    }
+```
+
 ## Remediation
 
-A zero address check should be added at the beginning of the `updateCoreContract` function.
+A zero address check should be added at the beginning of the given functions.
 
 # 4. Missing boundaries on RNG cost
 
