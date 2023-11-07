@@ -102,3 +102,22 @@ In the `RandomizerRNG.sol` contract, the `updateRNGCost` function is used to upd
 ## Remediation
 
 Add appropriate limits or constraints on the values that can be set for the `ethRequired` parameter within the `updateRNGCost` function. These limits should be defined based on the requirements and constraints of the contract.
+
+# 5. Lack of Signature Update Validation in artistSignature Function
+
+## Description
+
+The `artistSignature` function in the `NextGenCore.sol` contract allows an artist to submit their signature for a collection. However, there is no validation mechanism to prevent or correct mistakes if the `_signature` input is set to an undesired value, such as 0. This could lead to incorrect or unintended signatures for a collection, and once a signature is set, there is no way to update it.
+
+```solidity
+    function artistSignature(uint256 _collectionID, string memory _signature) public {
+        require(msg.sender == collectionAdditionalData[_collectionID].collectionArtistAddress, "Only artist");
+        require(artistSigned[_collectionID] == false, "Already Signed");
+        artistsSignatures[_collectionID] = _signature;
+        artistSigned[_collectionID] = true;
+    }
+```
+
+## Remediation
+
+Add empty `_signature` check in the given function.
