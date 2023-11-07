@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xweb3boy",
+  "risk": "2",
+  "title": "Unminted token can't be minted by executing 2 different transactions in Periodic Sales Model.",
+  "issueId": 509,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/509"
+}
