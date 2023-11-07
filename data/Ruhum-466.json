@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Ruhum",
+  "risk": "3",
+  "title": "Auction participant can spend all of the gas in the callback to cause the claiming process to break",
+  "issueId": 466,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/466"
+}
