@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "almurhasan",
+  "risk": "2",
+  "title": "The  function tokenURI can be DOSed if uri is large enough.",
+  "issueId": 472,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/472"
+}
