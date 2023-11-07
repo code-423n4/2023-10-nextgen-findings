@@ -120,4 +120,4 @@ The `artistSignature` function in the `NextGenCore.sol` contract allows an artis
 
 ## Remediation
 
-Add empty `_signature` check in the given function.
+Add an empty `_signature` check in the given function.
