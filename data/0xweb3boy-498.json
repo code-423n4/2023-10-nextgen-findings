@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xweb3boy",
+  "risk": "3",
+  "title": "During the `Periodic Sale` users will mint the successive Tokens at the `collectionMintCost` nullifying the effect of rate.",
+  "issueId": 498,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/498"
+}
