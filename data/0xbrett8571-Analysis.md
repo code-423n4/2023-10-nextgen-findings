@@ -138,5 +138,7 @@ Overall the code is well written and adheres to many best practices. Some areas 
 NextGen provides a well-architected platform for advanced NFT projects with some room for incremental improvements in security, gas efficiency, and extensibility. Thoughtful permissions design and high code quality provide a strong foundation.
 
 
+
+
 ### Time spent:
-27 hours
+38 hours
