@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "glcanvas",
+  "risk": "3",
+  "title": "Auction can be stuck",
+  "issueId": 495,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/495"
+}
