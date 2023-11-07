@@ -57,7 +57,7 @@ Add missing checks for the `id` parameter, as written in the descriptions.
 
 ## Description
 
-In the `RandomizerRNG.sol` contract, the `updateCoreContract` function is used to update the `_gencore` parameter. However, this function does not include a check to ensure that the provided `_gencore` address is not the zero address (address(0)). Allowing the zero address as a valid parameter can lead to unexpected behavior and potential vulnerabilities.
+In the `RandomizerRNG.sol` and `RandomizerVRF.sol` contracts, the `updateCoreContract` function is used to update the `_gencore` parameter. However, this function does not include a check to ensure that the provided `_gencore` address is not the zero address (address(0)). Allowing the zero address as a valid parameter can lead to unexpected behavior and potential vulnerabilities.
 
 ```solidity
     function updateCoreContract(address _gencore) public FunctionAdminRequired(this.updateCoreContract.selector) { 
