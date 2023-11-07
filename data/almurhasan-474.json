@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "almurhasan",
+  "risk": "2",
+  "title": "The   function payArtist depends on  lot of ETH transactions which can cause DOS.",
+  "issueId": 474,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/474"
+}
