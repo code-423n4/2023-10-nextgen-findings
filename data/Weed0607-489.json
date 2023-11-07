@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Weed0607",
+  "risk": "3",
+  "title": "Incorrect check for collectionTokenMintIndex will lead to loss of user fund without miniting",
+  "issueId": 489,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/489"
+}
