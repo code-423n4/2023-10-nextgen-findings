@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "xAriextz",
+  "risk": "3",
+  "title": "Users being able to cancel their bids even after the auction has been claimed will lead to stolen funds",
+  "issueId": 494,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/494"
+}
