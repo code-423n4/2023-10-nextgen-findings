@@ -52,3 +52,36 @@ https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b2
 ## Remediation
 
 Add missing checks for the `id` parameter, as written in the descriptions.
+
+# 3. Missing zero address checks on setter function
+
+## Description
+
+In the `RandomizerRNG.sol` contract, the `updateCoreContract` function is used to update the `_gencore` parameter. However, this function does not include a check to ensure that the provided `_gencore` address is not the zero address (address(0)). Allowing the zero address as a valid parameter can lead to unexpected behavior and potential vulnerabilities.
+
+```solidity
+    function updateCoreContract(address _gencore) public FunctionAdminRequired(this.updateCoreContract.selector) { 
+        gencore = _gencore;
+        gencoreContract = INextGenCore(_gencore);
+    }
+```
+
+## Remediation
+
+A zero address check should be added at the beginning of the `updateCoreContract` function.
+
+# 4. Missing boundaries on RNG cost
+
+## Description
+
+In the `RandomizerRNG.sol` contract, the `updateRNGCost` function is used to update the `ethRequired` parameter without any bounds or limits. This means that anyone with the appropriate permissions can set the `ethRequired` value to any arbitrary number, which could potentially lead to unintended behavior or economic vulnerabilities.
+
+```solidity
+    function updateRNGCost(uint256 _ethRequired) public FunctionAdminRequired(this.updateRNGCost.selector) {
+        ethRequired = _ethRequired;
+    }
+```
+
+## Remediation
+
+Add appropriate limits or constraints on the values that can be set for the `ethRequired` parameter within the `updateRNGCost` function. These limits should be defined based on the requirements and constraints of the contract.
