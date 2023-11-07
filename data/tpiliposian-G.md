@@ -1,4 +1,4 @@
-# 1. Double storage storing leads to extensive gas usage
+# Double storage storing leads to extensive gas usage
 
 ## Description
 
