@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Haipls",
+  "risk": "2",
+  "title": "The winner of the auction can cancel their winning bid when calling claimAuction by reentrance to cancelBid, which will make the auction invalid",
+  "issueId": 496,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/496"
+}
