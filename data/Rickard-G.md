@@ -21,3 +21,24 @@ There are `2` instances of this issue:
 ## Tools Used
 ## Recommendations
 Using the `indexed` keyword for values types `bool/int/address/string/bytes` in event.
+## [G-02] Modifier gas optimization for onlyOwner modifier
+## Relevant GitHub Links
+[https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/NextGenAdmins.sol#L38](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/NextGenAdmins.sol#L38)
+
+[https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/Ownable.sol#L36-L53](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/Ownable.sol#L36-L53)
+
+[https://github.com/OpenZeppelin/openzeppelin-contracts/blob/d6b63a48ba440ad8d551383697db6e5b0ef84137/contracts/access/Ownable.sol#L45-L64](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/d6b63a48ba440ad8d551383697db6e5b0ef84137/contracts/access/Ownable.sol#L45-L64)
+## Summary
+The require statement should be replaced with if check + custom error. This reduces the size of compiled contracts that use the modifiers. The best way of implementing this is presented in OZ's Ownable.sol ([Link 3]((https://github.com/OpenZeppelin/openzeppelin-contracts/blob/d6b63a48ba440ad8d551383697db6e5b0ef84137/contracts/access/Ownable.sol#L45-L64))):
+````diff
+    modifier onlyOwner() {
+        _checkOwner();
+        _;
+    }
+
+    function _checkOwner() internal view virtual {
+-        require(owner() == _msgSender(), "Ownable: caller is not the owner");
++        if (owner() != _msgSender()) {
++           revert OwnableUnauthorizedAccount(_msgSender());
+    }
+````
