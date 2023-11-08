@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xpiken",
+  "risk": "3",
+  "title": "updateAdminContract() allows the function admins to assign themselves the global admin role and seize all assets.",
+  "issueId": 530,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/530"
+}
