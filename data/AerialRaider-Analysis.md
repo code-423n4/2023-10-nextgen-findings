@@ -497,5 +497,7 @@ Additionally, the contract includes a mapping for recording the index of the hig
 
 
 
+
+
 ### Time spent:
 16 hours
