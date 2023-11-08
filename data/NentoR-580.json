@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "NentoR",
+  "risk": "2",
+  "title": "Possible DOS if bidder has too many bids and calls `cancelAllBids()`",
+  "issueId": 580,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/580"
+}
