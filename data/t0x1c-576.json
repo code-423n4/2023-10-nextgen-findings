@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "t0x1c",
+  "risk": "3",
+  "title": "Delegation address is able to mint tokenIDs it has not been given powers for",
+  "issueId": 576,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/576"
+}
