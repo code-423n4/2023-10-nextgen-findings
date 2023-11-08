@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "BugzyVonBuggernaut",
+  "risk": "2",
+  "title": "`XRandoms.sol` is not random ",
+  "issueId": 526,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/526"
+}
