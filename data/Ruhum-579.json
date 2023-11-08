@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Ruhum",
+  "risk": "3",
+  "title": "RandomizerRNG can fail to produce a hash causing an NFT to be worthless",
+  "issueId": 579,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/579"
+}
