@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "amaechieth",
+  "risk": "3",
+  "title": "re-entrancy allows `sales option 3` to be bypassed",
+  "issueId": 572,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/572"
+}
