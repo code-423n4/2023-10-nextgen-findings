@@ -613,3 +613,71 @@ Checks-Effects-Interactions should be applied to the functions.
 Balance updates should be made at the beginning of the call.
 The actual call should be made at the end of the function.
 So that the balance is already updated first and reentrancy is not possible.
+## [L-11] Incorrect equality in XRandoms contract
+## Impact
+Use of strict equalities that can be easily manipulated by an attacker.
+Dangerous strict equality is where the use of strict equality (==) for comparison may lead to unexpected or potentially unsafe behaviour due to issues like type conversions, precision, or external input. 
+## Proof of Concept
+Here is a Proof of Concept (POC) for the incorrect equality in the getWord function:
+```sol
+pragma solidity ^0.8.19;
+
+contract TestRandomPool {
+    randomPool rp = new randomPool();
+
+    function testGetWord() public {
+        // This will return the first word in the list, "Acai"
+        string memory word1 = rp.getWord(0);
+        assert(keccak256(abi.encodePacked(word1)) == keccak256(abi.encodePacked("Acai")));
+
+        // This will return the second word in the list, "Ackee"
+        string memory word2 = rp.getWord(1);
+        assert(keccak256(abi.encodePacked(word2)) == keccak256(abi.encodePacked("Ackee")));
+
+        // This will return the first word in the list, "Acai", due to incorrect equality
+        string memory word3 = rp.getWord(2);
+        assert(keccak256(abi.encodePacked(word3)) == keccak256(abi.encodePacked("Acai")));
+    }
+}
+```
+In the getWord function, the id is decremented by 1 when it is not equal to 0. 
+This means that when id is 2, it will return the word at index 1, which is "Acai" instead of "Apple". 
+This is due to the incorrect equality id == 0.
+**Location**
+```sol
+randomPool.getWord(uint256) (smart-contracts/XRandoms.sol#15-33) uses a dangerous strict equality:
+- id == 0 (smart-contracts/XRandoms.sol#28)
+```
+**Vulnerable line of code**
+```sol
+// Ln 28
+        if (id==0) {
+```
+**Vulnerable getWords function**
+```sol
+Ln 15-33
+    function getWord(uint256 id) private pure returns (string memory) {
+        
+        // array storing the words list
+        string[100] memory wordsList = ["Acai", "Ackee", "Apple", "Apricot", "Avocado", "Babaco", "Banana", "Bilberry", "Blackberry", "Blackcurrant", "Blood Orange", 
+        "Blueberry", "Boysenberry", "Breadfruit", "Brush Cherry", "Canary Melon", "Cantaloupe", "Carambola", "Casaba Melon", "Cherimoya", "Cherry", "Clementine", 
+        "Cloudberry", "Coconut", "Cranberry", "Crenshaw Melon", "Cucumber", "Currant", "Curry Berry", "Custard Apple", "Damson Plum", "Date", "Dragonfruit", "Durian", 
+        "Eggplant", "Elderberry", "Feijoa", "Finger Lime", "Fig", "Gooseberry", "Grapes", "Grapefruit", "Guava", "Honeydew Melon", "Huckleberry", "Italian Prune Plum", 
+        "Jackfruit", "Java Plum", "Jujube", "Kaffir Lime", "Kiwi", "Kumquat", "Lemon", "Lime", "Loganberry", "Longan", "Loquat", "Lychee", "Mammee", "Mandarin", "Mango", 
+        "Mangosteen", "Mulberry", "Nance", "Nectarine", "Noni", "Olive", "Orange", "Papaya", "Passion fruit", "Pawpaw", "Peach", "Pear", "Persimmon", "Pineapple", 
+        "Plantain", "Plum", "Pomegranate", "Pomelo", "Prickly Pear", "Pulasan", "Quine", "Rambutan", "Raspberries", "Rhubarb", "Rose Apple", "Sapodilla", "Satsuma", 
+        "Soursop", "Star Apple", "Star Fruit", "Strawberry", "Sugar Apple", "Tamarillo", "Tamarind", "Tangelo", "Tangerine", "Ugli", "Velvet Apple", "Watermelon"];
+
+
+        // returns a word based on index
+        if (id==0) {
+            return wordsList[id];
+        } else {
+            return wordsList[id - 1];
+        }
+        }
+```
+## Tools Used
+VS Code.
+## Recommended Mitigation Steps
+Don't use strict equality to determine if an account has enough Ether or tokens.
