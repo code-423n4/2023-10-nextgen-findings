@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "y4y",
+  "risk": "2",
+  "title": "Reentrancy in mint causing minter to  mint more tokens than allowed",
+  "issueId": 528,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/528"
+}
