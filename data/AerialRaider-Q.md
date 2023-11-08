@@ -147,7 +147,7 @@ With these modifications, you've created two new modifiers: FunctionAdmin and Co
 
 If the NextGenRandomizerNXT contract is required to generate a hash value regardless of the availability of funds in the VRF and RNG services, then the hash generation process should not be dependent on these services, as they could fail if not funded.
 
-In order to ensure that calculateTokenHash function always produces a hash value, we could use a combination of on-chain and potentially off-chain data to ensure that even if the VRF and RNG services are not available, the contract can still produce a hash.
+In order to ensure that calculateTokenHash function always produces a hash value, you could use a combination of on-chain and potentially off-chain data to ensure that even if the VRF and RNG services are not available, the contract can still produce a hash.
 
 Below is a version of the calculateTokenHash function that generates a hash even if the randoms contract is not funded:
 
@@ -199,8 +199,8 @@ contract NextGenRandomizerNXT {
 }
 In this modified function:
 
-We introduce fallbackRandomNumber and fallbackRandomWord constants as a backup in case the randoms contract fails to provide the required random values.
-We use try and catch statements to attempt to call randomNumber() and randomWord() on the randoms contract. If those calls fail (which might happen if the VRF/RNG services are not funded or if any other error occurs), the catch block sets the random number and word to our predefined fallback values.
-The hash calculation now includes an additional _saltfun_o value, which seems to be intended as a salt but was not used in your original function. Including a salt that changes with each minting action can help ensure uniqueness of the hash, even when fallback values are used.
+I introduce fallbackRandomNumber and fallbackRandomWord constants as a backup in case the randoms contract fails to provide the required random values.
+You could use try and catch statements to attempt to call randomNumber() and randomWord() on the randoms contract. If those calls fail (which might happen if the VRF/RNG services are not funded or if any other error occurs), the catch block sets the random number and word to our predefined fallback values.
+The hash calculation now includes an additional _saltfun_o value.
 
 
