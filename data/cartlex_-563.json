@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "cartlex_",
+  "risk": "2",
+  "title": "Collection admin can change collection costs after collection phases were set.",
+  "issueId": 563,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/563"
+}
