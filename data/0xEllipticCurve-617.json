@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xEllipticCurve",
+  "risk": "3",
+  "title": "DOS by block gas limit",
+  "issueId": 617,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/617"
+}
