@@ -1,0 +1,19 @@
+# Code:
+## ```  NextGenCore ::setCollectionData()```
+### https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L155
+### https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L156
+ 
+# Impact:
+### _collectionID  can be 0 , If it becomes 0 then reservedMinTokensIndex  & will also become 0, which in worst case scenario could be just less than the total collection supply & reservedMaxTokensIndex can become less than totalCollectionsupply 
+
+# POC :
+``` diff
+          collectionAdditionalData[_collectionID].reservedMinTokensIndex = (_collectionID * 10000000000);  
+           collectionAdditionalData[_collectionID].reservedMaxTokensIndex = (_collectionID * 10000000000) + _collectionTotalSupply - 1; 
+```
+
+# Tools Used:
+### Manual Review
+
+# Recommendation:
+### Use a require or revert statement for checking that _collectionID is not 0
