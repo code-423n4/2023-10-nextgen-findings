@@ -681,3 +681,58 @@ Ln 15-33
 VS Code.
 ## Recommended Mitigation Steps
 Don't use strict equality to determine if an account has enough Ether or tokens.
+## [L-12] Dubious type casting
+## Impact
+Dubious type casting from bytes to bytes32 in Solidity refers to a potentially unsafe conversion between these two data types.
+
+In Solidity, bytes is a dynamically-sized byte array, while bytes32 is a fixed-size byte array of 32 bytes. 
+When you cast bytes to bytes32, you're essentially trying to fit a potentially larger amount of data into a smaller container.
+
+If the bytes array is larger than 32 bytes, the conversion will result in data loss as only the first 32 bytes will be kept and the rest will be discarded. 
+This can lead to unexpected behavior and potential security vulnerabilities in your smart contract.
+
+## Proof of Concept
+**Vulnerable line of code**
+```sol
+// Ln 49
+        gencoreContract.setTokenHash(tokenIdToCollection[requestToToken[id]], requestToToken[id], bytes32(abi.encodePacked(numbers,requestToToken[id])));
+```
+**Vulnerable function fulfillRandomWords to type casting**
+```sol
+// Ln 48-50
+    function fulfillRandomWords(uint256 id, uint256[] memory numbers) internal override {
+        gencoreContract.setTokenHash(tokenIdToCollection[requestToToken[id]], requestToToken[id], bytes32(abi.encodePacked(numbers,requestToToken[id])));
+    }
+```
+The dubious type casting issue is related to the fulfillRandomWords function where bytes is being cast to bytes32. 
+This can potentially lead to data loss if the size of the bytes exceeds 32 bytes. 
+Here is a proof of concept (POC) that demonstrates this issue:
+```sol
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.8.19;
+
+contract POC {
+    function dubiousTypeCast() public pure returns (bytes32) {
+        uint256[] memory numbers = new uint256[](5);
+        for (uint i = 0; i < 5; i++) {
+            numbers[i] = i;
+        }
+        uint256 id = 123456789;
+        bytes memory packed = abi.encodePacked(numbers, id);
+        bytes32 result = bytes32(packed);
+        return result;
+    }
+}
+```
+In this POC, we create an array of 5 uint256 numbers and an id. We then pack these into a bytes variable. 
+Finally, we cast this bytes variable to bytes32 and return it. 
+If you run this function, you will see that the returned bytes32 value is not the same as the original bytes value, demonstrating the potential for data loss due to the dubious type casting.
+**Location**
+```sol
+Dubious typecast in NextGenRandomizerRNG.fulfillRandomWords(uint256,uint256[]) (smart-contracts/RandomizerRNG.sol#48-50):
+bytes => bytes32 casting occurs in gencoreContract.setTokenHash(tokenIdToCollection[requestToToken[id]],requestToToken[id],bytes32(abi.encodePacked(numbers,requestToToken[id]))) (smart-contracts/RandomizerRNG.sol#49)
+```
+## Tools Used
+VS Code.
+## Recommended Mitigation Steps
+Use clear constants.
