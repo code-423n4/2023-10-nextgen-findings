@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "zach",
+  "risk": "2",
+  "title": "unauthorized override of globalAdmin by functionAdmin in updateAdminContract function",
+  "issueId": 587,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/587"
+}
