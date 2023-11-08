@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "BugsFinder0x",
+  "risk": "3",
+  "title": "Airdrop function doesn't mint tokens correctly.",
+  "issueId": 603,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/603"
+}
