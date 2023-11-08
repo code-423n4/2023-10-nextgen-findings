@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Valix",
+  "risk": "2",
+  "title": "Improper Participation in the Auction potentially results in Denial of Service",
+  "issueId": 529,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/529"
+}
