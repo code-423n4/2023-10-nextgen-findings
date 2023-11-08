@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "y4y",
+  "risk": "3",
+  "title": "The max amount of airdropped tokens is not set/checked, causing unlimited tokens can be airdropped, and potential DoS",
+  "issueId": 548,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/548"
+}
