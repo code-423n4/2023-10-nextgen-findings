@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "BugzyVonBuggernaut",
+  "risk": "2",
+  "title": " It's possible to change the collectionArtistAddress after having the artist sign the collection",
+  "issueId": 562,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/562"
+}
