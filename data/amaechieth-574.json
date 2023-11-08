@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "amaechieth",
+  "risk": "3",
+  "title": "reentrancy allows `burnToMint` collections to be exploited",
+  "issueId": 574,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/574"
+}
