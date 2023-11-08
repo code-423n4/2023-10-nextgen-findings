@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "almurhasan",
+  "risk": "2",
+  "title": "There is missing checks in the function createCollection/setCollectionData/updateCollectionInfo",
+  "issueId": 575,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/575"
+}
