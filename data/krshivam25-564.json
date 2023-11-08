@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "krshivam25",
+  "risk": "2",
+  "title": "Reentrancy concerns with sendValue, error handling in low-level calls, and potential issues with gas costs post EIP-1884.",
+  "issueId": 564,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/564"
+}
