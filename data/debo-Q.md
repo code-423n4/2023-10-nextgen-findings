@@ -917,3 +917,57 @@ Do not allow user-controlled data inside the call() function.
 // Ln 464
         (bool success, ) = payable(admin).call{value: balance}("");
 ```
+## [L-16] Controlled low level call
+## Impact
+The contract is using call() which is accepting address controlled by a user. 
+This can have devastating effects on the contract as a call allows the contract to execute code belonging to other contracts but using it’s own storage. 
+This can very easily lead to a loss of funds and compromise of the contract.
+
+## Proof of Concept
+**Vulnerable emergencyWithdraw function**
+```sol
+// Ln 79-84
+    function emergencyWithdraw() public FunctionAdminRequired(this.emergencyWithdraw.selector) {
+        uint balance = address(this).balance;
+        address admin = adminsContract.owner();
+        (bool success, ) = payable(admin).call{value: balance}("");
+        emit Withdraw(msg.sender, success, balance);
+    }
+```
+**Exploit claimAuction low level call**
+```sol
+// SPDX-License-Identifier: MIT
+
+pragma solidity >=0.8.19;
+
+import "./RandomizerRNG.sol";
+
+contract tRandomizerRNG {
+
+   RandomizerRNG public x1;
+
+   constructor(RandomizerRNG _x1) {
+
+      x1 = RandomizerRNG(_x1);
+
+   }
+
+   function testlowCallC() public payable {
+
+      x1.emergencyWithdraw{value: 2 ether}();
+
+   }
+
+   receive() external payable {}
+
+   }
+
+```
+## Tools Used
+VS Code.
+## Recommended Mitigation Steps
+Do not allow user-controlled data inside the call() function.
+```sol
+// Ln 82
+        (bool success, ) = payable(admin).call{value: balance}("");
+```
