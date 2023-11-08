@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "amaechieth",
+  "risk": "2",
+  "title": "`claimAuction` can be DOS if highestBidder is a contract that doesn't implement `onERC721Received`",
+  "issueId": 565,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/565"
+}
