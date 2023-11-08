@@ -1,3 +1,11 @@
+## [L-1] NextGenCore does not make use of the ERC2981 standard
+
+The ERC2981 standard specifies that the NFT contract that implements it should define a `royaltyInfo(uint256 tokenId, uint256 salePrice)` view function that returns 2 things:
+1. The royalty fee amount for a token `tokenId` with a sale price `salePrice`
+2. The address which is entitled to the royalty fees
+
+The `NextGenCore` contract inherits OZ's ERC2981 implementation, but makes no use of it except that it sets the default royalty fee. It never sets the `receiver` of a royalty fee as the EIP suggests thus marketplaces on which NextGen core NFTs are traded on that support paying royalty fees to artists cannot help with paying royalty fees to artists. Plus, the NextGen protocol has no mechanism of distributing these royalty fees to artists.
+
 ## [NC-1] Declare all state variables at top level
 
 Smart contract organization best practices advocate to put state variables at the very top of the contract.
