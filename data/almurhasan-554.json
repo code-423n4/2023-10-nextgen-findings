@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "almurhasan",
+  "risk": "2",
+  "title": "There is no min/max(uint property) boundation of   setCollectionCosts function properties.",
+  "issueId": 554,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/554"
+}
