@@ -1123,3 +1123,91 @@ Do not allow user-controlled data inside the call() function.
 // Ln 139
                 (bool success, ) = payable(auctionInfoData[_tokenid][i].bidder).call{value: auctionInfoData[_tokenid][i].bid}("");
 ```
+## [L-18] Public Burn in NextGenCore contract
+## Impact
+The contract is utilising a public burn function. 
+The function is not using an access control to stop other users from burning tokens. 
+And, the burn function is using an address other than msg.sender.
+## Proof of Concept
+**Vulnerable burn function code snippet**
+```sol
+// Ln 204-209
+    function burn(uint256 _collectionID, uint256 _tokenId) public {
+        require(_isApprovedOrOwner(_msgSender(), _tokenId), "ERC721: caller is not token owner or approved");
+        require ((_tokenId >= collectionAdditionalData[_collectionID].reservedMinTokensIndex) && (_tokenId <= collectionAdditionalData[_collectionID].reservedMaxTokensIndex), "id err");
+        _burn(_tokenId);
+        burnAmount[_collectionID] = burnAmount[_collectionID] + 1;
+    }
+```
+**Exploit burn function**
+```sol
+// SPDX-License-Identifier: MIT
+
+pragma solidity >=0.8.19;
+
+import "./NextGenCore.sol";
+
+contract tNextGenCore {
+
+   NextGenCore public x1;
+
+   constructor(NextGenCore _x1) {
+
+      x1 = NextGenCore(_x1);
+
+   }
+
+   function testBurn() public payable {
+
+      x1.burn(uint256(35), uint256(25));
+
+   } 
+
+   }
+```
+**Vulnerable burnToMint function code snippet**
+```sol
+// Ln 213-223
+    function burnToMint(uint256 mintIndex, uint256 _burnCollectionID, uint256 _tokenId, uint256 _mintCollectionID, uint256 _saltfun_o, address burner) external {
+        require(msg.sender == minterContract, "Caller is not the Minter Contract");
+        require(_isApprovedOrOwner(burner, _tokenId), "ERC721: caller is not token owner or approved");
+        collectionAdditionalData[_mintCollectionID].collectionCirculationSupply = collectionAdditionalData[_mintCollectionID].collectionCirculationSupply + 1;
+        if (collectionAdditionalData[_mintCollectionID].collectionTotalSupply >= collectionAdditionalData[_mintCollectionID].collectionCirculationSupply) {
+            _mintProcessing(mintIndex, ownerOf(_tokenId), tokenData[_tokenId], _mintCollectionID, _saltfun_o);
+            // burn token
+            _burn(_tokenId);
+            burnAmount[_burnCollectionID] = burnAmount[_burnCollectionID] + 1;
+        }
+    }
+```
+**Exploit burnToMint function**
+```sol
+// SPDX-License-Identifier: MIT
+
+pragma solidity >=0.8.19;
+
+import "./NextGenCore.sol";
+
+contract tNextGenCore {
+
+   NextGenCore public x1;
+
+   constructor(NextGenCore _x1) {
+
+      x1 = NextGenCore(_x1);
+
+   }
+
+   function testBurnB() external payable {
+
+      x1.burnToMint(uint256(4), uint256(8), uint256(24), uint256(32), uint256(24), address(_x1));
+
+   } 
+
+   }
+```
+## Tools Used
+VS Code.
+## Recommended Mitigation Steps
+Utilise access control modifiers on the burn function to stop other users from burning your tokens. 
+Assign msg.sender to the from parameter of the burn function.
