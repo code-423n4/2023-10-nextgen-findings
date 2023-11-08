@@ -736,3 +736,63 @@ bytes => bytes32 casting occurs in gencoreContract.setTokenHash(tokenIdToCollect
 VS Code.
 ## Recommended Mitigation Steps
 Use clear constants.
+## [L-14] Dubious type casting
+## Impact
+Down data type casting from bytes to bytes32 in Solidity involves converting a larger data type (bytes) to a smaller data type (bytes32). 
+This is done by taking the first 32 bytes of the larger data type and discarding the rest. 
+However, this operation can be risky if not handled properly because any data beyond the first 32 bytes is permanently lost. 
+In the code, this operation is not explicitly performed.
+
+## Proof of Concept
+The dubious typecast is the conversion from bytes to bytes32 in the fulfillRandomWords function. 
+Here's a proof of concept (POC) that demonstrates the potential issue:
+```sol
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.8.19;
+
+contract POC {
+    function dubiousTypecast() public pure returns (bytes32) {
+        uint256[] memory randomWords = new uint256[](3);
+        randomWords[0] = 1;
+        randomWords[1] = 2;
+        randomWords[2] = 3;
+        uint256 tokenId = 123;
+
+        bytes memory packed = abi.encodePacked(randomWords, tokenId);
+        bytes32 result = bytes32(packed); // Dubious typecast
+
+        return result;
+    }
+}
+```
+In this POC, randomWords is an array of uint256 and tokenId is a uint256. 
+They are packed together into a bytes variable using abi.encodePacked. 
+Then, a dubious typecast is performed to convert the bytes variable to bytes32.
+
+The issue here is that bytes can be of any length, but bytes32 is always 32 bytes long. 
+If the bytes variable is longer than 32 bytes, the conversion will truncate the data, leading to loss of information. 
+If the bytes variable is shorter than 32 bytes, the conversion will pad the data with zeros, which might not be the intended behavior.
+
+In the context of the NextGenRandomizerVRF contract, this dubious typecast could lead to incorrect token hashes being set in the gencoreContract, which could have serious implications depending on how these hashes are used in the rest of the contract.
+
+**Locations**
+```sol
+Dubious typecast in NextGenRandomizerVRF.fulfillRandomWords(uint256,uint256[]) (smart-contracts/RandomizerVRF.sol#65-68):
+bytes => bytes32 casting occurs in gencoreContract.setTokenHash(tokenIdToCollection[requestToToken[_requestId]],requestToToken[_requestId],bytes32(abi.encodePacked(_randomWords,requestToToken[_requestId]))) (smart-contracts/RandomizerVRF.sol#66)
+```
+**Vulnerable fulfillRandomWords function**
+```sol
+// Ln 65-68
+    function fulfillRandomWords(uint256 _requestId, uint256[] memory _randomWords) internal override {
+        gencoreContract.setTokenHash(tokenIdToCollection[requestToToken[_requestId]], requestToToken[_requestId], bytes32(abi.encodePacked(_randomWords,requestToToken[_requestId])));
+        emit RequestFulfilled(_requestId, _randomWords);
+    }
+```
+```sol
+// Ln 66
+        gencoreContract.setTokenHash(tokenIdToCollection[requestToToken[_requestId]], requestToToken[_requestId], bytes32(abi.encodePacked(_randomWords,requestToToken[_requestId])));
+```
+## Tools Used
+VS Code.
+## Recommended Mitigation Steps
+Use clear constants.
