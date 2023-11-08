@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xpiken",
+  "risk": "2",
+  "title": "Ether receiver can steal gas from others with gas token minting",
+  "issueId": 536,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/536"
+}
