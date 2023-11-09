@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "t0x1c",
+  "risk": "3",
+  "title": "DoS attack on `returnHighestBid()` is possible via `participateToAuction()`",
+  "issueId": 695,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/695"
+}
