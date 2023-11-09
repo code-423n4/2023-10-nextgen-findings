@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Al-Qa-qa",
+  "risk": "2",
+  "title": "Weak PRNG used by `RandomizerNXT` allows users to predict the token hash before minting",
+  "issueId": 690,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/690"
+}
