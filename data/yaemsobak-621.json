@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "yaemsobak",
+  "risk": "3",
+  "title": "No check of low-level ether transfer in cancelBid function in AuctionDemo.sol",
+  "issueId": 621,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/621"
+}
