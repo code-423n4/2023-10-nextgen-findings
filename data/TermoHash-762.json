@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "TermoHash",
+  "risk": "3",
+  "title": "Wrong condition check. Winner of an auction can steal ether when calling claim and cancelBid in the same transaction ",
+  "issueId": 762,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/762"
+}
