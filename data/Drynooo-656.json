@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Drynooo",
+  "risk": "2",
+  "title": "The updateImagesAndAttributes function does not check if the array lengths match.",
+  "issueId": 656,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/656"
+}
