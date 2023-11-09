@@ -1,0 +1,2 @@
+In the auctionDemo contract
+In the returnHighestBid and returnHighestBidder functions, it is possible to save a lot of gas by not using loops. because when bidding, it will always be needed to be higher than the current highest bid, which will then be pushed at the end of the array. Therefore, the last bit of the array is the highest price, so no looping is needed.
