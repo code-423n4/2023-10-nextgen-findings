@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Al-Qa-qa",
+  "risk": "2",
+  "title": "Sybil attack can bypass MaxAllowance check in `MinterContract::mint`",
+  "issueId": 728,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/728"
+}
