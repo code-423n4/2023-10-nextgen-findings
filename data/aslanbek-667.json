@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "aslanbek",
+  "risk": "3",
+  "title": "MinterContract considers expired delegations as valid",
+  "issueId": 667,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/667"
+}
