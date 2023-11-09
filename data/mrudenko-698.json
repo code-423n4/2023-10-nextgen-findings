@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "mrudenko",
+  "risk": "3",
+  "title": "huge collectionScript array can cause DoS in tokenURI function",
+  "issueId": 698,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/698"
+}
