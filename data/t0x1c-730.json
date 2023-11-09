@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "t0x1c",
+  "risk": "3",
+  "title": "Malicious loser of an auction can make the protocol refund twice the amount he bid via reentrancy attack",
+  "issueId": 730,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/730"
+}
