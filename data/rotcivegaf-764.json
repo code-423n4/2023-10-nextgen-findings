@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "rotcivegaf",
+  "risk": "2",
+  "title": "The `functionAdmin` don't differentiate between contracts with same function signature",
+  "issueId": 764,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/764"
+}
