@@ -89,6 +89,19 @@ Implement time-based checks within the `setDelAddress` function to prevent modif
 ### Impact
 While not critical, this issue could affect the integrity of ongoing transactions during airdrops or sales, potentially causing user confusion and administrative complications.
 
+### [L-6] Lack of Upper Bound on `setFinalSupplyTimeAfterMint`
+
+#### Description
+The `setFinalSupplyTimeAfterMint` function in `NextGenCore.sol` does not enforce an upper limit on the time value, potentially allowing for an unreasonably high value that would prevent the `setFinalSupply` function from ever being executed.
+
+#### Code Reference
+- [setFinalSupplyTimeAfterMint](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L154)
+- [setFinalSupply](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L307-L311)
+
+#### Suggested Mitigation
+Introduce a maximum time limit for `setFinalSupplyTimeAfterMint` to ensure the `setFinalSupply` function remains callable within a reasonable timeframe.
+
+
 
 # Non-critical Issues
 
