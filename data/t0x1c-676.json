@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "t0x1c",
+  "risk": "3",
+  "title": "Incorrect winner can be declared in `claimAuction()` due to wrong check inside `require`",
+  "issueId": 676,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/676"
+}
