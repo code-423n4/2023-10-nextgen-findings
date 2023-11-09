@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Krace",
+  "risk": "2",
+  "title": "The randomizerContract of any collection can modify the TokenHash of another collection without restrictions",
+  "issueId": 660,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/660"
+}
