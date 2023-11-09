@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "twcctop",
+  "risk": "3",
+  "title": "erc721 `safeTransferFrom`  may  dos  `claimAuction`",
+  "issueId": 683,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/683"
+}
