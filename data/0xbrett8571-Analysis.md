@@ -65,6 +65,48 @@ To mitigate these risks, timelocks and permission restrictions should be used. F
 
 - Adopt a Multisig wallet model for admin ownership instead of a single account.
 
+### NextGenAdmins Contract
+
+**Functions:**
+
+- `registerAdmin` - Registers a new global admin
+- `registerFunctionAdmin` - Registers a new function admin 
+- `registerBatchFunctionAdmin` - Registers multiple function admins
+- `registerCollectionAdmin` - Registers a new collection admin
+
+**Getters:**
+
+- `retrieveGlobalAdmin` - Checks if an address is a global admin
+- `retrieveFunctionAdmin` - Checks if an address is a function admin for a specific function
+- `retrieveCollectionAdmin` - Checks if an address is a collection admin for a specific collection
+
+**Modifiers:**
+
+- `AdminRequired` - Checks if caller is a global admin
+
+**NextGenCore Contract** 
+
+**Modifiers:**
+
+- `FunctionAdminRequired` - Checks if caller is a function admin for the function
+- `CollectionAdminRequired` - Checks if caller is a collection admin for the collection
+
+**MinterContract**
+
+**Modifiers:**
+
+- `FunctionAdminRequired` - Checks if caller is a function admin  
+- `CollectionAdminRequired` - Checks if caller is a collection admin
+- `ArtistOrAdminRequired` - Checks if caller is artist or admin
+
+**Randomizer Contracts**
+
+**Modifiers:**
+
+- `FunctionAdminRequired` - Checks if caller is a function admin
+
+NextGenAdmins provides admin management functions, and modifiers enforce access control across the other contracts.
+
 **Randomness** 
 
 Relying on a third party oracle like Chainlink VRF has centralization risks:
@@ -136,6 +178,8 @@ Overall the code is well written and adheres to many best practices. Some areas 
 **At the end**
 
 NextGen provides a well-architected platform for advanced NFT projects with some room for incremental improvements in security, gas efficiency, and extensibility. Thoughtful permissions design and high code quality provide a strong foundation.
+
+
 
 
 
