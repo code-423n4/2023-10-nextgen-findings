@@ -10,6 +10,9 @@ Since an NFTs hash in [*XRandoms.sol*](https://github.com/code-423n4/2023-10-nex
 The [*XRandoms.getWord*](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/XRandoms.sol#L15-L33) function stores 100 words as strings in an array. It takes an **id** parameter and returns words[id] if the id is 0 and words[id - 1] otherwise.
 The function is private, so it can be called only from the same contract. The only place where it is called is the [*XRandoms.randomWord*](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/XRandoms.sol#L40-L43) with a value from 0-99. The last word is at index 99. It can never be accessed because the id is subtracted by 1.
 
+# [L-4] There is a possibility of a function selectors collision
+There are functions that are protected by a modifier that checks their signatures. The caller is able to execute the function only if he is whitelisted for its signature. With adding more and more functions, the possibility of function selector clash increases. Consider mixing the signature with an additional element.
+
 
 # [NC-1] Organize the files in the main folder
 Currently, all files are stored in the root folders. Consider organizing them into different folders. For example, **libs**, **randoms**, **core**
