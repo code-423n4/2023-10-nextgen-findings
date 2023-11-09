@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "flacko",
+  "risk": "2",
+  "title": "`fulfillRandomWords` will revert if a randomizer of a collection is changed, leaving tokens with pending requests without hashes",
+  "issueId": 723,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/723"
+}
