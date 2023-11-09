@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ayden",
+  "risk": "3",
+  "title": "Reentrancy in onERC721Received led to a malicious user exceeding the per-address allowance limitation",
+  "issueId": 638,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/638"
+}
