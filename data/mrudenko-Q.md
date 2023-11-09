@@ -75,6 +75,21 @@ The contract indexes fund values in the `AuctionCreated`, `AuctionSuccessful`, a
 ### Recommended Mitigation Steps
 Remove the `indexed` keyword from the fund-related parameters in the event definitions to reduce unnecessary gas costs and adhere to best practices. And also remove funds at all. 
 
+## [L-5]: setDelAddress can be updated even in collection is either in airdrop period or public period
+
+### Summary
+The `setDelAddress` function in the `MinterContract.sol` allows for the delegation address to be updated without any time constraints. This could potentially lead to conflicts if the address is changed during active airdrop or public sale periods.
+
+### Code Reference
+- [setDelAddress Function](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L302-L304)
+
+### Suggested Mitigation
+Implement time-based checks within the `setDelAddress` function to prevent modifications of the delegation address during sensitive periods such as active airdrops or public sales. This would ensure consistency for users and avoid unexpected behaviour.
+
+### Impact
+While not critical, this issue could affect the integrity of ongoing transactions during airdrops or sales, potentially causing user confusion and administrative complications.
+
+
 # Non-critical Issues
 
 ## [N-1] Fragmented Storage of Collection Information
