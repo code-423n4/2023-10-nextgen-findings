@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Soul22",
+  "risk": "3",
+  "title": "Missing extensions in the auction mechanism: the attacker can win auctions by paying a negligible amount.",
+  "issueId": 655,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/655"
+}
