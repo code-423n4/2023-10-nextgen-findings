@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "twcctop",
+  "risk": "3",
+  "title": "`returnHighestBidder`  don't set value  to  `highBid` ",
+  "issueId": 675,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/675"
+}
