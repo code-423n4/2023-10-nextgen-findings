@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "fibonacci",
+  "risk": "3",
+  "title": "The UTF-8 encoding of on-chain metadata leads to a JSON parsing error when opening token URI in a browser",
+  "issueId": 710,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/710"
+}
