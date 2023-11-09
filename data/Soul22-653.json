@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Soul22",
+  "risk": "3",
+  "title": "The refund mechanism allows a malicious user to lock the auction item and all refunds.",
+  "issueId": 653,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/653"
+}
