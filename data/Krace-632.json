@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Krace",
+  "risk": "3",
+  "title": "The calculation of `lastMintDate` in the `mintAndAuction` is incorrect",
+  "issueId": 632,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/632"
+}
