@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ke1caM",
+  "risk": "3",
+  "title": "User can freeze other users funds in AuctionDemo contract with malicious receive function in his contract",
+  "issueId": 755,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/755"
+}
