@@ -6,6 +6,8 @@
 ### https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L181
 ## ``` NextGenCore::mint() ```
 ### https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L192
+## ``` NextGenCore::setFinalSupply() ```
+### https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L310
  
 # Impact:
 ## ```  NextGenCore ::setCollectionData()```
@@ -33,12 +35,20 @@ collectionAdditionalData[_collectionID].collectionCirculationSupply = collection
         if (collectionAdditionalData[_collectionID].collectionTotalSupply >= collectionAdditionalData[_collectionID].collectionCirculationSupply) {
             _mintProcessing(mintIndex, _mintTo, _tokenData, _collectionID, _saltfun_o);
 ```
+## ``` NextGenCore::setFinalSupply() ```
+```
+function setFinalSupply(uint256 _collectionID) public FunctionAdminRequired(this.setFinalSupply.selector) {
+        require (block.timestamp > IMinterContract(minterContract).getEndTime(_collectionID) + collectionAdditionalData[_collectionID].setFinalSupplyTimeAfterMint, "Time has not passed");
+        collectionAdditionalData[_collectionID].collectionTotalSupply = collectionAdditionalData[_collectionID].collectionCirculationSupply;
+        collectionAdditionalData[_collectionID].reservedMaxTokensIndex = (_collectionID * 10000000000) + collectionAdditionalData[_collectionID].collectionTotalSupply - 1;
+    }
+```
 
 # Tools Used:
 ### Manual Review
 
 # Recommendation:
-## ```  NextGenCore ::setCollectionData()```
+## ```  NextGenCore ::setCollectionData(),setFinalSupply()```
 ### Use a require or revert statement for checking that _collectionID is not 0
 ## ``` NextGenCore ::airDropTokens(), NextGenCore ::mint()```
 ### Add a error check for if collectionCirculationSupply > collectionTotalSupply .
