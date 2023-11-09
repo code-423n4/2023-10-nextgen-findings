@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Jorgect",
+  "risk": "2",
+  "title": "User can mint more than the maximun if they participate in the phase 1 MinterContract.sol",
+  "issueId": 634,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/634"
+}
