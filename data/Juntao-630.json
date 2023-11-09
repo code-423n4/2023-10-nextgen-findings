@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Juntao",
+  "risk": "3",
+  "title": "Malicious user can prevent other users from participating to an auction and win the token with a low bid price",
+  "issueId": 630,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/630"
+}
