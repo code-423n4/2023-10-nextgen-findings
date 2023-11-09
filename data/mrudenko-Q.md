@@ -112,7 +112,42 @@ The current implementation of admin control in `NextGenAdmins.sol` could be impr
 #### Suggested Mitigation
 Replace the current custom admin control with OpenZeppelin's `Ownable2Step`, which includes a two-step ownership transfer process to prevent accidental transfers and adds an extra layer of security.
 
+### [L-8] Issue: Unrestricted Royalty Basis Points
 
+#### Description
+In the `NextGenCore.sol` contract, the `_bps` parameter within the `setRoyalties` function lacks validation to ensure that the royalty basis points are within a reasonable or standard range.
+
+#### Code Reference
+- [setRoyalties Function](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L330)
+
+#### Suggested Mitigation
+Implement a check to enforce a cap on the `_bps` value to prevent setting excessively high royalty rates that could deter secondary sales or be deemed unfair to buyers.
+
+### [L-9] Issue: Insufficient Validation of Minting Parameters
+
+#### Description
+The `setMintingParameters` function in `MinterContract.sol` does not validate that input parameters `_timePeriod`, `_collectionMintCost`, `_collectionEndMintCost`, `_rate`, and `_salesOption` are greater than zero, risking accidental setting of these values to zero, which can only be done once.
+
+#### Code Reference
+- [setMintingParameters Function](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L157-L165)
+
+#### Suggested Mitigation
+Introduce checks to ensure that all these parameters are strictly greater than zero before allowing them to be set, preventing irreversible zero-value settings that could disrupt the minting process.
+
+### [L-10] Issue: Missing Validation for Maximum Collection Purchases
+
+#### Description
+The `setMaxCollectionPurchases` function in `NextGenCore.sol` lacks a crucial check to ensure that `_maxCollectionPurchases` is less than `_collectionTotalSupply`, which could lead to inconsistencies in purchase limits.
+
+#### Code Reference
+- [setMaxCollectionPurchases Function](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L150)
+
+#### Suggested Mitigation
+Introduce a validation step in `setMaxCollectionPurchases` to confirm that `_maxCollectionPurchases` does not exceed `_collectionTotalSupply`:
+
+```solidity
+require(_maxCollectionPurchases < _collectionTotalSupply, "Max purchases must be less than total supply");
+```
 
 
 # Non-critical Issues
@@ -163,4 +198,18 @@ The sale option is currently represented as a boolean. Using an enum would make 
 ### Description
 The function name `getEndTime` is misleading as it pertains to the public end time. Renaming it to `getPublicEndTime` would be more descriptive and accurate.
 
+### [N-8] Issue: Insufficient Access Control on Admin Contract Update
+
+#### Description
+The `updateAdminContract` function in `NextGenCore.sol` uses a general access control modifier `FunctionAdminRequired`, which may not provide stringent enough security. The critical nature of changing the `adminsContract` suggests that only a global admin should have this capability.
+
+#### Code Reference
+- [updateAdminContract Function](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L322)
+
+#### Suggested Mitigation
+Replace the `FunctionAdminRequired` modifier with a direct requirement check that ensures only a global admin can execute the function:
+
+```solidity
+require(adminsContract.retrieveGlobalAdmin(msg.sender) == true, "Not allowed");
+```
 
