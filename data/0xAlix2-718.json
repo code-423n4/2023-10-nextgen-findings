@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xAlix2",
+  "risk": "3",
+  "title": "Bypassing max purchase for public address using re-entrancy",
+  "issueId": 718,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/718"
+}
