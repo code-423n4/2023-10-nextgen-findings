@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Drynooo",
+  "risk": "3",
+  "title": "safeTransferFrom may not be executed causing the auction to fail.",
+  "issueId": 659,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/659"
+}
