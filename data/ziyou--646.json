@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ziyou-",
+  "risk": "2",
+  "title": "\"The setCollectionPhases function did not check the size of allowlistStartTime and allowlistEndTime.\"",
+  "issueId": 646,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/646"
+}
