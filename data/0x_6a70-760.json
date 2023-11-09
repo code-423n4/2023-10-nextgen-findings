@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0x_6a70",
+  "risk": "3",
+  "title": "If a call fails in payArtist function , it will lead to disproportional payout.",
+  "issueId": 760,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/760"
+}
