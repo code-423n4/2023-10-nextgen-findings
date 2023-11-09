@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "t0x1c",
+  "risk": "3",
+  "title": "Malicious user can grief the auction process to ensure no successful bids can be entered",
+  "issueId": 692,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/692"
+}
