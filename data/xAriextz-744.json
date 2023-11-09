@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "xAriextz",
+  "risk": "2",
+  "title": "Reentrancy in burnOrSwapExternalToMint() will lead to funds from the collection not being distributed correctly",
+  "issueId": 744,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/744"
+}
