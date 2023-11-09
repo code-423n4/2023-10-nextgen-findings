@@ -75,5 +75,52 @@ The contract indexes fund values in the `AuctionCreated`, `AuctionSuccessful`, a
 ### Recommended Mitigation Steps
 Remove the `indexed` keyword from the fund-related parameters in the event definitions to reduce unnecessary gas costs and adhere to best practices. And also remove funds at all. 
 
+# Non-critical Issues
+
+## [N-1] Fragmented Storage of Collection Information
+### Code
+- [Line 41](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L41)
+- [Line 65](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L65)
+- [Line 71](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L71)
+- [Line 83](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L83)
+### Description
+The contract stores collection information in a fragmented manner across multiple variables. Consolidating this information into a single structure would improve code readability and maintainability.
+
+## [N-2] Initial Collection Index Set to 1
+### Code
+- [Line 110](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L110)
+### Description
+The initial collection index is set to 1. Starting from 0 is a more conventional approach and aligns with typical array indexing in programming.
+
+## [N-3] Hardcoded Address in Contract
+### Code
+- [Line 111](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L111)
+### Description
+The contract hardcodes an address, which reduces flexibility. Passing the address as a parameter during contract deployment would be more adaptable to changes.
+
+## [N-4] Unnecessary Parentheses in Code
+### Code
+- [Line 148](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L148)
+### Description
+There are unnecessary parentheses in the code that do not affect the operation and could be removed for cleaner code.
+
+## [N-5] Missing `isMinterContract` Modifier in Functions
+### Code
+- [Line 179](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L179)
+- [Line 190](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L190)
+### Description
+The functions are missing the `isMinterContract` modifier which could potentially lead to unauthorized minting.
+
+## [N-6] Sale Option Should Use Enum
+### Code
+- [Line 54](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L54)
+### Description
+The sale option is currently represented as a boolean. Using an enum would make the contract more readable and future-proof for additional sale options.
+
+## [N-7] Function Name Misleading
+### Code
+- [Line 512](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L512)
+### Description
+The function name `getEndTime` is misleading as it pertains to the public end time. Renaming it to `getPublicEndTime` would be more descriptive and accurate.
 
 
