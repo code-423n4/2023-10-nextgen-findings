@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "mrudenko",
+  "risk": "3",
+  "title": "Bidder who provided most ether value in bids to token which is on auction will not win auction",
+  "issueId": 699,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/699"
+}
