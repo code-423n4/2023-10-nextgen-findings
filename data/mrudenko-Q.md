@@ -101,6 +101,18 @@ The `setFinalSupplyTimeAfterMint` function in `NextGenCore.sol` does not enforce
 #### Suggested Mitigation
 Introduce a maximum time limit for `setFinalSupplyTimeAfterMint` to ensure the `setFinalSupply` function remains callable within a reasonable timeframe.
 
+### [L-7] Issue: Suggestion for Enhanced Ownership Control
+
+#### Description
+The current implementation of admin control in `NextGenAdmins.sol` could be improved by adopting the `Ownable2Step` pattern from OpenZeppelin for a more robust and secure ownership management.
+
+#### Code Reference
+- [Current Admin Implementation](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenAdmins.sol#L39)
+
+#### Suggested Mitigation
+Replace the current custom admin control with OpenZeppelin's `Ownable2Step`, which includes a two-step ownership transfer process to prevent accidental transfers and adds an extra layer of security.
+
+
 
 
 # Non-critical Issues
