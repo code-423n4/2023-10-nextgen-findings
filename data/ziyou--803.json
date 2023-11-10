@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ziyou-",
+  "risk": "2",
+  "title": "When calling the functions mint(), burnToMint(), and burnOrSwapExternalToMint(), if msg.value is greater than getPrice(col), the excess assets will not be refunded. Instead, they will be added to the collectionTotalAmount[col].",
+  "issueId": 803,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/803"
+}
