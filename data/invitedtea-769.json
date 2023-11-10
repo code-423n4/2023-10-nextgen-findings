@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "invitedtea",
+  "risk": "3",
+  "title": "External RNG Dependency Need additional checks or fallback mechanisms ",
+  "issueId": 769,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/769"
+}
