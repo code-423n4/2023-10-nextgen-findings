@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Delvir0",
+  "risk": "2",
+  "title": "The winner of the auction could DOS the claimAuction function resulting in loss of fund of anyone who participated",
+  "issueId": 859,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/859"
+}
