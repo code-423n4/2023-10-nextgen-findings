@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "vampyre",
+  "risk": "3",
+  "title": " `MinterContract.sol::getPrice()` suffers from Precision Loss while calculating rate , allowing all minting functions to execute at low price. ",
+  "issueId": 812,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/812"
+}
