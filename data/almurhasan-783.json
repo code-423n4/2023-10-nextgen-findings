@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "almurhasan",
+  "risk": "2",
+  "title": "Unfair mechanism may be created if setCollectionCosts parameters are changed during collectionphase(between start and end time).",
+  "issueId": 783,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/783"
+}
