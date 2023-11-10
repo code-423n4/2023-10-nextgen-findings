@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "twcctop",
+  "risk": "2",
+  "title": "Error  `totalSupplyOfCollection`  return value.",
+  "issueId": 829,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/829"
+}
