@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "KupiaSec",
+  "risk": "2",
+  "title": "Incorrect comparison leads to cheaper nft price than expected.",
+  "issueId": 904,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/904"
+}
