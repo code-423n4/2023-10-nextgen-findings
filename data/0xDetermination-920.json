@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xDetermination",
+  "risk": "2",
+  "title": "Small mint cost enables griefing/DoS via mass-minting of tokens to deplete the protocol's Chainlink VRF subscription LINK funds",
+  "issueId": 920,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/920"
+}
