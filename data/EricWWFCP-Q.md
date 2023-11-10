@@ -9,3 +9,9 @@ Essentially the Access Control methodology can be simplified and tightened up.Th
    - An Owner can renounce their membership and then there is no more Owner and can never be one. In which case we can no longer register/deregister any more Admins
 
    c. FunctionAdmins can steal all royalties. They can call `updateAdminContract()' with an arbitrary contract and then call emergencyWithdrawal() to send all the royalties to themselves.
+
+   d. Redundant modifiers are can be broken during contract updates. `FunctionAdminRequired()` and `CollectionAdminRequired` are both defined in NextGenCore AND MinterContract. These should be extracted out for two reasons:
+   - Cleaner code to define it in one place and import it into each contract. One way to do this is to implement OZ's AccessControl contract like mentioned in finding (a.)
+   - Keep modifier logic consistent. One of these contracts can possibly have a different definition of one of these modifiers than the other contract. This can happen if somebody calls `updateCoreContract()` and the "new" CoreContract has updated buggy code.
+
+2. ***next***
