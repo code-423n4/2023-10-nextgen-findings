@@ -1,8 +1,30 @@
 # Gas Optimization Report
 
+| Gas Optimizations | Issues                                                                                                      | Instances |
+|-------------------|-------------------------------------------------------------------------------------------------------------|-----------|
+| [G-01]            | Use do-while loops instead of for loops to save gas                                                         | 3         |
+| [G-02]            | Variable only used in current contract can be marked private to save gas                                    | 6         |
+| [G-03]            | Update `newCollectionIndex` to 1 directly in the constructor to save gas                                    | 1         |
+| [G-04]            | Use `++newCollectionIndex` instead of `newCollectionIndex = newCollectionIndex + 1` to save gas             | 1         |
+| [G-05]            | Allowlist/Public start and end times can use smaller uint sizes in struct `collectionPhasesDataStructure`   | 1         |
+| [G-06]            | Redundant check in public phase conditional block present in `mint()` function can be removed to save gas   | 1         |
+| [G-07]            | No need to calculate `mintIndex` since `collectionTokenMintIndex` holds the same value                      | 1         |
+| [G-08]            | Add address(0) checks to prevent unnecessary external calls to primary addresses that are address(0)        | 1         |
+| [G-09]            | Simplify mathematical equation for `decreaserate` in Exponential Decay function (sales model 2) to save gas | 1         |
+| [G-10]            | Return early when token reaches resting price in Linear Descending Sale (sales model 2) to save gas         | 1         |
+| [G-11]            | No need to track variable `highBid` in for loop of function `returnHighestBid()` to save gas                | 1         |
+| [G-12]            | Remove redundant check from function `returnHighestBidder()` to save gas                                    | 1         |
+| [G-13]            | Use `msg.sender` instead of accessing bidder from storage in function `cancelBid()` to save gas             | 1         |
+
+### Total Deployment cost saved: 169935 gas saved
+
+### Total Function execution cost saved: 2140 gas saved (minimum per call)
+
+### Total Gas saved: 172075 gas saved
+
 ## [G-01] Use do-while loops instead of for loops to save gas
 
-There are _ instances of this:
+There are 3 instances of this:
 
 [Link to instance below](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenAdmins.sol#L50C1-L54C6)
 
@@ -161,7 +183,7 @@ File: NextGenCore.sol
 
 ## [G-03] Update `newCollectionIndex` to 1 directly in the constructor to save gas
 
-There is 1 instance:
+There is 1 instance of this:
 
 [Link to instance below](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L110)
 
@@ -336,7 +358,7 @@ There is 1 instance of this:
 
 [Link to instance below](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L429C1-L438C74)
 
-**Function execution cost: 200 gas (CALL opcode = 100 gas * 2 for 2 empty primaryAddreses) - 15 gas (GT opcode = 3 gas * 5 since 3 addresses of artist and 2 addresses of team are checked for address(0)) = 185 gas saved (per call)
+**Function execution cost: 200 gas (CALL opcode = 100 gas * 2 for 2 empty primaryAddreses) - 15 gas (GT opcode = 3 gas * 5 since 3 addresses of artist and 2 addresses of team are checked for address(0)) = 185 gas saved (per call)**
 
 It is possible for primary addresses to hold address(0) value since in the function [proposePrimaryAddressesAndPercentages()](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L380), the artist can have only 1 royalty primary address set with max percentage of royalties the artist can receive. This means `primaryAdd1` and `primaryAdd2` are set to 0 with 0%. 
 
@@ -361,7 +383,26 @@ File: MinterContract.sol
 
 There is 1 instance of this:
 
-[Link to instance below]()
+[Link to instance below](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L551)
+
+**Before VS After**
+
+**Deployment cost: 5454331 - 5450662 = 3669 gas saved**
+
+**Simplification of decreaserate equation:**
+
+![](https://user-images.githubusercontent.com/109625274/282045110-1a77f583-43bb-4ed3-bc4f-834cf12ea846.png)
+
+Instead of this:
+```solidity
+File: MinterContract.sol
+569:  decreaserate = ((price - (collectionPhases[_collectionId].collectionMintCost / (tDiff + 2))) / collectionPhases[_collectionId].timePeriod) * ((block.timestamp - (tDiff * collectionPhases[_collectionId].timePeriod) - collectionPhases[_collectionId].allowlistStartTime));
+```
+Use this:
+```solidity
+File: MinterContract.sol
+569:  decreaserate = (collectionPhases[_collectionId].collectionMintCost / ((tDiff + 1)*(tDiff + 2))) * ((block.timestamp - (tDiff * collectionPhases[_collectionId].timePeriod) - collectionPhases[_collectionId].allowlistStartTime));
+```
 
 ## [G-10] Return early when token reaches resting price in Linear Descending Sale (sales model 2) to save gas
 
@@ -422,3 +463,76 @@ File: MinterContract.sol
 582:                 return collectionPhases[_collectionId].collectionEndMintCost;
 583:             }
 ```
+
+## [G-11] No need to track variable `highBid` in for loop of function `returnHighestBid()` to save gas
+
+There is 1 instance of this:
+
+[Link to instance below](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/AuctionDemo.sol#L69C1-L74C14)
+
+**Function execution cost: 3 gas * auctionInfoData[_tokenid].length + 100 * auctionInfoData[_tokenid].length (since MSTORE costs 3 gas and SLOAD costs 100 gas)**
+
+Similar to the for loop in function [returnHighestBidder()](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/AuctionDemo.sol#L87), the for loop in function [returnHighestBid()](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/AuctionDemo.sol#L69C1-L74C14) does not need to track `highBid` on each iteration since the index holding the last non-zero bidder in the array is being tracked, which can be finally returned in the upcoming if check. **Note: The last non-zero bidder because participateToAuction allows users to participate only if msg.value is greater than previous bid. The non-zero because the last bidder in the array can cancel his bid.)
+
+Instead of this:
+```solidity
+File: AuctionDemo.sol
+70:             for (uint256 i=0; i< auctionInfoData[_tokenid].length; i++) { 
+71:                 if (auctionInfoData[_tokenid][i].bid > highBid && auctionInfoData[_tokenid][i].status == true) {
+72:                     highBid = auctionInfoData[_tokenid][i].bid; 
+73:                     index = i;
+74:                 }
+75:             }
+
+```
+Use this:
+```solidity
+File: AuctionDemo.sol
+70:             for (uint256 i=0; i< auctionInfoData[_tokenid].length; i++) { 
+71:                 if (auctionInfoData[_tokenid][i].bid > highBid && auctionInfoData[_tokenid][i].status == true) {
+72:                     index = i;
+73:                 }
+74:             }
+```
+
+## [G-12] Remove redundant check from function `returnHighestBidder()` to save gas
+
+There is 1 instance of this:
+
+[Link to instance below](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/AuctionDemo.sol#L95)
+
+Remove check on Line 95 since it is already checked in the if check in the for loop on Line 91.
+```solidity
+File: AuctionDemo.sol
+90:         for (uint256 i=0; i< auctionInfoData[_tokenid].length; i++) {
+91:             if (auctionInfoData[_tokenid][i].bid > highBid && auctionInfoData[_tokenid][i].status == true) {
+92:                 index = i;
+93:             }
+94:         }
+95:         if (auctionInfoData[_tokenid][index].status == true) {
+96:                 return auctionInfoData[_tokenid][index].bidder;
+97:             } else {
+98:                 revert("No Active Bidder");
+99:         }
+```
+
+## [G-13] Use `msg.sender` instead of accessing bidder from storage in function `cancelBid()` to save gas
+
+There is 1 instance of this:
+
+[Link to instance below](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/AuctionDemo.sol#L128)
+
+**Function execution cost: 98 gas saved (per call) (CALLER opcode costs 2 gas while SLOAD opcode costs 100 gas)**
+
+We do not need to worry about the bidder not being the msg.sender since that is already checked in the function cancelBid() [here on Line 126](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/AuctionDemo.sol#L126).
+
+Instead of this:
+```solidity
+File: AuctionDemo.sol
+128:         (bool success, ) = payable(auctionInfoData[_tokenid][index].bidder).call{value: auctionInfoData[_tokenid][index].bid}("");
+```
+Use this:
+```solidity
+File: AuctionDemo.sol
+128:         (bool success, ) = payable(msg.sender).call{value: auctionInfoData[_tokenid][index].bid}("");
+``` 
