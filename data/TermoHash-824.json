@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "TermoHash",
+  "risk": "2",
+  "title": "collectionTotalAmount is not increased upon minting with mintAndAuction() function",
+  "issueId": 824,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/824"
+}
