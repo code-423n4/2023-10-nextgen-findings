@@ -311,3 +311,10 @@ https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/Randomiz
         return true;
     }
 ```
+
+https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerRNG.sol#L89-L91
+```solidity
+    function isRandomizerContract() external view returns (bool) {
+        return true;
+    }
+```
