@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "EricWWFCP",
+  "risk": "3",
+  "title": "Dos attack on claimAuction() and cancelAllBids() - users can't get their money back.",
+  "issueId": 974,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/974"
+}
