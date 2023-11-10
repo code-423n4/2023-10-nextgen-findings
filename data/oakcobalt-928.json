@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "oakcobalt",
+  "risk": "3",
+  "title": "In RandomizerRNG.sol,  msg.sender is not correctly handled causing transaction always revert, breaking the token minting process",
+  "issueId": 928,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/928"
+}
