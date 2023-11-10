@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xblackskull",
+  "risk": "2",
+  "title": "As protocol relies heavily on admin actions, single-step ownership transfer pattern is dangerous",
+  "issueId": 892,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/892"
+}
