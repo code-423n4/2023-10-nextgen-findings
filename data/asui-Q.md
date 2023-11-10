@@ -1,2 +1,3 @@
 1. ```cancelAllBids``` function only cancels the msg.sender's bid even though the name suggest to cancel all bids.
    Functions like these should never even be used because if we were to cancel all the bids at once and since we are dealing with .call with values as eth they can be reverted and DOS by a malicious address. 
+2. In the minter contract in ```mintAndAuction``` function should check that the given ```_auctionEndTime``` is greater than the current block.timestamp. Otherwise if there is an auction with an already expired auction end time it makes no sense.
