@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Kow",
+  "risk": "2",
+  "title": "Bidder may lose all their paid ETH if their bid is executed at `auctionEndTime`",
+  "issueId": 786,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/786"
+}
