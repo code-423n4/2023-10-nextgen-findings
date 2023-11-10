@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "droptpackets",
+  "risk": "3",
+  "title": "Timing + Reentrancy Attack Allows for Auction Winner to Receive ERC721 Token and Refund Themselves Winning Bid Amount",
+  "issueId": 934,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/934"
+}
