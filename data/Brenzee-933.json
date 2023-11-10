@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Brenzee",
+  "risk": "2",
+  "title": "When the NextGenCore contract is changed in the MinterContract or vice versa, it may cause DoS or bookkeeping problems",
+  "issueId": 933,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/933"
+}
