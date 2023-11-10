@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "KupiaSec",
+  "risk": "3",
+  "title": "Reentrancy attack on minter contract enables users to purchase more NFTs than max purchasable number both in allowlist/public periods.",
+  "issueId": 902,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/902"
+}
