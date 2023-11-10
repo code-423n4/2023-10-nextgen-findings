@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "JohnnyTime",
+  "risk": "2",
+  "title": "The mintAndAuction function can be exploited for airdropping tokens and diluting the overall supply of collections",
+  "issueId": 910,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/910"
+}
