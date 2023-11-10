@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0x_6a70",
+  "risk": "2",
+  "title": "No check for team1 and team2 when payArtist() function is invoked.",
+  "issueId": 794,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/794"
+}
