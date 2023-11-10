@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "xiao",
+  "risk": "3",
+  "title": "In the claimAuction function, the user with the highest bid cannot send the balance to the ownerOfToken's address",
+  "issueId": 857,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/857"
+}
