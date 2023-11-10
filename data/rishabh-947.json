@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "rishabh",
+  "risk": "3",
+  "title": "Attacker can game the auction, resulting in either winning the NFT at `1 wei` or freezing the funds! ",
+  "issueId": 947,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/947"
+}
