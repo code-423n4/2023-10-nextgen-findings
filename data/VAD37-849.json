@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "VAD37",
+  "risk": "3",
+  "title": "`getPrice()` return wrong price (original mint cost) when `block.timestamp == publicEndTime`. Wrong timestamp comparision operation",
+  "issueId": 849,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/849"
+}
