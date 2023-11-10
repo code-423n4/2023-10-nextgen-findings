@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xweb3boy",
+  "risk": "2",
+  "title": "`MinterContract.sol ::airDropTokens()` -  Airdrop function will DoS for large collection size.",
+  "issueId": 929,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/929"
+}
