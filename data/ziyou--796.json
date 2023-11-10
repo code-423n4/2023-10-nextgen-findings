@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ziyou-",
+  "risk": "2",
+  "title": "There is a lack of checking the size of _tokmin and _tokmax",
+  "issueId": 796,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/796"
+}
