@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "oakcobalt",
+  "risk": "3",
+  "title": "Bidders whose bid settles at auction end timestamp might have their bidding funds permanently lost to them",
+  "issueId": 962,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/962"
+}
