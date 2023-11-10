@@ -294,6 +294,17 @@ Could be change to
 ```solidity
 require(INextGenAdmins(_newadminsContract).isAdminContract() == true, "The provided contract is not an admin contract");
 ```
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenAdmins.sol#L32-L33
+
+```solidity
+  require((adminPermissions[msg.sender] == true) || (_msgSender()== owner()), "Not allowed");
+```
+
+Could be changed to 
+
+```solidity
+require((adminPermissions[msg.sender] == true) || (_msgSender()== owner()), "You are not authorized to perform this action. Only admins or the owner can perform this action");
+```
 
 
 
