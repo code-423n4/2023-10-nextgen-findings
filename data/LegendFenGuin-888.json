@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "LegendFenGuin",
+  "risk": "3",
+  "title": "It is possible to mint more NFT than the maxAllowance through Reentrancy.",
+  "issueId": 888,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/888"
+}
