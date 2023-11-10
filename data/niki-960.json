@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "niki",
+  "risk": "2",
+  "title": "If the owner is change in Ownable.sol the old owner is not removed from adminPermissions mapping",
+  "issueId": 960,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/960"
+}
