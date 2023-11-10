@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xDetermination",
+  "risk": "2",
+  "title": "MinterContract.payArtist() needs to check return values or transfers can fail and ETH will be stuck in contract",
+  "issueId": 921,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/921"
+}
