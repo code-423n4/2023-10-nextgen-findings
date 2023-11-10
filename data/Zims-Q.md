@@ -1,3 +1,4 @@
+1.
 The `id` in `getWord` seems off.
         // returns a word based on index
 ```
@@ -16,3 +17,14 @@ I would consider:
         return wordsList[id - 1]; // subtract 1 to align with the zero-indexed array
 ```
 instead of the if statement
+
+2.
+`emergencyWithdraw()` receives the status of the success or failure of the TXn, but it doesn't revert on failure.
+https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L461-L466
+
+Add a require() after the txn.
+```    
+(bool success, ) = payable(admin).call{value: balance}("");
+require(success, "Transfer failed");
+emit Withdraw(msg.sender, success, balance);
+```
