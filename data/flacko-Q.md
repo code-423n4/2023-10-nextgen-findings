@@ -47,7 +47,7 @@ https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/AuctionD
     }
 ```
 
-## [NC-4] Extract all collections delegation address to a constant
+## [NC-4] Extract all collections delegation address occurrences to a constant
 
 Extracting the `0x8888888888888888888888888888888888888888` address to a constant will improve code readability.
 
@@ -177,6 +177,12 @@ https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenC
         require((isCollectionCreated[_collectionID] == true) && (collectionFreeze[_collectionID] == false), "Not allowed");
 ```
 No need of brackets around `isCollectionCreated[_collectionID] == true` and `collectionFreeze[_collectionID] == false` 
+
+https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L361
+```solidity
+        require(msg.value >= (getPrice(col) * 1), "Wrong ETH");
+```
+No need of brackets around `getPrice(col) * 1`
 
 ## [NC-7] Can define variable value only once
 
