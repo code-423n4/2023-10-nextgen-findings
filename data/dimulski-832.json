@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "dimulski",
+  "risk": "2",
+  "title": "Auction can't be created for collections with a Fixed Price Sale model",
+  "issueId": 832,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/832"
+}
