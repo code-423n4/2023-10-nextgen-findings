@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "niki",
+  "risk": "2",
+  "title": "Doesnt remove the value of the old collection when you burnToMint",
+  "issueId": 952,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/952"
+}
