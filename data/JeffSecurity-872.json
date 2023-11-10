@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "JeffSecurity",
+  "risk": "2",
+  "title": "addRandomizer() and setTokenHash() functions don't check if `_collectionID` exist",
+  "issueId": 872,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/872"
+}
