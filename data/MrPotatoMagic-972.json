@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "MrPotatoMagic",
+  "risk": "3",
+  "title": " \"1mint/period\" core invariant can be broken through burnToMInt() function for a collection using Periodic Sale model (sales option 3) during public phase",
+  "issueId": 972,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/972"
+}
