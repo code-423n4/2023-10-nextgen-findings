@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xDetermination",
+  "risk": "2",
+  "title": "Funds can be permanently stuck in the AuctionDemo contract because success of low-level ETH transfers is not checked",
+  "issueId": 918,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/918"
+}
