@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "EricWWFCP",
+  "risk": "2",
+  "title": "Reentrancy in _mintProcessing()  - User can mint more items than allowed",
+  "issueId": 961,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/961"
+}
