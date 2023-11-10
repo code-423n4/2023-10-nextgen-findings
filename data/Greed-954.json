@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Greed",
+  "risk": "3",
+  "title": "A `reentrancy` issue and a clumsy comparison of `block.timestamp` allows a malicious user to mint an NFT for free during an auction as long as he is the highest bidder",
+  "issueId": 954,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/954"
+}
