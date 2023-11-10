@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xDetermination",
+  "risk": "2",
+  "title": "Airdrops can be DoSed if a token recipient does not implement IERC721Receiver",
+  "issueId": 914,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/914"
+}
