@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xDetermination",
+  "risk": "3",
+  "title": "AuctionDemo.sol: Bidding on auctions, cancelling bids, and ending/claiming of auctions can occur in the same block, resulting in a myriad of consequences including locking of user funds, refunding users too much ETH, and reentrancy drainage of the contract",
+  "issueId": 915,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/915"
+}
