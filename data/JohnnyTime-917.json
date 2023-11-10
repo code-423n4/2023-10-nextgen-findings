@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "JohnnyTime",
+  "risk": "3",
+  "title": "emergencyWithdraw implementation might cause ETH to be lost forever",
+  "issueId": 917,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/917"
+}
