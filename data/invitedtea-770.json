@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "invitedtea",
+  "risk": "3",
+  "title": "Use of blockhash for Randomnes can be influenced by miners",
+  "issueId": 770,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/770"
+}
