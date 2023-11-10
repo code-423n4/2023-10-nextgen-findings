@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "MaNcHaSsS",
+  "risk": "2",
+  "title": "```cancelAllBids()``` allows the higest bidder to cancel his bid and DoS an auction",
+  "issueId": 924,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/924"
+}
