@@ -14,4 +14,7 @@ Essentially the Access Control methodology can be simplified and tightened up.Th
    - Cleaner code to define it in one place and import it into each contract. One way to do this is to implement OZ's AccessControl contract like mentioned in finding (a.)
    - Keep modifier logic consistent. One of these contracts can possibly have a different definition of one of these modifiers than the other contract. This can happen if somebody calls `updateCoreContract()` and the "new" CoreContract has updated buggy code.
 
-2. ***next***
+2. ***Suggestion for `payArtist()` function***
+Vulnerabilities aside it might make sense to remove this logic altogether and just withdraw any royalties to a payment splitter contract. You can write your own or use an established, update-able, well audited solution that also simplifies your code. OpenZeppelin has a [PaymentSplitter](https://docs.openzeppelin.com/contracts/2.x/api/payment) contract which is discontinued but can still work or serve as an example and another popular solution is [0xSplits](https://splits.org/).
+
+    Also, your current implementation assumes three "artist" addresses and two "team" addresses. With a payment splitter we can add/remove payees and update payout percentages if you ever decide you want a different configuration.
