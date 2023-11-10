@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "JeffSecurity",
+  "risk": "2",
+  "title": "updateAdminsContract() function in RandomizerNXT is missing check for isAdminContract() == true",
+  "issueId": 871,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/871"
+}
