@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0x656c68616a",
+  "risk": "3",
+  "title": "Double Payout Exploit in Auction System",
+  "issueId": 862,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/862"
+}
