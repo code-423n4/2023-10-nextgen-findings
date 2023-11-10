@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "gumgumzum",
+  "risk": "2",
+  "title": "Incorrect token hashing in RandomizerVRF.sol and RandomizerVRF.sol",
+  "issueId": 816,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/816"
+}
