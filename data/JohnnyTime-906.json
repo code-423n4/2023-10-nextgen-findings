@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "JohnnyTime",
+  "risk": "3",
+  "title": "A bidder can disrupt all auctions by making the ETH transfer fail, trapping the Auctions ETH in the AuctionDemo.sol contract indefinitely",
+  "issueId": 906,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/906"
+}
