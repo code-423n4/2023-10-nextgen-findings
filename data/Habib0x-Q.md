@@ -239,7 +239,61 @@ Could be changed to
 require(collectionTokenMintIndex <= gencore.viewTokensIndexMax(col), "Token supply limit reached");
 ```
 
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L361-L362
 
+```solidity
+        require(msg.value >= (getPrice(col) * 1), "Wrong ETH");
+```
+
+Could be changed to 
+
+```solidity 
+require(msg.value >= (getPrice(col) * 1), "The amount of ETH sent is not sufficient to cover the price of the collection");
+```
+
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L381-L382
+
+```solidity
+        require (collectionArtistPrimaryAddresses[_collectionID].status == false, "Already approved");
+```
+
+Could be changed to 
+```solidity
+require(collectionArtistPrimaryAddresses[_collectionID].status == false, "This collection has already been approved");
+```
+
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L395
+
+```solidity
+        require (collectionArtistSecondaryAddresses[_collectionID].status == false, "Already approved");
+```
+
+Could be changed to 
+
+```solidity 
+require(collectionArtistSecondaryAddresses[_collectionID].status == false, "This collection has already been approved");
+```
+
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L416-L417
+```solidity
+        require(collectionArtistPrimaryAddresses[_collectionID].status == true, "Accept Royalties");
+```
+Could be changed to 
+
+```solidity
+require(collectionArtistPrimaryAddresses[_collectionID].status == true, "The artist needs to accept royalties for this collection");
+```
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L455-L456
+
+```solidity
+    require(INextGenAdmins(_newadminsContract).isAdminContract() == true, "Contract is not Admin");
+```
+
+Could be change to 
+
+```solidity
+require(INextGenAdmins(_newadminsContract).isAdminContract() == true, "The provided contract is not an admin contract");
+```
 
 
 
