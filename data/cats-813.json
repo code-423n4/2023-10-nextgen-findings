@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "cats",
+  "risk": "2",
+  "title": "Multiple functions allow for `msg.value` to be larger than required and difference is not refunded",
+  "issueId": 813,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/813"
+}
