@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "bird-flu",
+  "risk": "2",
+  "title": "Auction payout goes to AuctionDemo contract owner, not the token owner",
+  "issueId": 971,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/971"
+}
