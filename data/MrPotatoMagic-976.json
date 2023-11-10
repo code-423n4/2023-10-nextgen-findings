@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "MrPotatoMagic",
+  "risk": "3",
+  "title": "Missing retrieveTokensMintedPublicPerAddress <= viewMaxAllowance check in functions burnToMint() and burnOrSwapExternalToMint() allows user/attacker to mint more tokens than max allowance",
+  "issueId": 976,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/976"
+}
