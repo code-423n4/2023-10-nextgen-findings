@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "VAD37",
+  "risk": "2",
+  "title": "`XRandoms.sol` only return random *99 words* out of 100 provided words",
+  "issueId": 853,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/853"
+}
