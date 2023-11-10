@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "t0x1c",
+  "risk": "2",
+  "title": "maxCollectionPurchases` constraint set via `setCollectionData()` is not respected by `mintAndAuction()`",
+  "issueId": 782,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/782"
+}
