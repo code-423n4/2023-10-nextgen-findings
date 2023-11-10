@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "LegendFenGuin",
+  "risk": "3",
+  "title": "Malicious user can mint nft bigger than reservedMaxTokensIndex.",
+  "issueId": 886,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/886"
+}
