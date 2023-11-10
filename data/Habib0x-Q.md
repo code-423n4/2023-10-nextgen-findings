@@ -305,9 +305,69 @@ Could be changed to
 ```solidity
 require((adminPermissions[msg.sender] == true) || (_msgSender()== owner()), "You are not authorized to perform this action. Only admins or the owner can perform this action");
 ```
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerNXT.sol#L35
+```solidity
+      require(adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true , "Not allowed");
+```
 
+Could be changed to 
 
+```solidity 
+require(adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true, "You are not authorized to perform this action. Only function admins can perform this action");
+```
 
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerVRF.sol#L48-L49
+```solidity
+      require(adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true , "Not allowed");
+```
+Could be changed to 
+```solidity
+require(adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true, "You are not authorized to perform this action. Only function admins can perform this action");
+```
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerVRF.sol#L95-L96
+```solidity
+        require(INextGenAdmins(_newadminsContract).isAdminContract() == true, "Contract is not Admin");
+```
+Could be changed to 
+```solidity
+require(INextGenAdmins(_newadminsContract).isAdminContract() == true, "The provided contract is not an admin contract");
+```
+
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerRNG.sol#L36-L37
+
+```solidity
+        require(adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true, "Not allowed");
+```
+
+Could be changed to 
+
+```solidity 
+require(adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true, "You are not authorized to perform this action. Only function admins can perform this action");
+```
+
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerRNG.sol#L62-L63
+
+```solidity 
+        require(INextGenAdmins(_newadminsContract).isAdminContract() == true, "Contract is not Admin");
+```
+
+Could be changed to 
+
+```solidity 
+require(INextGenAdmins(_newadminsContract).isAdminContract() == true, "The provided contract is not an admin contract");
+```
+
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/AuctionDemo.sol#L32
+
+```solidity 
+      require(msg.sender == returnHighestBidder(_tokenId) || adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true, "Not allowed");
+```
+
+Could be changed to 
+
+```solidity 
+require(msg.sender == returnHighestBidder(_tokenId) || adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true, "Error: You are not authorized to execute this function. Only the current highest bidder or an authorized administrator can execute this function on the contract.");
+```
 
 
 
