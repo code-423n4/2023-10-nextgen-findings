@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "invitedtea",
+  "risk": "2",
+  "title": "The `claimAuction` function is avaiable to a Denial of Service (DoS) attack ",
+  "issueId": 768,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/768"
+}
