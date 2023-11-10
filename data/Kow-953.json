@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Kow",
+  "risk": "2",
+  "title": "An address can mint more than `maxCollectionPurchases` through reentrancy",
+  "issueId": 953,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/953"
+}
