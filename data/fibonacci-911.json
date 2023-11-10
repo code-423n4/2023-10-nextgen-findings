@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "fibonacci",
+  "risk": "3",
+  "title": "A token can be stolen from the auction due to an incorrect condition in the end-time validation",
+  "issueId": 911,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/911"
+}
