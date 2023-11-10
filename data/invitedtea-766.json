@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "invitedtea",
+  "risk": "3",
+  "title": " Pseudo-Random Number Generation `block.prevrandao`, `blockhash(block.number - 1)`, and `block.timestamp` can be influenced by miners",
+  "issueId": 766,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/766"
+}
