@@ -541,5 +541,7 @@ In essence, the Nextgen project holds the potential to be a compelling protocol 
 
 Furthermore, enhancing documentation and code comments is recommended to foster better understanding and collaboration among developers and security researchers.
 
+
+
 ### Time spent:
-40 hours
+50 hours
