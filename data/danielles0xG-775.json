@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "danielles0xG",
+  "risk": "2",
+  "title": "_safeMint missing non-reentrancy protection, allowlist and regular user can bypass mint the max amount allowed.",
+  "issueId": 775,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/775"
+}
