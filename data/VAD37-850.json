@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "VAD37",
+  "risk": "3",
+  "title": "Reentrancy issue. User can easily mint more than allowed presale, bypassing merkle root limit",
+  "issueId": 850,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/850"
+}
