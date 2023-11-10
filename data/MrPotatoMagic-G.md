@@ -357,7 +357,7 @@ File: MinterContract.sol
 453:         (bool success5, ) = payable(tm2).call{value: teamRoyalties2}("");
 ```
 
-## [G-09] Simplify mathematical equation for Exponential Decay function (sales model 2) to save gas
+## [G-09] Simplify mathematical equation for `decreaserate` in Exponential Decay function (sales model 2) to save gas
 
 There is 1 instance of this:
 
