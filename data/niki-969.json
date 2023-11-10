@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "niki",
+  "risk": "2",
+  "title": "In AuctionDemo.sol when the winner or Admin call claimAuction malicious user can grief the function by using all of the gas left",
+  "issueId": 969,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/969"
+}
