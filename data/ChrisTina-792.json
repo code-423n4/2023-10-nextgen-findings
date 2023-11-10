@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ChrisTina",
+  "risk": "3",
+  "title": "Funds in AuctionContract could be drained because an auction can be claimed while it is still ongoing",
+  "issueId": 792,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/792"
+}
