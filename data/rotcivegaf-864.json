@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "rotcivegaf",
+  "risk": "3",
+  "title": "The founds of the bidder goes to the owner of the **auctionDemo** contract instead of the `NextGenCore`(ERC721) token owner",
+  "issueId": 864,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/864"
+}
