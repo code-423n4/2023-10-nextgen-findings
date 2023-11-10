@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "oakcobalt",
+  "risk": "2",
+  "title": "When a collection is set for sales model 3,  mintAndAuction() can be DOSed by either front-run or normal minting",
+  "issueId": 950,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/950"
+}
