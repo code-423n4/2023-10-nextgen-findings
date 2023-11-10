@@ -105,4 +105,149 @@ Could be changed to
 ```solidity 
 require(block.timestamp > IMinterContract(minterContract).getEndTime(_collectionID) + collectionAdditionalData[_collectionID].setFinalSupplyTimeAfterMint, "The set final supply time has not passed yet");
 ```
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L144-L145
+```solidity
+      require(adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true , "Not allowed");
+```
+
+Could be change to 
+
+```solidity 
+require(adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true, "You are not authorized to perform this action");
+```
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L151-L152
+
+```solidity
+      require(adminsContract.retrieveCollectionAdmin(msg.sender,_collectionID) == true || adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true, "Not allowed");
+```
+
+Could be change to 
+
+```solidity
+require(adminsContract.retrieveCollectionAdmin(msg.sender, _collectionID) == true || adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true, "You are not authorized to perform this action");
+```
+
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L158-L159
+```solidity
+        require(gencore.retrievewereDataAdded(_collectionID) == true, "Add data");
+```
+
+```solidity
+require(gencore.retrievewereDataAdded(_collectionID) == true, "Please add data to this collection before minting");
+```
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L171-L172
+```solidity
+        require(setMintingCosts[_collectionID] == true, "Set Minting Costs");
+```
+
+Could be changed to 
+
+```solidity
+require(setMintingCosts[_collectionID] == true, "Please set the minting costs for this collection before minting");
+```
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L182
+
+```solidity
+        require(gencore.retrievewereDataAdded(_collectionID) == true, "Add data");
+```
+could be changed to 
+
+```solidity
+require(gencore.retrievewereDataAdded(_collectionID) == true, "Please add data to this collection before minting");
+```
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L186-L187
+
+```solidity
+            require(collectionTokenMintIndex <= gencore.viewTokensIndexMax(_collectionID), "No supply");
+```
+
+```solidity
+require(collectionTokenMintIndex <= gencore.viewTokensIndexMax(_collectionID), "This collection has no remaining supply to mint");
+```
+
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L197-L198
+
+```solidity
+        require(setMintingCosts[_collectionID] == true, "Set Minting Costs");
+```
+
+could be change to 
+```solidity 
+require(setMintingCosts[_collectionID] == true, "Please set the minting costs for this collection before minting");
+```
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L211-L212
+
+```solidity
+                require(isAllowedToMint == true, "No delegation");
+```
+
+Could be changed to 
+```solidity
+require(isAllowedToMint == true, "This collection is not currently allowed to mint tokens");
+```
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L213-L217
+```solidity 
+                require(_maxAllowance >= gencore.retrieveTokensMintedALPerAddress(col, _delegator) + _numberOfTokens, "AL limit");
+```
+
+Could be changed to 
+
+```solidity
+require(_maxAllowance >= gencore.retrieveTokensMintedALPerAddress(col, _delegator) + _numberOfTokens, "You have exceeded the maximum allowance for this collection");
+```
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L223-L224
+
+```solidity 
+            require(_numberOfTokens <= gencore.viewMaxAllowance(col), "Change no of tokens");
+```
+
+Could be changed to 
+
+```solidity 
+require(_numberOfTokens <= gencore.viewMaxAllowance(col), "You cannot mint more tokens than the maximum allowance for this collection");
+```
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L224-L225
+
+```solidity
+            require(gencore.retrieveTokensMintedPublicPerAddress(col, msg.sender) + _numberOfTokens <= gencore.viewMaxAllowance(col), "Max");
+```
+Could be changed to 
+```solidity
+require(gencore.retrieveTokensMintedPublicPerAddress(col, msg.sender) + _numberOfTokens <= gencore.viewMaxAllowance(col), "Exceeded maximum token allowance");
+```
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L228-L229
+
+```solidity
+revert("No Minting")
+```
+
+Could be changed to 
+
+```solidity
+revert("Minting Not Allowed");
+```
+
+https://vscode.dev/github/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L360
+
+```solidity
+        require(collectionTokenMintIndex <= gencore.viewTokensIndexMax(col), "No supply");
+```
+
+Could be changed to 
+
+```solidity
+require(collectionTokenMintIndex <= gencore.viewTokensIndexMax(col), "Token supply limit reached");
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
