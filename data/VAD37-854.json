@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "VAD37",
+  "risk": "2",
+  "title": "It is very easy for `CollectionAdmin` or artist themself to update NFT onchain-metadata into something malicious purpose without admin approval after sale",
+  "issueId": 854,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/854"
+}
