@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "MrPotatoMagic",
+  "risk": "3",
+  "title": "User can mint tokens through mint() function for no cost or a small fee instead of minting through burnToMint() during public phase",
+  "issueId": 1102,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1102"
+}
