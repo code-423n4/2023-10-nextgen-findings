@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "bronze_pickaxe",
+  "risk": "3",
+  "title": "Addresses can mint more than `maxCollectionPurchases` due to reentrancy, breaking the functionality of the project",
+  "issueId": 1065,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1065"
+}
