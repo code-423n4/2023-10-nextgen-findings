@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Viktor_Cortess",
+  "risk": "2",
+  "title": "Merkle leaves can have the same length as the parents that are hashed in the burnOrSwapExternalToMint function of the minter contract",
+  "issueId": 1095,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1095"
+}
