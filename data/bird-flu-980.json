@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "bird-flu",
+  "risk": "2",
+  "title": "Mint can be reentered to mint more than the maximum allowed per address",
+  "issueId": 980,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/980"
+}
