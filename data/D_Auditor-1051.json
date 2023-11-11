@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "D_Auditor",
+  "risk": "2",
+  "title": "Double Spending on the part of users who wish to exchange their old tokens for new ones in `MinterContract::burnToMint()`",
+  "issueId": 1051,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1051"
+}
