@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "xiao",
+  "risk": "3",
+  "title": "If the contract of the malicious ownerOfToken refuses to receive payment, the assets of the highest bidder will be frozen.",
+  "issueId": 1070,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1070"
+}
