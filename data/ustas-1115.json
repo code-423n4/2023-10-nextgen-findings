@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ustas",
+  "risk": "2",
+  "title": "Several contracts in the system have identical function selectors which can lead to broken access control in case there are Function Admins assigned",
+  "issueId": 1115,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1115"
+}
