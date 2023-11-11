@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ak1",
+  "risk": "3",
+  "title": "Auction winner can drain the funds when `block.timestamp == minter.getAuctionEndTime(_tokenid)`",
+  "issueId": 981,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/981"
+}
