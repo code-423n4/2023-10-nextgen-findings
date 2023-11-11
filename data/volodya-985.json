@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "volodya",
+  "risk": "3",
+  "title": "Any user wll be able to get double their bid if claimAuction will be called at \"minter.getAuctionEndTime(_tokenid)\" time",
+  "issueId": 985,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/985"
+}
