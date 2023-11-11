@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Brenzee",
+  "risk": "2",
+  "title": "RandomizerVRF contract will not work, because the wrong keyHash is used",
+  "issueId": 1004,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1004"
+}
