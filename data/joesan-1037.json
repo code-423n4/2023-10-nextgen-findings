@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "joesan",
+  "risk": "3",
+  "title": "user can use one burncollection NFT to mint multiple NFT's due to lack of proper CEI in burnToMint",
+  "issueId": 1037,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1037"
+}
