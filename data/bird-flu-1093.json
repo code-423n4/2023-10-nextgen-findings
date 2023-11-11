@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "bird-flu",
+  "risk": "3",
+  "title": "Users can cancel bids and receive a second refund after auction has been claimed",
+  "issueId": 1093,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1093"
+}
