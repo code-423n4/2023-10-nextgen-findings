@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ustas",
+  "risk": "2",
+  "title": "Hash fulfillment of a token will revert if the randomizer is changed before it",
+  "issueId": 1118,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1118"
+}
