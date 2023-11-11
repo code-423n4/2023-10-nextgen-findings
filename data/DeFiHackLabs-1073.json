@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "DeFiHackLabs",
+  "risk": "2",
+  "title": "`XRandoms.getWord()` never selects the last item in the array",
+  "issueId": 1073,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1073"
+}
