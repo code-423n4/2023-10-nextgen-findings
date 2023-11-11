@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "MrPotatoMagic",
+  "risk": "3",
+  "title": "Attacker can win/claim auctioned token without providing ETH as well as double the amount of ETH from his previous active bids",
+  "issueId": 1077,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1077"
+}
