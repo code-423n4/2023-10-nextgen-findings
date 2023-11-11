@@ -18,8 +18,3 @@ https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b2
 ### Recommendation:
 Add a error check for if collectionCirculationSupply > collectionTotalSupply .
 
-
-
-## [4] Add a limit for the maximum number of characters per line
-The solidity documentation recommends a maximum of 120 characters.
-Consider adding a limit of 120 characters or less to prevent large lines.
