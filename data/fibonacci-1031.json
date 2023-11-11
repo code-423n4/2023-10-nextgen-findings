@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "fibonacci",
+  "risk": "2",
+  "title": "Funds can get permanently stuck in an auction due to a lack of checks on the results of transfers",
+  "issueId": 1031,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1031"
+}
