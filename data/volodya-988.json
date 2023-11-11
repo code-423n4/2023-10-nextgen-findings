@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "volodya",
+  "risk": "3",
+  "title": "User will lose their bids if they have bid after claimAuction",
+  "issueId": 988,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/988"
+}
