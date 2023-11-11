@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "circlelooper",
+  "risk": "3",
+  "title": "Auction refunding can be DOSed by malicious winner",
+  "issueId": 1041,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1041"
+}
