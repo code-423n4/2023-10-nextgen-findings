@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "rotcivegaf",
+  "risk": "3",
+  "title": "A bidder with multiple bids can empty the `auctionDemo` contract funds",
+  "issueId": 977,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/977"
+}
