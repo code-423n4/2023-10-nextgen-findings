@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "VAD37",
+  "risk": "3",
+  "title": "`AuctionDemo` bid time validation issues. Fail to withdraw bid after auction end. Anyone can remove other people bid",
+  "issueId": 1079,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1079"
+}
