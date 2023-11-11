@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "VAD37",
+  "risk": "3",
+  "title": "Inefficient view bid `AuctionDemo.sol` cost user so much unnecessary gas fee. It is very easy to reach 30 millions block gas limit on `claimAuction()` after ~1930 bids participated",
+  "issueId": 1083,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1083"
+}
