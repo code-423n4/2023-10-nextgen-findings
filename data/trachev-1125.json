@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "trachev",
+  "risk": "3",
+  "title": "Any bidder can prevent all other bidders from refunding their bids and a winner from claiming their NFT in `claimAuction`",
+  "issueId": 1125,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1125"
+}
