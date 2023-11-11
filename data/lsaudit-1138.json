@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "lsaudit",
+  "risk": "3",
+  "title": "Loss of funds due to rounding down in `payArtist()`",
+  "issueId": 1138,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1138"
+}
