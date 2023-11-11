@@ -1,5 +1,8 @@
+### [Low] Consider introducing `emergencyWithdraw()` to `AuctionDemo`
+In case of emergency, the auction participant fund in AuctionDemo should be withdrawed to prevent further loss.
+
 ### [Low] Function selector can clash
-Usage of function selector for permission in access control modifier can clash and lead to unexpected address having unexpected permission.
+Usage of function selector for permission in access control modifier can clash and lead to unexpected address having unexpected permission. Consider implementing access control using clear-defined roles using `Ownable` which is already imported into the smart contract.
 
 Example below will pass because the selector bytes will be the same.
 ```
