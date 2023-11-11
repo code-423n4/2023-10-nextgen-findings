@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "cu5t0mpeo",
+  "risk": "3",
+  "title": "If the auctioneer is a contract and does not implement the `onERC721Received` function, it will be DDosed.",
+  "issueId": 1112,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1112"
+}
