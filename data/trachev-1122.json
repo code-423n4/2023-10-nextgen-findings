@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "trachev",
+  "risk": "2",
+  "title": "Auctions will always be won by MEV bots and validators, leading to auctions ending at a low price",
+  "issueId": 1122,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1122"
+}
