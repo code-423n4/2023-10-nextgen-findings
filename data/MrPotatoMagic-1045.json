@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "MrPotatoMagic",
+  "risk": "3",
+  "title": "Attacker can prevent highest bidder from receiving auctioned token and users from receiving their ETH back",
+  "issueId": 1045,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1045"
+}
