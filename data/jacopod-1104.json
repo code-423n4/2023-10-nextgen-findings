@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "jacopod",
+  "risk": "2",
+  "title": "An attacker can mint an arbitrary number of tokens in a single transaction, bypassing the max-allowance rules both during allow-list and public phases",
+  "issueId": 1104,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1104"
+}
