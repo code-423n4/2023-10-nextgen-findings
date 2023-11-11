@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "niki",
+  "risk": "2",
+  "title": "Re-requesting randomness with VRF from chainlink is a security anti-pattern",
+  "issueId": 1021,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1021"
+}
