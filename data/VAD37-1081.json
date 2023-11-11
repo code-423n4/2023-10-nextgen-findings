@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "VAD37",
+  "risk": "3",
+  "title": "Steal ETH from `AuctionDemo.sol`. Duplicate withdraw bid when `block.timestamp == getAuctionEndTime()`",
+  "issueId": 1081,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1081"
+}
