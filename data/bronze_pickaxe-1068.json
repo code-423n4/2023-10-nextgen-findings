@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "bronze_pickaxe",
+  "risk": "2",
+  "title": "Rounding error when using Periodic Sale option with rate > 0",
+  "issueId": 1068,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1068"
+}
