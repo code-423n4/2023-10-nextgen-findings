@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "GKBG",
+  "risk": "2",
+  "title": "MinterContract.mint reverts if in public sale msg.sender already has minted tokens",
+  "issueId": 1046,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1046"
+}
