@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Viktor_Cortess",
+  "risk": "3",
+  "title": "Wrong receiver of the highest bid in the claimAuction function",
+  "issueId": 1098,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1098"
+}
