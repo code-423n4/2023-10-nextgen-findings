@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "DeFiHackLabs",
+  "risk": "3",
+  "title": "Auction Contract Allows Bidders to Exploit Double-Refund, Potentially Resulting in Unauthorized Fund Retrieval",
+  "issueId": 1006,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1006"
+}
