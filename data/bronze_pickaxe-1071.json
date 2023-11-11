@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "bronze_pickaxe",
+  "risk": "3",
+  "title": "Usage of Safe wallet can lead to permanent DoS of an auction, losing all funds of participants",
+  "issueId": 1071,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1071"
+}
