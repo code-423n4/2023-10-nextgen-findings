@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "fibonacci",
+  "risk": "3",
+  "title": "Funds can get permanently stuck in an auction due to DoS",
+  "issueId": 1023,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1023"
+}
