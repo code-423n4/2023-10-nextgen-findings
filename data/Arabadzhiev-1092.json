@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Arabadzhiev",
+  "risk": "2",
+  "title": "Malicious users can double claim their bid/s because of a less than or equal comparison in the cancelBid and cancelAllBids functions",
+  "issueId": 1092,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1092"
+}
