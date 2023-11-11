@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "audityourcontracts",
+  "risk": "2",
+  "title": "Collection signing prone to error and cannot be verified on-chain",
+  "issueId": 1131,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1131"
+}
