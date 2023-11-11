@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "PENGUN",
+  "risk": "2",
+  "title": "At publicEndTime, the user must mint with the more expensive price.",
+  "issueId": 990,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/990"
+}
