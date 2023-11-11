@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "MrPotatoMagic",
+  "risk": "3",
+  "title": "Attacker can frontrun another user to call participateToAuction() followed by claimAuction() right at auctionEndTime leading to permanent locking of the other user's ETH",
+  "issueId": 1094,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1094"
+}
