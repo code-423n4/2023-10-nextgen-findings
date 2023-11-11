@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "lsaudit",
+  "risk": "3",
+  "title": "`AuctionDemo.sol` - `returnHighestBidder()` does not update `highestBid`",
+  "issueId": 1139,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1139"
+}
