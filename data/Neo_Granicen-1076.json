@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Neo_Granicen",
+  "risk": "3",
+  "title": "The reentrancy vulnerability in mint in nextgencore can allow an attacker to mint more tokens than they are allowed to ",
+  "issueId": 1076,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1076"
+}
