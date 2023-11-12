@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Fulum",
+  "risk": "3",
+  "title": "Anyone can break the randomness of token generation and force to consume the LINK balance of the team intended to be used to request randomness with Chainlink.",
+  "issueId": 1255,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1255"
+}
