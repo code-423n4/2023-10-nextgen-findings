@@ -32,7 +32,50 @@ Instance:
 ## Recommendation
 There are other VRF contracts in-scope already. I recommend using those for production, otherwise randomness can be gamed to get optimal token hashes.
 
-# [L3] setFinalSupplyTimeAfterMint can be reset after totalSupply is set
+# [QA1] All funds in MinterContract are vulnerable to a single leaked key
+
+**Effected Contract:** MinterContract.sol
+
+## Summary
+The function `emergencyWithdraw` has a high risk profile for the protocol. If the particular private key with the function admin role `emergencyWithdraw` is exposed, anybody who has the key could drain all eth from the contract. The risk profile for this reaches **all** collections in the protocol.
+
+To reduce the risk profile of the exposure of a single key, it's recommended to use OpenZeppellin's `Pausable` library. With this extension, the Minter can be paused by one signer, with recovery functionality only runnable when the contract is paused, accessible only by separate signers. This 2-step pause-and-recover functionality is much harder to socially engineer. An attacker would need to expose 2 or more private keys to be able to access emergency functionality.
+
+[OpenZeppellin Pausable Library](https://docs.openzeppelin.com/contracts/2.x/api/lifecycle)
+
+Instances:
+- https://github.com/code-423n4/2023-10-nextgen/blob/main/hardhat/smart-contracts/MinterContract.sol#L461
+
+## Recommendations
+1. Add a Pausable function to the MinterContract with a modifier that only allows a user with `Pausable` role to call it. Add the modifier `whenPaused()` to the `emergencyWithdraw` function.
+
+# [QA2] Rate and TimePeriod set to 0 results in a divide by 0 error in getPrice, temporarily DOS'ing mint functions
+
+**Effected Contract:** MinterContract.sol
+
+## Summary
+Many functions in MinterContract use `_rate` and `_timePeriod` as a denominator in math calculations. There is no validation for either of those values in `setCollectionCosts`, so there is potential for those values to be zero. If either of them were 0, using these values as a denominator would result in a 'divide by 0' error and revert, preventing any minter from successfully executing functionality until these values were later set.
+
+Locations that can result in a divide by 0 error:
+- https://github.com/code-423n4/2023-10-nextgen/blob/main/hardhat/smart-contracts/MinterContract.sol#L249
+- https://github.com/code-423n4/2023-10-nextgen/blob/main/hardhat/smart-contracts/MinterContract.sol#L292
+- https://github.com/code-423n4/2023-10-nextgen/blob/main/hardhat/smart-contracts/MinterContract.sol#L536
+- https://github.com/code-423n4/2023-10-nextgen/blob/main/hardhat/smart-contracts/MinterContract.sol#L546
+- https://github.com/code-423n4/2023-10-nextgen/blob/main/hardhat/smart-contracts/MinterContract.sol#L551
+- https://github.com/code-423n4/2023-10-nextgen/blob/main/hardhat/smart-contracts/MinterContract.sol#L553
+
+## Recommendations
+1. Add validation to setCollectionCosts.
+
+[MinterContract L157](https://github.com/code-423n4/2023-10-nextgen/blob/main/hardhat/smart-contracts/MinterContract.sol#L157)
+```diff
+function setCollectionCosts(uint256 _collectionID, uint256 _collectionMintCost, uint256 _collectionEndMintCost, uint256 _rate, uint256 _timePeriod, uint8 _salesOption, address _delAddress) public CollectionAdminRequired(_collectionID, this.setCollectionCosts.selector) {
+        require(gencore.retrievewereDataAdded(_collectionID) == true, "Add data");
++       require(_timePeriod > 0, "_timePeriod must be greater than 0");        
++       require(_rate > 0, "_rate must be greater than 0");        
+```
+
+# [QA3] setFinalSupplyTimeAfterMint can be reset after totalSupply is set
 
 **Effected Contract:** NextGenCore.sol
 
@@ -104,21 +147,3 @@ function updateModifiableCollectionData(uint256 _collectionID, address _collecti
 }
 ```
 2. Update the comment to include _setFinalSupplyTimeAfterMint or disallow setFinalSupplyTimeAfterMint to be reset after totalSupply is set.
-
-# [QA1] All funds in MinterContract are vulnerable to a single leaked key
-
-**Effected Contract:** MinterContract.sol
-
-## Summary
-The function `emergencyWithdraw` has a high risk profile for the protocol. If the particular private key with the function admin role `emergencyWithdraw` is exposed, anybody who has the key could drain all eth from the contract. The risk profile for this reaches **all** collections in the protocol.
-
-To reduce the risk profile of the exposure of a single key, it's recommended to use OpenZeppellin's `Pausable` library. With this extension, the Minter can be paused by one signer, with recovery functionality only runnable when the contract is paused, accessible only by separate signers. This 2-step pause-and-recover functionality is much harder to socially engineer. An attacker would need to expose 2 or more private keys to be able to access emergency functionality.
-
-[OpenZeppellin Pausable Library](https://docs.openzeppelin.com/contracts/2.x/api/lifecycle)
-
-Instances:
-- https://github.com/code-423n4/2023-10-nextgen/blob/main/hardhat/smart-contracts/MinterContract.sol#L461
-
-
-## Recommendations
-1. Add a Pausable function to the MinterContract with a modifier that only allows a user with `Pausable` role to call it. Add the modifier `whenPaused()` to the `emergencyWithdraw` function.
