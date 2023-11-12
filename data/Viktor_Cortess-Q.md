@@ -107,4 +107,6 @@ If we take a look at these `isMinterContract` and `isAdminContract` functions we
 
 They always return true without checking any data. These checks provide a false sense of security and lack practical significance
 
-    
+### [QA] It is not possible to retrieve the token balance from a specific collection 
+
+The protocol's functionality involves various collections, each associated with a specific list of tokens. However, during testing, I observed that there is no way to monitor a user's balance in different collections. Since all collections can significantly differ from one another, I believe it would be convenient for users to see not only the total token count but also the token balance from each collection.
