@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "yojeff",
+  "risk": "2",
+  "title": "`MinterContract.sol::burnToMint(), mint(), burnOrSwapExternalToMint() makes minter lose extra ETH",
+  "issueId": 1340,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1340"
+}
