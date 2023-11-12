@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "AvantGard",
+  "risk": "3",
+  "title": "Absence of a customizable 'Base Price' for different `_tokenIDs` may result in undesired / undervalued sales.  ",
+  "issueId": 1326,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1326"
+}
