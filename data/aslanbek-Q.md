@@ -27,4 +27,4 @@ is essentially the same as
 ```
 bytes32(_randomWords[0])
 ```
-My initial guess was that the intent was to use keccak256, but the Sponsor stated that they wanted to use only randomWords[0]. Therefore, the original code contains a security-insensitive redundancy.
+It may seem that the intent was to use keccak256, but the Sponsor stated that they wanted to use only randomWords[0]. Therefore, the original code contains only a security-insensitive redundancy.
