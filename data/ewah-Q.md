@@ -1,4 +1,7 @@
-The function ParticipateToAuction accepts a bid without checking if the ```tokenid```corresponds to a valid token. This could allow users to bid on a null tokenid "0" that does not belong to any token. The users would lose gas fees by executing a futile transaction. The function should validate the ```tokenid``` before the require statement to prevent this problem.
+
+# [L-01] Validating ``tokenid``
+
+The function ParticipateToAuction accepts a bid without checking if the `tokenid` corresponds to a valid token. This could allow users to bid on a null tokenid "0" that does not belong to any token. The users would lose gas fees by executing a futile transaction. The function should validate the `tokenid` before the require statement to prevent this problem.
 
 ```
 function participateToAuction(uint256 _tokenid) public payable {
