@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Juntao",
+  "risk": "2",
+  "title": "Expiry Date is not checked when minting through delegation",
+  "issueId": 1232,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1232"
+}
