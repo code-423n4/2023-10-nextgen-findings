@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Norah",
+  "risk": "3",
+  "title": "Malicious user can claim NFT for 1 Wei in Auction Minting by blocking others",
+  "issueId": 1245,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1245"
+}
