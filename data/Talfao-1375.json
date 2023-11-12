@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Talfao",
+  "risk": "3",
+  "title": "The `claimAuction(...)` can be DoSed as the call for returning bid does not implement the gas limit.",
+  "issueId": 1375,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1375"
+}
