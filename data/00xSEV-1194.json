@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "00xSEV",
+  "risk": "3",
+  "title": "Attacker can choose tokenHash when `NextGenRandomizerNXT` is used",
+  "issueId": 1194,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1194"
+}
