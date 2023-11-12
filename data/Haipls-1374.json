@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Haipls",
+  "risk": "3",
+  "title": "AuctionDemo.claimAuction, AuctionDemo.cancelBid, AuctionDemo.cancelAllBids can be called at the same time when block.timestamp == minter.getAuctionEndTime(_tokenid)",
+  "issueId": 1374,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1374"
+}
