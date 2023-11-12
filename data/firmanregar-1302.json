@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "firmanregar",
+  "risk": "2",
+  "title": "Dubious typecast in NextGenRandomizerVRF.fulfillRandomWords(uint256,uint256[])",
+  "issueId": 1302,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1302"
+}
