@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "00xSEV",
+  "risk": "3",
+  "title": "Medium amount of bets will make `participateToAuction` and `claimAuction` eat too much gas",
+  "issueId": 1200,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1200"
+}
