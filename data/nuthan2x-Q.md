@@ -54,3 +54,23 @@ Mitigation
 - contract NextGenCore is ERC721Enumerable, Ownable, ERC2981 {}
 + contract NextGenCore is ERC721Enumerable, ERC2981 {}
 ```
+
+
+## [03] Do not use `indexed` on integers in events
+
+- using the indexed keyword for integers will make th tracking the values of that integer hard.
+- When indexed is used, it will hash to filter that data easily in logs bloom filter.
+
+
+Mitigation
+
+```diff
+- event PayArtist(address indexed _add, bool status, uint256 indexed funds);
++ event PayArtist(address indexed _add, bool status, uint256 funds);
+
+- event PayTeam(address indexed _add, bool status, uint256 indexed funds);
++ event PayTeam(address indexed _add, bool status, uint256 funds);
+
+- event Withdraw(address indexed _add, bool status, uint256 indexed funds);
++ event Withdraw(address indexed _add, bool status, uint256 funds);
+```
