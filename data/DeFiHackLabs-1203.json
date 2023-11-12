@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "DeFiHackLabs",
+  "risk": "2",
+  "title": "Inability to Auction Minted NFTs When the `_recipient` Parameter in `mintAndAuction` is a Smart Contract",
+  "issueId": 1203,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1203"
+}
