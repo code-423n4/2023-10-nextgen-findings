@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Arabadzhiev",
+  "risk": "3",
+  "title": "Malicious user can place a very high bid initially, and then just when the auction is about to end, cancel it and place a dust amount bid in order to buy the NFT for pennies",
+  "issueId": 1251,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1251"
+}
