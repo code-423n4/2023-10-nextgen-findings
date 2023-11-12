@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "CSL",
+  "risk": "3",
+  "title": "A large amount of gas is consumed in the call() call, causing the ether transfer to fail.",
+  "issueId": 1288,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1288"
+}
