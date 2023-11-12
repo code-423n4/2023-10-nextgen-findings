@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0x111",
+  "risk": "3",
+  "title": "It is possible to set collection admin for collections that don't exist yet",
+  "issueId": 1246,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1246"
+}
