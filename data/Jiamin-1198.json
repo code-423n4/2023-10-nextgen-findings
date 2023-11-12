@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Jiamin",
+  "risk": "3",
+  "title": "Should not minting new collection token before burning the old collection token",
+  "issueId": 1198,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1198"
+}
