@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Neo_Granicen",
+  "risk": "2",
+  "title": "The Minter Contract lacks any functionality to handle or pay or keep track of secondary royalties",
+  "issueId": 1342,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1342"
+}
