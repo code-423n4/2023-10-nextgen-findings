@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xSwahili",
+  "risk": "3",
+  "title": "PayArtist function can be trapped into an unusable state when recipient cannot receive funds",
+  "issueId": 1281,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1281"
+}
