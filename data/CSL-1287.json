@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "CSL",
+  "risk": "2",
+  "title": "Array length that is too large may cause DoS",
+  "issueId": 1287,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1287"
+}
