@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Zach_166",
+  "risk": "2",
+  "title": "The `updateAdminContract()` Function Admin Could Obtain All Permissions",
+  "issueId": 1265,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1265"
+}
