@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "lsaudit",
+  "risk": "2",
+  "title": "Function `payArtist()` can be blocked by providing either  malicious artist's or team's adddress",
+  "issueId": 1170,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1170"
+}
