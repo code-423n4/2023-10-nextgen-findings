@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "young",
+  "risk": "2",
+  "title": "potential inconsistency of `collectionTotalSupply`",
+  "issueId": 1293,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1293"
+}
