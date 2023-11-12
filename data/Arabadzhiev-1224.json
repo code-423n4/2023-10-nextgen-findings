@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Arabadzhiev",
+  "risk": "2",
+  "title": "The winner of the auction can be changed when the `claimAuction` function is called, by front-running it with a `participateToAuction` call, since there is a less than or equal comparison in both functions",
+  "issueId": 1224,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1224"
+}
