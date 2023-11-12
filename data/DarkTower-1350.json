@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "DarkTower",
+  "risk": "2",
+  "title": "`auctionDemo::cancelBid` && `auctionDemo::cancelAllBids` do not check the success state of the return values of the calls which can potentially lead to loss of funds to bidders",
+  "issueId": 1350,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1350"
+}
