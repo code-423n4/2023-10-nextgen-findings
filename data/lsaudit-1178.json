@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "lsaudit",
+  "risk": "2",
+  "title": "Malicious artist can front-run `payArtist()` to alter percentages and payout addresses",
+  "issueId": 1178,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1178"
+}
