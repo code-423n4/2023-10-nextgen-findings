@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Viktor_Cortess",
+  "risk": "2",
+  "title": "Inconsistent checks for the maximum allowed amount  across different minting functions",
+  "issueId": 1334,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1334"
+}
