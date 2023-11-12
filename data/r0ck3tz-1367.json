@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "r0ck3tz",
+  "risk": "3",
+  "title": "Cross-contract reentrancy in token minting",
+  "issueId": 1367,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1367"
+}
