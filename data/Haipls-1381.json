@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Haipls",
+  "risk": "3",
+  "title": "The approach of issuing non-winning bids during claimAuction() is a hotbed of problems.",
+  "issueId": 1381,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1381"
+}
