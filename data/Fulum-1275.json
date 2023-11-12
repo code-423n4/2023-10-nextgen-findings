@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Fulum",
+  "risk": "2",
+  "title": "On a Linear or Exponential Descending Sale Model, a user that mint on the last `block.timestamp` mint at an unexpected price.",
+  "issueId": 1275,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1275"
+}
