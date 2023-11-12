@@ -46,15 +46,17 @@ We approached the audit in 3 general steps after which we generated our report.
 - **Codebase comparisons** - After the manual review, we looked for protocols of the same type, compared their implementations and tried to find any repeated vulnerable patterns.
 
 ## **4. Final Thoughts**
-  - The codebase is odd albeit well written. The team made a lot of unconventional decisions - for instance, the needed OZ contracts were copied as their own specific files rather than the importing whole package, admin functions were defined different from how most protocols etc. For a next generation protocol, it does have some old school implementations.
+  - The codebase is odd albeit well written. The team made a lot of unconventional decisions - for instance, the needed OZ contracts were copied as their own specific files rather than the importing whole package, admin functions were defined different from most protocols, not checking return values of low level calls, etc. For a next generation protocol, it does have some old school implementations.
   - The provided documentation is top class, really easy to understand and follow, but in contrast, the contracts are sparsely commented (on the plus side, they looked cleaner than if there had been NatSpec). Consider adding the required comments to the codebase, in accordance to NatSpec. It makes it easier for users and developers to easily understand the functions without having to keep looking them up in the gitbook. Also, there's no documentation on the AuctionDemo contract. Consider providing one.
   - Test coverage is 100% which looks good, however, it's a simple test file. A number of the large functions don't have invariant tests, no fuzzing tests. This should be fixed, as testing helps improve modularity, and helps catch basic bugs.
   - Error handling is fine, require errors are mostly used. Consider using custom errors instead, they're easier to maintain and are less gas intensive.
   - The OZ contract versions all seem to differ per contract. Some are based on the latest version 5.0, some as old as 4.4.1. We recommend updating all contracts to the latest version to make them match and to get the latest security upgrades.
   - We recommend making implementing an blocklist for stolen tokens as they can easily be burned/exhanged for legitimate tokens.
   - Ownable2step should be used instead of Ownable and functions to deregister admins (in case one goes rouge) should also be introduced.
-  - FInally, we'd recommend taking a bit more time to reorganize the contracts, restructure the functions to follow CEI, mitigating discovered issues and implementing constant upgrades/audits to keep the protocol always up to date and secure.
+  - FInally, we recommend taking a bit more time to reorganize the contracts, restructure the functions to follow CEI, mitigate discovered issues and implement constant upgrades/audits to keep the protocol up to date and secure.
     
+
+
 
 
 
