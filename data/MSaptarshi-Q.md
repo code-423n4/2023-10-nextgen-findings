@@ -6,15 +6,10 @@ https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b2
 Use a require or revert statement for checking that _collectionID is not 0
 
 
-## [2]no checks are added for if collectionTotalSupply < collectionCirculationSupply, so if anyhow the circulation goes above TOtoalSupply,there would be more tokens available in the periodic sale:
+## [2]no checks are added for if collectionTotalSupply < collectionCirculationSupply, so if anyhow the circulation goes above TotalSupply,there would be more tokens available in the periodic sale:
 https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L181 
-### Recommendation:
-Add a error check for if collectionCirculationSupply > collectionTotalSupply .
-
-
-
-## [3]no checks are added for if collectionTotalSupply < collectionCirculationSupply so if anyhow the circulation goes above TotalSupply, there would be more tokens available in the periodic sale
 https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L192 
 ### Recommendation:
 Add a error check for if collectionCirculationSupply > collectionTotalSupply .
+
 
