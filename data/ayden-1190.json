@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ayden",
+  "risk": "3",
+  "title": "Incorrect calculation of the lastMintDate could allow the first minting user to mint an arbitrary number of tokens within a single time period",
+  "issueId": 1190,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1190"
+}
