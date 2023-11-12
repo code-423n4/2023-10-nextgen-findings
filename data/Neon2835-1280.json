@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Neon2835",
+  "risk": "3",
+  "title": "At the end of the auction, the user has the opportunity to overdraw and take ETH that does not belong to them",
+  "issueId": 1280,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1280"
+}
