@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "lsaudit",
+  "risk": "2",
+  "title": "Incorrect verification of allowance while minting in public sale",
+  "issueId": 1174,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1174"
+}
