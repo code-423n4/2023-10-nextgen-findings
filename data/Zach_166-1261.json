@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Zach_166",
+  "risk": "2",
+  "title": "Incorrect `block.timestamp` Check May Allow Attackers to Acquire Auctioned NFTs at No Cost",
+  "issueId": 1261,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1261"
+}
