@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "seeques",
+  "risk": "3",
+  "title": "Anyone can get the auctioned token for free in the auctionDemo contract by taking a flashloan",
+  "issueId": 1262,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1262"
+}
