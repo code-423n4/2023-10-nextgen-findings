@@ -156,7 +156,7 @@ A good coding-style practice is to divide parameters separated by comma by extra
 bytes32 externalCol = keccak256(abi.encodePacked(_erc721Collection,_burnCollectionID));
 ```
 
-[File: MinterContract.sol](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L3327)
+[File: MinterContract.sol](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L327)
 ```
 bytes32 externalCol = keccak256(abi.encodePacked(_erc721Collection,_burnCollectionID));
 ```
