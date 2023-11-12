@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "firmanregar",
+  "risk": "3",
+  "title": "NextGenRandomizerRNG.emergencyWithdraw() potentially sends eth to arbitrary user",
+  "issueId": 1296,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1296"
+}
