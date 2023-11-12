@@ -45,7 +45,7 @@ We approached the audit in 3 general steps after which we generated our report.
 - **Manual code review** - Here, we manually reviewed the codebase, ran provided tests, tested out various attack vectors. We looked for ways to break access control, break the main invariants, randomness and so on. We also tested out the functions' logic to make sure they work as intended and ensured that the contracts followed best programming practices. Here we noted out our the findings. 
 - **Codebase comparisons** - After the manual review, we looked for protocols of the same type, compared their implementations and tried to find any repeated vulnerable patterns.
 
-## **4. Conclusions**
+## **4. Final Thoughts**
   - The codebase is odd albeit well written. The team made a lot of unconventional decisions - for instance, the needed OZ contracts were copied as their own specific files rather than the importing whole package, admin functions were defined different from how most protocols etc. For a next generation protocol, it does have some old school implementations.
   - The provided documentation is top class, really easy to understand and follow, but in contrast, the contracts are sparsely commented (on the plus side, they looked cleaner than if there had been NatSpec). Consider adding the required comments to the codebase, in accordance to NatSpec. It makes it easier for users and developers to easily understand the functions without having to keep looking them up in the gitbook.
   - Test covergae is 100% which looks good, however, it's a simple test file. A number of the large functions don't have invariant tests, no fuzzing tests. This should be fixed, as testing helps improve modularity, and helps catch basic bugs.
@@ -60,5 +60,7 @@ We approached the audit in 3 general steps after which we generated our report.
 
 
 
+
+
 ### Time spent:
-024 hours
+24 hours
