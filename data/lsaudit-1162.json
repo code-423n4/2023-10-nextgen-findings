@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "lsaudit",
+  "risk": "2",
+  "title": "Artist can sign their collection with any signature",
+  "issueId": 1162,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1162"
+}
