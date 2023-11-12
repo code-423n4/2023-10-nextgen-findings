@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Norah",
+  "risk": "3",
+  "title": "`mint()` and `burnOrSwapExternalToMint()` are vulnerable to the reentrancy attack",
+  "issueId": 1234,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1234"
+}
