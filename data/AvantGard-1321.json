@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "AvantGard",
+  "risk": "3",
+  "title": "Lack of ‘Bid extension window’ while cancelling ‘highest bid’ allows manipulation and unfair auction outcomes.",
+  "issueId": 1321,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1321"
+}
