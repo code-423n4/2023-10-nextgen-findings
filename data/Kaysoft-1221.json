@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Kaysoft",
+  "risk": "3",
+  "title": "Anyone can steal any NFT that has no bid with just 1 wei in the last moment of the auction period.",
+  "issueId": 1221,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1221"
+}
