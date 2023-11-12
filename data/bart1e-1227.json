@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "bart1e",
+  "risk": "3",
+  "title": "Flawed logic of `NextGenCore::burnToMint` makes NFTs worthless",
+  "issueId": 1227,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1227"
+}
