@@ -13,7 +13,7 @@ As demonstrated above, `addRandomizer()` does not only add new randomizer - but 
 Our recommendation is to change the name from `addRandomizer` to `addOrUpdateRandomizer()`.
 
 
-# [QA-02] Incorrect comment for `setCollectionData() function in `NextGenCore.sol`
+# [QA-02] Incorrect comment for `setCollectionData()` function in `NextGenCore.sol`
 
 According to comment: 
 
