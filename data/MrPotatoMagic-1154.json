@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "MrPotatoMagic",
+  "risk": "3",
+  "title": "Reentrancy callback through _safeMint() into mint() function allows attacker to exceed max allowance set for users during public phase",
+  "issueId": 1154,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1154"
+}
