@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "00xSEV",
+  "risk": "3",
+  "title": "Possible to  make `collectionCirculationSupply` > `collectionTotalSupply`, possible overflow to the next collection",
+  "issueId": 1201,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1201"
+}
