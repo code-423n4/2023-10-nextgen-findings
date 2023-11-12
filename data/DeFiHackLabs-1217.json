@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "DeFiHackLabs",
+  "risk": "2",
+  "title": "`MinterContract.mint()`: malicious user can frontrun other users under the same delegator",
+  "issueId": 1217,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1217"
+}
