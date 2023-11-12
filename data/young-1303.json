@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "young",
+  "risk": "2",
+  "title": "The `Collection` information could be overwritten by the `CollectionAdmin`.",
+  "issueId": 1303,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1303"
+}
