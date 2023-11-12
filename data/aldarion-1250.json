@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "aldarion",
+  "risk": "3",
+  "title": "Auction winners can steal from other participants by using reentrancy",
+  "issueId": 1250,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1250"
+}
