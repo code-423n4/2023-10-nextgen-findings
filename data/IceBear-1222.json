@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "IceBear",
+  "risk": "2",
+  "title": "updatecallbackGasLimitAndkeyHash() may  result in a potential dos ",
+  "issueId": 1222,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1222"
+}
