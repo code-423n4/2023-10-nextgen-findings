@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xlemon",
+  "risk": "3",
+  "title": "Bidder can DoS `claimAuction`",
+  "issueId": 1339,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1339"
+}
