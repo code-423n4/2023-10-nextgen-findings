@@ -99,13 +99,12 @@ This means that `0 <= id < 100`, so we do not need to care about `getWord(100)`,
 # [QA-06] `setFinalSupply()` does not verify if collection exists
 
 
-[File: NextGenCore.sol](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L257-L261)
+[File: NextGenCore.sol](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L307)
 ```
-    function artistSignature(uint256 _collectionID, string memory _signature) public {
-        require(msg.sender == collectionAdditionalData[_collectionID].collectionArtistAddress, "Only artist");
-        require(artistSigned[_collectionID] == false, "Already Signed");
-        artistsSignatures[_collectionID] = _signature;
-        artistSigned[_collectionID] = true;
+   function setFinalSupply(uint256 _collectionID) public FunctionAdminRequired(this.setFinalSupply.selector) {
+        require (block.timestamp > IMinterContract(minterContract).getEndTime(_collectionID) + collectionAdditionalData[_collectionID].setFinalSupplyTimeAfterMint, "Time has not passed");
+        collectionAdditionalData[_collectionID].collectionTotalSupply = collectionAdditionalData[_collectionID].collectionCirculationSupply;
+        collectionAdditionalData[_collectionID].reservedMaxTokensIndex = (_collectionID * 10000000000) + collectionAdditionalData[_collectionID].collectionTotalSupply - 1;
     }
 ```
 `setFinalSupply()` will execute on non-existing collections.
