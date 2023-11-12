@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "dethera",
+  "risk": "3",
+  "title": "The implementation of the function `returnHighestBidder` from `AuctionDemo.sol` has a logic error, which makes the whole Auction useless",
+  "issueId": 1354,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1354"
+}
