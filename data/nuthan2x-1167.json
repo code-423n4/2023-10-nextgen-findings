@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "nuthan2x",
+  "risk": "3",
+  "title": "AuctionDemo.claimAuction() : Highest bidder can cause permanent DOS and cannot refund to rest of the bidders.",
+  "issueId": 1167,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1167"
+}
