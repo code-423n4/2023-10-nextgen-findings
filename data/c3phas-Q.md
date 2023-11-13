@@ -50,7 +50,7 @@ File: /smart-contracts/NextGenCore.sol
 We should ensure `_tokenId.length` == `_images.length` == `_attributes.length_`
 
 
-## LOW
+## No need to specify visibility for constructor
 
 Visibility for constructors are not necessary/ they are usually ignored
 https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/AuctionDemo.sol#L36-L40
