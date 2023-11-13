@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Norah",
+  "risk": "2",
+  "title": "tokenURI can lead to parsing error and JSON Injection in front-end",
+  "issueId": 1414,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1414"
+}
