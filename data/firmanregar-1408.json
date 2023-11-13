@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "firmanregar",
+  "risk": "3",
+  "title": "Unprotected call to a function sending Ether to an arbitrary address",
+  "issueId": 1408,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1408"
+}
