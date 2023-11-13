@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "devival",
+  "risk": "3",
+  "title": "Permanent freeze of funds after auction end, if token owner does not approve the token",
+  "issueId": 1911,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1911"
+}
