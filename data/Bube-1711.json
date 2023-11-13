@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Bube",
+  "risk": "3",
+  "title": "Dangerous usage of `block.timestamp` in `AuctionDemo.sol` contract",
+  "issueId": 1711,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1711"
+}
