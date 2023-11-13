@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "phoenixV110",
+  "risk": "3",
+  "title": "Excessive ETH sent by user to mint(), burnToMint() & burnOrSwapExternalToMint() for minting is not returned and is kept in the contract",
+  "issueId": 1661,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1661"
+}
