@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xAadi",
+  "risk": "3",
+  "title": "`AuctionDemo.sol#claimAuction()` force the transaction sender to cover the transaction fee for refunding unsuccessful bids to the bidders.",
+  "issueId": 1833,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1833"
+}
