@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "droptpackets",
+  "risk": "3",
+  "title": "Deterministic Randomness in RandomizerNXT and Dependencies (XRandoms.sol) Allows for Malicious User to Mint Tokens at Exact Block Timestamps to Generate Specific or Possibly Rare Tokens",
+  "issueId": 1906,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1906"
+}
