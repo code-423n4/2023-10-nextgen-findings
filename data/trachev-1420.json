@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "trachev",
+  "risk": "3",
+  "title": "Any user can win an auction with just 1 WEI by canceling a large bid before an auction ends",
+  "issueId": 1420,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1420"
+}
