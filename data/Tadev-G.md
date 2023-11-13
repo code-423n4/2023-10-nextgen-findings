@@ -7,7 +7,6 @@ https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b2
 https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/RandomizerVRF.sol#L35-L36
 
 Declaring both the address and the contract instance will use 2 storage slots instead of one. The constructor will assign 2 values with no reason : 
-
 ```
 gencore = _gencore;
 gencoreContract = INextGenCore(_gencore);
