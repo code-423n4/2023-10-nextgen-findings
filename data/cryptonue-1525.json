@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "cryptonue",
+  "risk": "2",
+  "title": "Possible overflow the tokenId of a collectionId to next collectionId",
+  "issueId": 1525,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1525"
+}
