@@ -29,7 +29,7 @@ During the minting process, the check verifies if the msg.value is greater than 
 The codebase of the Nextgen Protocol is unfortunately highly centralized, possibly one of the most centralized in the space. All power is vested in the hands of admins, with various types of admins adding complexity to the execution process. Here are some of the risks associated with this:
 
 - There's an emergencyWithdraw function that allows for a potential rug-pull scenario.
-- Global admins hold extensive power. They can alter anything in the protocol, including Collection Data, mint tokens for anyone (via airdrop), and even freeze protocols.
+- Global admins hold extensive power. They can alter anything in the protocol, including Collection Data, mint tokens for anyone (via airdrop), and even freeze collections.
 - Function admins, who are privileged in their respective functions, possess more power than the artists themselves. They can do everything a global admin can, but only within their specific functions.
 - Artists have more control over their collections than necessary. If the collection is not frozen, they can alter token metadata, images, attributes, etc. This undermines one of the main benefits of a blockchain, which is immutability.
 
@@ -37,6 +37,8 @@ This level of centralization presents a significant risk and can compromise the 
 
 ### Time spent:
 20 Hours
+
+
 
 ### Time spent:
 20 hours
