@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "cryptothemex",
+  "risk": "3",
+  "title": "Minted NFTs may always stay in pending state due to response failure by arrng contract",
+  "issueId": 1874,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1874"
+}
