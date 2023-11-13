@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Udsen",
+  "risk": "2",
+  "title": "`ARTIST` AND THE `TEAM` CAN MAKE `UNDUE PROFIT` AT THE EXPENSE OF THE `MINTER` DURING MINTING SINCE MORE `msg.value` CAN BE PASSED INTO THE `MinterContract` AND THE EXCESSIVE AMOUNT IS NOT REFUNDED TO THE `MINTER`",
+  "issueId": 1860,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1860"
+}
