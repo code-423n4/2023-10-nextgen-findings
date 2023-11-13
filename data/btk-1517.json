@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "btk",
+  "risk": "3",
+  "title": "Attacker can reenter to mint all the collection supply",
+  "issueId": 1517,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1517"
+}
