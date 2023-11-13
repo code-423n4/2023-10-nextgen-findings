@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "imtybik",
+  "risk": "2",
+  "title": "Unchecked constructor arguments can make a contract unworkable",
+  "issueId": 2003,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/2003"
+}
