@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ChrisTina",
+  "risk": "2",
+  "title": "Reentrancy in mint function allows minting above the limit allowed per address / allowlisted address",
+  "issueId": 1808,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1808"
+}
