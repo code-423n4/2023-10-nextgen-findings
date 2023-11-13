@@ -96,5 +96,12 @@ https://www.phishing.org/phishing-resources
 https://www.hoxhunt.com/blog/how-to-recognize-and-avoid-phishing-attacks
 https://help.coinbase.com/en/nft/protect/scams 
 
+### Consolidate data into single storage file
+
+Storing and managing information about collections and tokens across multiple mappings and within two contracts increases the chances of errors. A more efficient organization of these data structures and storage mechanisms can decrease the risk of errors that might lead to security vulnerabilities. 
+
+**Suggestion**
+Consolidate all storage and details related to collections and tokens from NextGenCore and NextGenMinterContract into a single storage file with fewer mappings.
+
 ### Time spent:
 16 hours
