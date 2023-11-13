@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ast3ros",
+  "risk": "2",
+  "title": "Randomizer RNG return value 0 will revert",
+  "issueId": 1606,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1606"
+}
