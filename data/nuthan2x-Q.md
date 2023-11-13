@@ -68,3 +68,13 @@ Mitigation
 - contract NextGenCore is ERC721Enumerable, Ownable, ERC2981 {}
 + contract NextGenCore is ERC721Enumerable, ERC2981 {}
 ```
+
+## [04] `tokensAirdropPerAddress` state is updated for every airdrop, but never read or validated anywhere
+
+- `In GenCore.airDropTokens` the state `tokensAirdropPerAddress` is updated.
+- But it is no where validated for max aidrop per address or no events emitted.
+- Either some validation/implementation is missing.
+
+
+Mitigation
+- Remove the state and the updating code block to save gas.
