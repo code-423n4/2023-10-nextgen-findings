@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Haipls",
+  "risk": "2",
+  "title": "The RandomizerVRF uses a keyHash specific to the Goerli test network, not the Ethereum Mainnet.",
+  "issueId": 1611,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1611"
+}
