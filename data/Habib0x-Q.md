@@ -1,6 +1,8 @@
-The function freezeCollection needs an event emission to notify external listeners that the collection has been frozen. This could be important as it will provide/maintain transparency to users. 
+# [N-01] function freezeCollection needs an event emission to notify external listeners that the collection has been frozen. This could be important as it will provide/maintain transparency to users. 
 
-![link] https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L292
+There are 1 instances of this issue: 
+
+ https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L292
 
 ```solidity 
     function freezeCollection(uint256 _collectionID) public FunctionAdminRequired(this.freezeCollection.selector) {
@@ -26,7 +28,8 @@ As this will emit an event with the CollectionFrozen signature and _collectionId
 
 ##### 
 
-A More Clear Descriptive Message Can Be Written 
+# [N-02] A More Clear Descriptive Message Can Be Written 
+There are 32 instances with this issue: 
 
 The error message in multiple lines is not very descriptive. It would be better to have a more descriptive error message, 
 
