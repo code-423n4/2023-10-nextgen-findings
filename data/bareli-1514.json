@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "bareli",
+  "risk": "2",
+  "title": " does not seem to have a function to remove admins or to transfer ownership",
+  "issueId": 1514,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1514"
+}
