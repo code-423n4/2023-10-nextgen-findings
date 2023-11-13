@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "merlin",
+  "risk": "3",
+  "title": "The malicious participant can perform a DOS attack on the claimAuction function using 1 wei ETH",
+  "issueId": 1920,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1920"
+}
