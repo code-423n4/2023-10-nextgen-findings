@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "AvantGard",
+  "risk": "3",
+  "title": "Insufficient validation checks in ` burnOrSwapExternalToMint() ` function  allows callers to swap/burn another account's NFTs without proper prior delegation.",
+  "issueId": 1946,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1946"
+}
