@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xSmartContractSamurai",
+  "risk": "2",
+  "title": "AuctionDemo::claimAuction() - L105: Logic bug in the conditional statement where the timestamp check should be `>` instead of `>=`.",
+  "issueId": 2024,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/2024"
+}
