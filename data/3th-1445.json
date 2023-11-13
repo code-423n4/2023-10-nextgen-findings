@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "3th",
+  "risk": "3",
+  "title": "Minter can re-enter `NextGenMinterContract.mint` to exceed `maxAllowance`",
+  "issueId": 1445,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1445"
+}
