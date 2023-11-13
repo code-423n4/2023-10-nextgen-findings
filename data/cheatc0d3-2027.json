@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "cheatc0d3",
+  "risk": "2",
+  "title": "Missing gas fee limit",
+  "issueId": 2027,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/2027"
+}
