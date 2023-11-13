@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "btk",
+  "risk": "3",
+  "title": "Attacker can win an auction by bidding only 1 wei more than the highest bidder and calim in the same tx",
+  "issueId": 1521,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1521"
+}
