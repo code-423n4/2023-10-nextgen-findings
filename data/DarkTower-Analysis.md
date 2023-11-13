@@ -8,7 +8,7 @@ Severity  | Instances
 ------------- | -------------
 Medium  | 7
 High | 1
-Low | 1
+Low | 3
 Gas | 4
 
 ## Comments for judge to contextualize the findings
@@ -100,6 +100,8 @@ A malicious function admin can reset the MinterContract balance to zero anytime 
 #### Time Spent
 Around 10 days.
 96 Hours.
+
+
 
 
 
