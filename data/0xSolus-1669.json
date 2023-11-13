@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xSolus",
+  "risk": "2",
+  "title": "Rounding down to 0 due to Division before multiplication",
+  "issueId": 1669,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1669"
+}
