@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xAadi",
+  "risk": "3",
+  "title": "Malicious users can manipulate the bid amount placing higher bids, and cancel their bids before ending the auction",
+  "issueId": 1910,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1910"
+}
