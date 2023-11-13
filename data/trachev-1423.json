@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "trachev",
+  "risk": "2",
+  "title": "A bidder may become unable to cancel their bid, leaving their funds stuck in the contract.",
+  "issueId": 1423,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1423"
+}
