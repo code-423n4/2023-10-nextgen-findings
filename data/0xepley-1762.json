@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xepley",
+  "risk": "3",
+  "title": "Inaccurate Fund Distribution Logic in `claimAuction` Function",
+  "issueId": 1762,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1762"
+}
