@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Udsen",
+  "risk": "2",
+  "title": "`RandomizerRNG.emergencyWithdraw` TRANSACTION COULD TRANSFER THE FUNDS TO THE `address(0)` THUS LOSING ALL THE FUNDS IN THE `RandomizerRNG` CONTRACT DURING AN EMERGENCY WITHDRAWAL",
+  "issueId": 1879,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1879"
+}
