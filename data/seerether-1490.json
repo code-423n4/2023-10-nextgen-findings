@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "Freezing the metadata without preventing further minting can lead to vulnerability",
+  "issueId": 1490,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1490"
+}
