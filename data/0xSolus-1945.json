@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xSolus",
+  "risk": "2",
+  "title": "Unchecked low-level call transfers can cause loss of ETH locked in `claimAuction()`",
+  "issueId": 1945,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1945"
+}
