@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Aymen0909",
+  "risk": "3",
+  "title": "malicious actor can use reentrancy in `mint` function to bypass the minting limit per address",
+  "issueId": 1700,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1700"
+}
