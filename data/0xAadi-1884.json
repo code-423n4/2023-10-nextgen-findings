@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xAadi",
+  "risk": "3",
+  "title": "`AuctionDemo` contract fails to incentivize the owner of the NFT after and auction. The contract erroneously transfers the winning bid amount to the contract owner instead of the rightful NFT owner.",
+  "issueId": 1884,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1884"
+}
