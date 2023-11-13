@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xAadi",
+  "risk": "2",
+  "title": "The absence of sanity checks in the `MinterContract#mintAndAuction()` function can lead to avoidable error scenarios.",
+  "issueId": 1980,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1980"
+}
