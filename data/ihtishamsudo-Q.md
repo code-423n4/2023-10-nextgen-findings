@@ -13,6 +13,7 @@ Following Quality Assurance Reports Are The Notes, Refactoring Recommendations, 
 * 7. [L - RandomizerNXT should use ownable like other VRF, RNG Randomizer](#L-RandomizerNXTshoulduseownablelikeotherVRF,RNGRandomizer)
 * 8. [NC - Use one standard for uint256](#NC-Useonestandardforuint256)
 * 9. [NC - Use propoer header alignment](#NC-useproperheaderalignment)
+* 10. [NC - Deprecated Documentation About Primary & Secondry Split](#NC-Deprecatedprimary&secondarySplit)
 
 ## 1. <a name='L-NextGenCoreisusingDeperecatedERC721EnumerableLibrary'></a> L - NextGenCore is using Deperecated ERC721 Enumerable Library
 [NextGenCore.sol#L22](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/NextGenCore.sol#L22)
@@ -184,3 +185,24 @@ can be replaced with [transmissions11/headers](https://github.com/transmissions1
 
    //////////////////////////////////////////////////////////////*/
 
+## 10. <a name='NC-Deprecatedprimary&secondarySplit'></a> NC - Deprecated Documentation About Primary & Secondry Split
+
+According to the NextGen Gitbook deocumentation there are two separate functions for setting primary split & secondary split but in actual there is only one function for setting both primary & secondary split.
+
+```solidity
+
+
+    function setPrimaryAndSecondarySplits(uint256 _collectionID, uint256 _artistPrSplit, uint256 _teamPrSplit, uint256 _artistSecSplit, uint256 _teamSecSplit) public FunctionAdminRequired(this.setPrimaryAndSecondarySplits.selector) {
+        require(_artistPrSplit + _teamPrSplit == 100, "splits need to be 100%");
+        require(_artistSecSplit + _teamSecSplit == 100, "splits need to be 100%");
+        collectionRoyaltiesPrimarySplits[_collectionID].artistPercentage = _artistPrSplit;
+        collectionRoyaltiesPrimarySplits[_collectionID].teamPercentage = _teamPrSplit;
+        collectionRoyaltiesSecondarySplits[_collectionID].artistPercentage = _artistSecSplit;
+        collectionRoyaltiesSecondarySplits[_collectionID].teamPercentage = _teamSecSplit;
+    }
+
+```
+
+`Gitbook Docs` : https://seize-io.gitbook.io/nextgen/nextgen-smart-contracts/minter
+
+`Mitigation` : Update Gitbook Docs according to actual implementation.
