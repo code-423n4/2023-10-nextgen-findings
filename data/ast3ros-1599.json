@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ast3ros",
+  "risk": "2",
+  "title": "Bias in random word generation in XRandoms contract",
+  "issueId": 1599,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1599"
+}
