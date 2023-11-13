@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "trachev",
+  "risk": "3",
+  "title": "Any user can mint more tokens than `maxAllowance`.",
+  "issueId": 1448,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1448"
+}
