@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "phoenixV110",
+  "risk": "3",
+  "title": "The user will pay full amount at block.timestamp == collectionPhases[_collectionId].publicEndTime for exponentially/linearly decreasing sale",
+  "issueId": 1673,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1673"
+}
