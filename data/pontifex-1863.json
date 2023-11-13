@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "pontifex",
+  "risk": "2",
+  "title": "A user can predict token hash and reject minting of the token",
+  "issueId": 1863,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1863"
+}
