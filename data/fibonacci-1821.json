@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "fibonacci",
+  "risk": "2",
+  "title": "An airdrop of a collection with the sell option 3 leads to an incorrect calculation of the number of passed periods during the sales phase",
+  "issueId": 1821,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1821"
+}
