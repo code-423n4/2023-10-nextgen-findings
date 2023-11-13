@@ -22,7 +22,7 @@ Context: [MinterContract::emergencyWithdraw](https://github.com/code-423n4/2023-
     }
 ```
 LOW-2: Bad Source of Randomness is implemented in `NextGenRandomizerNXT::calculateTokenHash`
-Using block.number and block.timestamp as a source of randomness is commonly advised against, as the outcome can be manipulated by calling contracts. In this case, generating hash for tokens IDs can be exploited. 
+Using block.number and block.timestamp as a source of randomness is commonly advised against, as the outcome can be manipulated by calling contracts. In this case, generating unique hash for tokens IDs can be exploited during minting process.
 
 Context: [NextGenRandomizerNXT::calculateTokenHash](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerNXT.sol#L57)
 ```
