@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xMango",
+  "risk": "3",
+  "title": "Possible DOS attack the moment any new bid is created.",
+  "issueId": 1952,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1952"
+}
