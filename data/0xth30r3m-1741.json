@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xth30r3m",
+  "risk": "2",
+  "title": "MinterContract.burnToMint() increments collectionCirculationSupply even if collectionTotalSupply is exceeded",
+  "issueId": 1741,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1741"
+}
