@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Kaysoft",
+  "risk": "2",
+  "title": "The artistSignature function does not sign or validate artist signature as stated by the documentation.",
+  "issueId": 1909,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1909"
+}
