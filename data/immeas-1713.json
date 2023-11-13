@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "immeas",
+  "risk": "2",
+  "title": "auction winner can lock `eth` in auction contract by reverting on erc721 receive hook",
+  "issueId": 1713,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1713"
+}
