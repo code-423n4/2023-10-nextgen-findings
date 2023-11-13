@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "turvy_fuzz",
+  "risk": "3",
+  "title": "Missing highBid value update returnHighestBidder would return the wrong HighestBidder causing nft to be minted to the wrong winner",
+  "issueId": 2041,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/2041"
+}
