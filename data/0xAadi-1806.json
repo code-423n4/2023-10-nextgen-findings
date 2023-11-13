@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xAadi",
+  "risk": "3",
+  "title": "The likelihood of failure is elevated due to the complexity (O(N)) of the forward iteration of for loops in `AuctionDemo.sol#returnHighestBid()` and `AuctionDemo.sol#returnHighestBidder()` methods's.",
+  "issueId": 1806,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1806"
+}
