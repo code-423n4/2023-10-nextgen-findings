@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "d3e4",
+  "risk": "2",
+  "title": "Paid and minted token may fail to get a token hash and is not refunded",
+  "issueId": 1886,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1886"
+}
