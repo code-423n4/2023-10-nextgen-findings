@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Haipls",
+  "risk": "2",
+  "title": "XRandoms - Incorrect indexing and duplicate values when selecting random words",
+  "issueId": 1577,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1577"
+}
