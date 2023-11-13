@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Im_th3AK",
+  "risk": "2",
+  "title": "Uses a dangerous strict equality can affect the logic and security of a contract",
+  "issueId": 1655,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1655"
+}
