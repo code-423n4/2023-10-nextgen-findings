@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Madalad",
+  "risk": "2",
+  "title": "Attacker can abuse `cancelBid` to obtain the auctioned NFT for an unfair price",
+  "issueId": 1754,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1754"
+}
