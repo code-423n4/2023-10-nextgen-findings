@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xMango",
+  "risk": "3",
+  "title": "The NextGenRandomizerNXT contract's hash generating function flow, can be purposefully reverted in order to obtain a desired nft.",
+  "issueId": 1977,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1977"
+}
