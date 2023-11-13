@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Stryder",
+  "risk": "2",
+  "title": "[M-01] Data in **collectionAdditionalData** can be changed even after setting the data by calling **setCollectionData** function ",
+  "issueId": 1972,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1972"
+}
