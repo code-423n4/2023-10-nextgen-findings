@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Bube",
+  "risk": "2",
+  "title": "A malicious user can have `adminPermissions` in the `NextGenAdmins.sol` contract",
+  "issueId": 1705,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1705"
+}
