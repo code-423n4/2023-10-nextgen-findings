@@ -6,13 +6,13 @@ This analysis report goes over the various components and sections of the NextGe
 #### Findings Summary
 Severity  | Instances 
 ------------- | -------------
-Medium  | 5
+Medium  | 6
 High | 1
 Low | 1
 Gas | 4
 
 ## Comments for judge to contextualize the findings
-This is to help the judge reduce the time spent on judging. Our findings are mainly Loss of funds, dos, re-entrancy that protocol team need to fix before going live. Judges don't need to confirm with the sponsors for the validity of the issues we raised as we have have provided all the required attack scenarios/proof-of-concepts along with our findings. For this audit, we are also submitting low/gas or non critical issues.
+This is to help the judge reduce the time spent on judging. Our findings are mainly Loss of funds, dos, re-entrancy etc. that protocol team need to fix before going live. Judges don't need to confirm with the sponsors for the validity of the issues we raised as we have have provided all the required attack scenarios/proof-of-concepts along with our findings. For this audit, we are also submitting low/gas or non critical issues.
 
 ## Approach taken in evaluating the codebase
 * We began the audit on the day of its audit inception directly going over the protocol's documentation to get an idea of components and architecture of the protocol.
@@ -57,6 +57,23 @@ Example: In MinterContract,
         (bool success5, ) = payable(tm2).call{value: teamRoyalties2}("");
 ```
 
+2. The storage mappings and variables can be moved to one single contract so that risk of making mistake using them. We recommend adding these mappings, variables, constants in one contracts.
+
+4. Many important functions lacks event emissions which can reduce off-chain interactions. We recommend adding events in functions. Example: MinterContract::setCollectionCosts
+``` solidity
+    function setCollectionCosts(uint256 _collectionID, uint256 _collectionMintCost, uint256 
+                _collectionEndMintCost, uint256 _rate, uint256 _timePeriod, uint8 _salesOption, address 
+                _delAddress) public CollectionAdminRequired(_collectionID, this.setCollectionCosts.selector) {
+ 		        require(gencore.retrievewereDataAdded(_collectionID) == true, "Add data");
+ 		        collectionPhases[_collectionID].collectionMintCost = _collectionMintCost;
+ 		        collectionPhases[_collectionID].collectionEndMintCost = _collectionEndMintCost;
+ 		        collectionPhases[_collectionID].rate = _rate;
+ 		        collectionPhases[_collectionID].timePeriod = _timePeriod;
+ 		        collectionPhases[_collectionID].salesOption = _salesOption;
+ 		        collectionPhases[_collectionID].delAddress = _delAddress;
+ 		        setMintingCosts[_collectionID] = true;
+ 		    }  
+```
 ## Codebase Quality Analysis
 Overall, the quality of the codebase is good. The covered tests are looking good. 
 Category  | Comments | Results
@@ -77,6 +94,8 @@ A malicious function admin can reset the MinterContract balance to zero anytime 
 #### Time Spent
 Around 10 days.
 96 Hours.
+
+
 
 
 
