@@ -58,7 +58,7 @@ Example: In MinterContract,
 ```
 
 ## Codebase Quality Analysis
-Overall, the quality of the codebase is excellent. The covered tests are looking good. 
+Overall, the quality of the codebase is good. The covered tests are looking good. 
 Category  | Comments | Results
 ------------- | ------------- | -------------
 Code Comments  | Not NatSpc followed, some comments are missing |Good
@@ -76,6 +76,8 @@ A malicious function admin can reset the MinterContract balance to zero anytime 
 #### Time Spent
 Around 10 days.
 96 Hours.
+
+
 
 
 
