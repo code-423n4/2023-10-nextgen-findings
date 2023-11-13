@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "tnquanghuy0512",
+  "risk": "2",
+  "title": "Users can drain all the fee for generating randoms with Chainlink and Arrng if the minting price is too low/zero",
+  "issueId": 1719,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1719"
+}
