@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "The lastMintDate mapping is never reset, so the minting restriction in salesOption 3 does continue growing indefinitely",
+  "issueId": 1459,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1459"
+}
