@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Udsen",
+  "risk": "2",
+  "title": "`MinterContract.burnToMint` FUNCTION DOES NOT CHECK WHETHER `setMintingCosts` IS SET FOR A SPECIFIC `_mintCollectionID` THUS ALLOWING FREE MINTS USING THE `burnToMint` FUNCTION",
+  "issueId": 1866,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1866"
+}
