@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Kose",
+  "risk": "2",
+  "title": "Funds will be locked if one of payArtist receiver is not be able to receive ether",
+  "issueId": 1898,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1898"
+}
