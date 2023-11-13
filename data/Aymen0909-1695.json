@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Aymen0909",
+  "risk": "3",
+  "title": "Malicious bidder can cause a DOS in `claimAuction` by rejecting ETH transfer",
+  "issueId": 1695,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1695"
+}
