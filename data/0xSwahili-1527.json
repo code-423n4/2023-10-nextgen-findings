@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xSwahili",
+  "risk": "3",
+  "title": "Users who bid at same timestamp as claimAuction will lose their bids",
+  "issueId": 1527,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1527"
+}
