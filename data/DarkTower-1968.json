@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "DarkTower",
+  "risk": "2",
+  "title": "`NextGenCore::tokenURI` is vulnerable to JSON injection",
+  "issueId": 1968,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1968"
+}
