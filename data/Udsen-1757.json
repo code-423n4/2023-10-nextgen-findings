@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Udsen",
+  "risk": "3",
+  "title": "THE RANDOM HASH CALCULATION BY THE `RandomizerRNG.fulfillRandomWords` IS INCORRECT SINCE IT DOES NOT USE THE `tokenId` IN ITS HASH VALUE CALCULATION WHICH COULD LEAD TO HASH COLLISION",
+  "issueId": 1757,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1757"
+}
