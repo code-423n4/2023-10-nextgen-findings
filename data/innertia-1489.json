@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "innertia",
+  "risk": "2",
+  "title": "Bids can be made after the auction is closed and funds are wasted.",
+  "issueId": 1489,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1489"
+}
