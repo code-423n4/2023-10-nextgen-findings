@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "DeFiHackLabs",
+  "risk": "3",
+  "title": "The attacker can win any auction with a dust price",
+  "issueId": 1819,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1819"
+}
