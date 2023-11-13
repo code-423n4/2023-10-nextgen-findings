@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Neon2835",
+  "risk": "3",
+  "title": "The node data of the Merkle tree proof may be forged",
+  "issueId": 1802,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1802"
+}
