@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "3th",
+  "risk": "3",
+  "title": "Airdrop recipient can DOS airdrop by reverting in `onERC721Received`",
+  "issueId": 1446,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1446"
+}
