@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "nuthan2x",
+  "risk": "3",
+  "title": "MinterContract.getPrice ::  Different pricing for same collection due to improper timestamp validation",
+  "issueId": 1407,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1407"
+}
