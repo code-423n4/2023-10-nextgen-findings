@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "alphacipher",
+  "risk": "2",
+  "title": "Some Function can modify metadata even after tokens are minted",
+  "issueId": 1536,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1536"
+}
