@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "836541",
+  "risk": "3",
+  "title": "`claimAuction` can be reverted by any bidder, locking all funds and the prize.",
+  "issueId": 2006,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/2006"
+}
