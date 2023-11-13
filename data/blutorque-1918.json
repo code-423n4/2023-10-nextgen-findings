@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "blutorque",
+  "risk": "3",
+  "title": "Cross-function reentrancy allows the attacker to claim the same bid twice. ",
+  "issueId": 1918,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1918"
+}
