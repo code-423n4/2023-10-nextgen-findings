@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "SanketKogekar",
+  "risk": "2",
+  "title": "The function `NextGenAdmins.registerCollectionAdmin()` does not allow registering admin for `_collectionID = 0`",
+  "issueId": 1840,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1840"
+}
