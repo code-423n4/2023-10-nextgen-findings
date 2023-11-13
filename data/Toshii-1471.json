@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Toshii",
+  "risk": "2",
+  "title": "Merkle leaf values in `burnOrSwapExternalToMint` can be arbitrarily set to 64 bytes prior to hashing, which can lead to Merkle tree collisions",
+  "issueId": 1471,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1471"
+}
