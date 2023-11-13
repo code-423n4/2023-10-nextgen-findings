@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Audinarey",
+  "risk": "2",
+  "title": "Auctions can be spammed with insignificant positions by anyone until claimAuction(...) DoS",
+  "issueId": 1530,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1530"
+}
