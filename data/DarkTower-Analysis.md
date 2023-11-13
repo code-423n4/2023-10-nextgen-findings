@@ -68,14 +68,16 @@ Other test coverage    | Most of the functional tests are covered with Foundry  
 
 
 ## Centralization Risks
-1. A malicious function admin can reset the MinterContract balance to zero anytime they choose thereby disrupting usual accounting an flow of funds. Keep in mind since this contract holds the funds from minting for all collections, an admin calling it every time will end up wiring the contract's balance to the owner but that will cause tedious work when reimbursing each individual artist of a collection for example as the collection could easily be over a hundred to thousands of collections' funds wired now needing reimbursement and temporarily pausing crucial functions such as payArtist if the contract has no balance.
-2. 
+A malicious function admin can reset the MinterContract balance to zero anytime they choose thereby disrupting usual accounting an flow of funds. Keep in mind since this contract holds the funds from minting for all collections, an admin calling it every time will end up wiring the contract's balance to the owner but that will cause tedious work when reimbursing each individual artist of a collection for example as the collection could easily be over a hundred to thousands of collections' funds wired now needing reimbursement and temporarily pausing crucial functions such as payArtist if the contract has no balance.
+ 
 ## System Risks 
 1. 
 2. 
 #### Time Spent
 Around 10 days.
 96 Hours.
+
+
 
 
 
