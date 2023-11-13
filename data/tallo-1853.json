@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "tallo",
+  "risk": "2",
+  "title": "Certain users might become the unintended function admin due different contracts sharing the same function name",
+  "issueId": 1853,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1853"
+}
