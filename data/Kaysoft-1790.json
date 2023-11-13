@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Kaysoft",
+  "risk": "3",
+  "title": "collectionTotalAmount is set to zero even when one of the primary address do not receive payment.",
+  "issueId": 1790,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1790"
+}
