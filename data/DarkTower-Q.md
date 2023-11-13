@@ -5,6 +5,7 @@
 |-|:-|:-:|
 |LOW-1| Function Admin centralization risk in `emergencyWithdraw` function |1| 
 |LOW-2| Bad Source of Randomness is implemented in `NextGenRandomizerNXT::calculateTokenHash`|1|
+|LOW-3| Improve logic in function `auctionDemo::returnHighestBidder`
 
 Total: 2 contexts over 2 issues
 
@@ -30,3 +31,7 @@ function randomNumber() public view returns (uint256){
         return randomNum;
     }
 ```
+
+LOW-3: Improve logic in function `auctionDemo::returnHighestBidder`
+As of now the `highBid` is not getting updated and the function always compares `auctionInfoData[_tokenid][i].bid` to 0. This works for now as the mapping `mapping (uint256 => auctionInfoStru[]) public auctionInfoData` is sorted, but can lead to many issues in the future if logic changes.
+Context: [NextGenRandomizerNXT::calculateTokenHash](https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/hardhat/smart-contracts/AuctionDemo.sol#L91-L92)
