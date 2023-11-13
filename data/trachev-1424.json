@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "trachev",
+  "risk": "3",
+  "title": "An auction would suffer a complete DOS if there are too many bids.",
+  "issueId": 1424,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1424"
+}
