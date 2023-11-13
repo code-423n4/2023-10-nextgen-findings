@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xAadi",
+  "risk": "3",
+  "title": "The bid amounts will remain locked in the contract indefinitely if the token owner doesn't grants approval for transferring the token in `AuctionDemo.sol`.",
+  "issueId": 1679,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1679"
+}
