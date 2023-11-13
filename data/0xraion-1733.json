@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xraion",
+  "risk": "2",
+  "title": "Attacker can manipulate mints to only mint rare tokens",
+  "issueId": 1733,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1733"
+}
