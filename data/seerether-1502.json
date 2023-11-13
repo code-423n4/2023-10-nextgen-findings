@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "max collection supply is allowed to be lowered after minting starts, which can cause major issues. ",
+  "issueId": 1502,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1502"
+}
