@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "nuthan2x",
+  "risk": "2",
+  "title": "MinterContract.mint ::  maxAllowance on public sale check can be bypassed with reentering the mint function",
+  "issueId": 1529,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1529"
+}
