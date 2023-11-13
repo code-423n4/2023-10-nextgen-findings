@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "AvantGard",
+  "risk": "3",
+  "title": "Swithching to sales model 3 for a collection with pre-existing supply could brick the ' mint() ' function for that collection.",
+  "issueId": 2012,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/2012"
+}
