@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "PASCAL",
+  "risk": "3",
+  "title": "getprice() is not properly calculated when salesoption = 3 ",
+  "issueId": 1950,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1950"
+}
