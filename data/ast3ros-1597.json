@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ast3ros",
+  "risk": "3",
+  "title": "Vulnerability in burnToMint function allowing double use of NFT",
+  "issueId": 1597,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1597"
+}
