@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Bauchibred",
+  "risk": "3",
+  "title": "All funds that's sent as bids for a specific auction could end up being completely stuck/lost to `AuctionDemo.sol`",
+  "issueId": 1406,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1406"
+}
