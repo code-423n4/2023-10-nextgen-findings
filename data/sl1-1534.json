@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "sl1",
+  "risk": "2",
+  "title": "If the randomizerNXT is used, it is possible to re-roll the randomness until desired hash is obtained.",
+  "issueId": 1534,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1534"
+}
