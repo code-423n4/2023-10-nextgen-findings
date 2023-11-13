@@ -57,5 +57,7 @@ The admin contract and its roles are reviewed in the Centralization risks sectio
 The Admin contract is responsible for adding or removing global or function-based admins who are allowed to call certain functions in both the Core and Minter contracts. The Core and Minter contract call the Admin contract in order to check if a certain user is allowed to call a function. The Admin contract address can be changed by a Function Admin, to a contract where the owner is the Function Admin, but this will require the admin to be malicious. Owner, Global Admins and Functions Admins can damage the protocol and the normal users including the collection artists in different ways. The code base is heavily centralized but the sponsors have mentioned that the trusted admins will be trusted gnosis safe wallets with 2/3 or 3/4 signatures so they will check if a request is malicious  or not. Compromising the trusted addresses will be extremely difficult. That said users of the protocol can never be 100% sure that the owners or admins won't rug pull them, in the case of Nextgen this is also true for the artists of the collections as all funds from the minting contract can be withdrawn by the admins via the emergencyWithdraw.
 
 
+
+
 ### Time spent:
 25 hours
