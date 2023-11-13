@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "rishabh",
+  "risk": "2",
+  "title": "Wrong msg.value assertion can lead to user loosing funds in mint functions",
+  "issueId": 1657,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1657"
+}
