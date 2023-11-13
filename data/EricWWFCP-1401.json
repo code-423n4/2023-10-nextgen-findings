@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "EricWWFCP",
+  "risk": "2",
+  "title": "Bad actors can frontrun bids - Sincere bids don't go through",
+  "issueId": 1401,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1401"
+}
