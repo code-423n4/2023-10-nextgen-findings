@@ -1,7 +1,7 @@
 
 # [L-01] Validating ``tokenid``
 
-The function ``participateToAuction`` accepts a bid without checking if the ``tokenid`` corresponds to a valid token. This could allow users to bid on a null ``tokenid`` “0” that does not belong to any token. The users would lose gas fees by executing a futile transaction. To prevent this problem, the function should validate the ``tokenid`` before the require statement. One way to do this is to check if the ``tokenid`` is less than or equal to the total circulation of the tokens
+The function ``participateToAuction`` accepts a bid without checking if the ``tokenid`` corresponds to a valid token. This could allow users to bid on a null ``tokenid`` “0” that does not belong to any token. The users would lose gas fees by executing a futile transaction. To prevent this problem, the function should validate the ``tokenid`` before the require statement and checking if the ``tokenid`` is greater than "0" and also less than or equal to the total circulation of the tokens
 
 ```
 function participateToAuction(uint256 _tokenid) public payable {
@@ -31,3 +31,31 @@ https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b2
 event NewBid(uint256 indexed tokenid, address indexed bidder, uint256 amount);
 event AuctionEnded(uint256 indexed tokenid, address indexed winner, uint256 amount);
 ```
+
+### [L-03] Validating ``tokenid``
+
+The function ``returnHighestBid`` lacks validation of tokenid, which could lead to incorrect or misleading results. The function returns the highest bid amount for a given tokenid that is being auctioned. However, if the ``tokenid`` is not valid, the function will return zero as the highest bid amount. This is because the function will check if the array ``auctionInfoData[_tokenid]`` has any elements before proceeding with the loop. If the array is empty or undefined, the function will return zero without entering the loop. If the tokenid is zero, the function will also return zero, because the zero id is null ``tokenid``. Moreover, the users who call the function with an invalid tokenid will lose gas fees by executing a futile transaction. To prevent this problem, the function should validate the ``tokenid`` before accessing the array ``auctionInfoData[_tokenid]``. One way to do this is to check if the ``tokenid`` is greater than "0" and also less than or equal to the total circulation of the tokens.
+
+```
+function returnHighestBid(uint256 _tokenid) public view returns (uint256) {
+        uint256 index;
+        if (auctionInfoData[_tokenid].length > 0) {
+            uint256 highBid = 0;
+            for (uint256 i=0; i< auctionInfoData[_tokenid].length; i++) {
+                if (auctionInfoData[_tokenid][i].bid > highBid && auctionInfoData[_tokenid][i].status == true) {
+                    highBid = auctionInfoData[_tokenid][i].bid;
+                    index = i;
+                }
+            }
+            if (auctionInfoData[_tokenid][index].status == true) {
+                return highBid;
+            } else {
+                return 0;
+            }
+        } else {
+            return 0;
+        }
+    }
+```
+
+https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/AuctionDemo.sol#L65
