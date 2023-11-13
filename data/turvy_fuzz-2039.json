@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "turvy_fuzz",
+  "risk": "3",
+  "title": "The reentrancy vulnerability in NextGenCore can allow an attacker to manipulate minting execution",
+  "issueId": 2039,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/2039"
+}
