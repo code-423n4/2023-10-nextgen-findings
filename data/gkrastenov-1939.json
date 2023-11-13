@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "gkrastenov",
+  "risk": "3",
+  "title": "Possible reentrancy attack and the minting of free tokens.",
+  "issueId": 1939,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1939"
+}
