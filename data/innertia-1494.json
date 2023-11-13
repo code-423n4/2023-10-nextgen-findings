@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "innertia",
+  "risk": "3",
+  "title": "Additional funds can be withdrawn by cancelBid after the auction ends.",
+  "issueId": 1494,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1494"
+}
