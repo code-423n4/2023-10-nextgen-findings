@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "yobiz",
+  "risk": "2",
+  "title": "MinterContract#setCollectionCosts - Lack of input checks can make mint contract always revert for entire collection",
+  "issueId": 1624,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1624"
+}
