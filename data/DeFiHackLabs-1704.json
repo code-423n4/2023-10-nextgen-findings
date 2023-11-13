@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "DeFiHackLabs",
+  "risk": "2",
+  "title": "`RandomizerVRF.sol`: malicious function admin can set invalid keyhash to DoS randomness generation",
+  "issueId": 1704,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1704"
+}
