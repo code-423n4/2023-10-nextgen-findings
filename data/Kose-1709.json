@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Kose",
+  "risk": "3",
+  "title": "Attacker can sandwich attack possible participants of auction and won the auction every time",
+  "issueId": 1709,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1709"
+}
