@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Toshii",
+  "risk": "2",
+  "title": "Lack of fallback in case of failed call to get RNG can result in never setting randomness for a minted tokenId, which breaks critical logic",
+  "issueId": 1464,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1464"
+}
