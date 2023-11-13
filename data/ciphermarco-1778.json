@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ciphermarco",
+  "risk": "2",
+  "title": "`NextGenCore`'s `addRandomizer` Risks Leaving `tokenHash`'s Unset",
+  "issueId": 1778,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1778"
+}
