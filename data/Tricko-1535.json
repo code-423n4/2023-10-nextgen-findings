@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Tricko",
+  "risk": "2",
+  "title": "Users can precalculate the random values generated in `XRandoms`, allowing they to mint tokens selectively",
+  "issueId": 1535,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1535"
+}
