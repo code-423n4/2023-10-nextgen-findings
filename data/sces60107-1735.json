@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "sces60107",
+  "risk": "2",
+  "title": "`NextGenMinterContract.burnToMint` and `NextGenMinterContract.burnOrSwapExternalToMint` don't fit with periodic sale model",
+  "issueId": 1735,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1735"
+}
