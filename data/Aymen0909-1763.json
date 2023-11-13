@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Aymen0909",
+  "risk": "2",
+  "title": "`tokensMintedPerAddress` not updated in `NextGenCore.burnToMint` and not checked in `MinterContract.burnToMint` allowing the bypass of minting limit per address",
+  "issueId": 1763,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1763"
+}
