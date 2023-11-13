@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "droptpackets",
+  "risk": "3",
+  "title": "During Allowlist or Public Mint an Attacker Can Mint an Arbitrary Number of ERC721 Tokens",
+  "issueId": 1440,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1440"
+}
