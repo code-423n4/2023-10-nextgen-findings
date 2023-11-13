@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "PASCAL",
+  "risk": "3",
+  "title": "Winner of auction status is not set to false after claim so eligible for refund ",
+  "issueId": 2021,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/2021"
+}
