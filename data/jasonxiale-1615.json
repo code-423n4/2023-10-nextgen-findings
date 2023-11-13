@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "jasonxiale",
+  "risk": "2",
+  "title": "Everytime `auctionDemo.participateToAuction` is called, the auction's endtime should be extended",
+  "issueId": 1615,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1615"
+}
