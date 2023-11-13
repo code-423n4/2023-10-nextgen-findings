@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "mojito_auditor",
+  "risk": "2",
+  "title": "Race condition at auction end time: User can both participate and claim",
+  "issueId": 1451,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1451"
+}
