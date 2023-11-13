@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "Updating lastMintDate on every mint can allow regular mints to bypass the 1 mint per time period limit for sales option 3",
+  "issueId": 1428,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1428"
+}
