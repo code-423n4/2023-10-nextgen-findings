@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "phoenixV110",
+  "risk": "3",
+  "title": "A User can bypass `maxCollectionPurchases` and mint max nfts supply",
+  "issueId": 1660,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1660"
+}
