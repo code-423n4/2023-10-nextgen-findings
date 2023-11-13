@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Udsen",
+  "risk": "3",
+  "title": "A MALICIOUS WHALE USER CAN GRIEF OTHER BIDDERS FROM REGISTERING VALID BIDS IN A LIVE AUCTION OF A SPECIFIC ERC721 TOKEN, AND LATER WIN THE AUCTION BY ONLY BIDDING `1 wei`",
+  "issueId": 1811,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1811"
+}
