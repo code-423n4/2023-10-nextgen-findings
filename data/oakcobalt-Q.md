@@ -315,6 +315,151 @@ function proposeSecondaryAddressesAndPercentages(
 Recommendations:
 No need for the assignment here.
 
+## Low - 10 `getWord()` has incorrect implementation and can be simplified
+In XDandoms.sol - `getWord()`, an if statement is used to check whether id==0. However, this check also results in both when `id==0` and when `id==1` return the same word. 
+
+In addition, the `if` statement can be removed to simply return `string[i]` and since `string[100]` is fixed at 100 elements, the input id will between [0,99] to fetch a word.
+
+```solidity
+// smart-contracts/XRandoms.sol
+    function getWord(uint256 id) private pure returns (string memory) {
+...
+        //@audit (1) this different id 0 or 1 will return the same word; (2) for array retrieval, this can be simplified to string[i]
+        // returns a word based on index
+        if (id == 0) {
+            return wordsList[id];
+        } else {
+            return wordsList[id - 1];
+        }
+}
+```
+(https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/XRandoms.sol#L28-L31)
+
+Recommendations:
+To avoid two ids returning the same word, simply use `string[i]` and ensure input is between [0,99].
+
+## Low - 11 Unnecessary storage declaration. (Note: Not included in bot reports)
+There are (2) instances where `tokenIdCollection` is declared and maintained but it's not necessary, since the info can be queried from NextGenCore contract getter.
+
+instances(2):
+
+```solidity
+// smart-contracts/RandomizerRNG.sol
+//@audit: tokenIdToColleciton can be queried from core contract getter. no need to declare and write to a new storage mapping
+    mapping(uint256 => uint256) public tokenIdToCollection;
+...
+```
+(https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/RandomizerRNG.sol#L27)
+
+```solidity
+// smart-contracts/RandomizerVRF.sol
+//@audit Low: tokenIdToColleciton can be queried from the core contract getter. no need to declare and write to a new storage mapping
+    mapping(uint256 => uint256) public tokenIdToCollection;
+...
+```
+(https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/RandomizerVRF.sol#L31)
+
+Recommendations:
+Use the getter from NextGenCore.sol instead of maintaining a separate mapping that is supposed to contain the same data.
+
+## Low - 12 Unnecessary if statement in AuctionDemo
+In AuctionDemo.sol - `returnHighestBid()`, a local `highBid` and `index` are declared to be assigned in a for-loop. After the for-loop, there is an `if` statement where `auctionInfoData[_tokenid][index].status == true` is checked but this is unnecessary since this is already checked in the for-loop. 
+
+In addition, instead simply return `highBid`. Because if the `highBid` is found in the for-loop, `highBid` will be returned and if `highBid` is not found, `highBid` will remain default `0` and returned. This saves the need of `if` statement bypass and simplify the process.
+
+instances(1):
+
+```solidity
+// smart-contracts/AuctionDemo.sol
+    function returnHighestBid(uint256 _tokenid) public view returns (uint256) {
+...
+            //@audit unecessary if statement, because (1) there is valid bid in the for-loop, which will set highBid to a non-zero value, and reset index,
+            //@audit .status will have already been checked to be ture (2) if no valid bid in the for-loop, .status will be false, highbid will remain default 0.
+            if (auctionInfoData[_tokenid][index].status == true) {
+                return highBid;
+            } else {
+                return 0;
+            }
+```
+(https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/AuctionDemo.sol#L75-L78)
+
+## Low - 13 Risk of dust bidding or an overwhelming number of users bidding in AuctionDemo.sol DOS `claimAuction()`
+In AuctionDemo.sol, dust bidding can be passed in `participateToAuction()`. When enough dust bidding is passed. It might permanently DOS `claimAuction()` where for-loop is iterating over every single bid and send refunds to each bidder. 
+
+Because `claimAuction()` is more gas intensive compared to `participateToAuction()`, when dust bidding is allowed. It's possible that `claimAuction()` will be DOSsed for the collection. Funds can be stuck in the AucitonDemo contract since there are no methods to recover funds from the owner.
+
+The impact is Medium impact since funds lock and nft transfer can be DOSed. Due to the fact that current `participateToAuction()` will cause user gas. It will be expansive and rewardless for this vulnerability to be exploited. However, it's still possible for enough users to participate in the auction which overwhelms the contract resulting in `claimAuction()` DOSsed.
+
+instances(1):
+
+```solidity
+// smart-contracts/AuctionDemo.sol
+//@audit dust bidding is possible, to increase the auctionInfoData[_tokenid] to a large size, which might potentially create DOS for claimAuction();
+//@audit Also, an overwhelming number of biddings can also DOS claimAuction();
+
+    function participateToAuction(uint256 _tokenid) public payable {
+|>      require(
+            msg.value > returnHighestBid(_tokenid) &&
+                block.timestamp <= minter.getAuctionEndTime(_tokenid) &&
+                minter.getAuctionStatus(_tokenid) == true
+        );
+        auctionInfoStru memory newBid = auctionInfoStru(
+            msg.sender,
+            msg.value,
+            true
+        );
+        auctionInfoData[_tokenid].push(newBid);
+    }
+```
+(https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/AuctionDemo.sol#L58) 
+
+Recommendations:
+(1) Consider setting a minimal bidding cost variable for each collection to prevent large amount of dust bidding, raising the bidding threshold to an appropriate level;
+(2) Consider separate claimAuction() logics into two or more functions to allow nft transfer, highest bid funds transfer, and other bidders refunds to be done in separate transactions to avoid DOS;
+
+## Low - 14 `viewMaxAllowance(col)` can be easily bypassed by user who mint through `burnOrSwapExternalToMint()` or `burnToMint()`
+In MinterContract.sol - `mint()`, `viewMaxAlloance(col)` is checked to ensure a single user account cannot mint more than allowed for a collection. This is a cap for a single-user account per collection id.
+
+However, this check can be bypassed if the collection id has either `burnToMint()` or `burnOrSwapToMint()` enabled where `viewMaxAlloance(col)` is not checked in those user flows. This is a backdoor minting to bypass `viewMaxAlloance(col)`.
+
+instances(2):
+
+```solidity
+// smart-contracts/MinterContract.sol
+    function mint(
+        uint256 _collectionID,
+        uint256 _numberOfTokens,
+        uint256 _maxAllowance,
+        string memory _tokenData,
+        address _mintTo,
+        bytes32[] calldata merkleProof,
+        address _delegator,
+        uint256 _saltfun_o
+    ) public payable {
+...
+// @audit this check ensures that for a single user account, in the public minting phase, one cannot pass the cap `gencore.viewMaxAllowance(col)`. However, this can be bypassed in `burnToMint()` or `burOrSwapToMint()`
+            require(
+                gencore.retrieveTokensMintedPublicPerAddress(col, msg.sender) +
+                    _numberOfTokens <=
+                    gencore.viewMaxAllowance(col),
+                "Max"
+            );
+```
+(https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L224)
+```solidity
+//  smart-contracts/MinterContract.sol   
+function burnToMint(uint256 _burnCollectionID, uint256 _tokenId, uint256 _mintCollectionID, uint256 _saltfun_o) public payable {
+...
+// @audit only total supply is checked here, no check on personal cap `gencore.viewMaxAllowance(col)`
+        collectionTokenMintIndex = gencore.viewTokensIndexMin(_mintCollectionID) + gencore.viewCirSupply(_mintCollectionID);
+        require(collectionTokenMintIndex <= gencore.viewTokensIndexMax(_mintCollectionID), "No supply");
+...
+```
+(https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/MinterContract.sol#L264-L266)
+
+Recommendation:
+Enforce the same check on `gencore.viewMaxAllowance(col)` cap in `burnToMint()` and `burnOrSwapExternalToMint()`.
+
 ## NC - 01 `registerFuncitonAdmin()` will not distinguish two contracts with same funciton selectors, collision of admin might happen which might erode the access control.
 In NextGenAdmins.sol - `registerFunctionAdmin()`, only function selector is used as key to assign function admin address, the contract name or address is not used. When there are two functions that have different contracts have the same function selector, this will create a collision of the admin value if the function admin should be different.
 
@@ -354,4 +499,21 @@ contract NextGenRandomizerNXT {
 
 Recommendation:
 Remove the import statement.
+
+## NC - 03 Constructor doesn't need visibility declaration
+In AuctionDemo.sol, the constructor is declared with a public keyword, this is unnecessary.
+
+instance(1):
+
+```solidity
+// smart-contracts/AuctionDemo.sol
+    constructor(
+        address _minter,
+        address _gencore,
+        address _adminsContract
+|>  ) public {
+...
+```
+(https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/AuctionDemo.sol#L36)
+
 
