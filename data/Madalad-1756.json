@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Madalad",
+  "risk": "2",
+  "title": "Losing bids may become trapped in the `AuctionDemo` contract",
+  "issueId": 1756,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1756"
+}
