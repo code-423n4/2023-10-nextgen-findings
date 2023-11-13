@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "SovaSlava",
+  "risk": "2",
+  "title": "The user can bypass the limitation on the maximum number of tokens per address",
+  "issueId": 1392,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1392"
+}
