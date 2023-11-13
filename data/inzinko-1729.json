@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "inzinko",
+  "risk": "2",
+  "title": "The External contracts checks to know a Legitimate contract can be bypassed",
+  "issueId": 1729,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1729"
+}
