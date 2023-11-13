@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "836541",
+  "risk": "2",
+  "title": "`AuctionDemo.sol` has no way to rescue funds.",
+  "issueId": 2004,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/2004"
+}
