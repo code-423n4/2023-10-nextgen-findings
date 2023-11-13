@@ -69,14 +69,14 @@ I report this as Low because it's hard to imagine that the mint cost will be les
 
 ### [L] Function setCollectionData from the NextGenCore should check if the `_maxCollectionPurchases` is less than `_collectionTotalSupply`.
 
-By using the variable _maxCollectionPurchases admin can modify the amount of the tokens that could be purchased from a collection. But this number can't be more than the total supply.
+By using the variable _maxCollectionPurchases admin can modify the amount of the tokens that could be purchased from a collection by a user. But this number can't be more than the total supply.
 
 The only place in the code where this variable is used is in the mint function:
 
     226: require(_numberOfTokens <= gencore.viewMaxAllowance(col), "Change no of tokens");
             require(gencore.retrieveTokensMintedPublicPerAddress(col, msg.sender) + _numberOfTokens <= gencore.viewMaxAllowance(col), "Max");
 
-The idea is that the amount for sale can be reduced by changing this variable, but the setCollectionData function allows admins to set this parameter to be greater than the total supply making this require statements pointless.
+The idea is that the allowed amount per user can be changed at any moment, but the setCollectionData function allows admins to set this parameter to be greater than the total supply making this require statements pointless.
 
 ### [L] Require statements in addMinterContract and updateAdminContract functions are too simplistic, making them susceptible to circumvention.
  
@@ -106,6 +106,21 @@ If we take a look at these `isMinterContract` and `isAdminContract` functions we
     }
 
 They always return true without checking any data. These checks provide a false sense of security and lack practical significance
+
+### [L] Using 100 as a divisor in the function payArtist() can lead to the wrong amounts being paid. Also, some additional checks to prevent 0 payments should be added.
+
+In Solidity, using 10000 as a divisor when calculating percentages is a common practice to avoid precision issues with integer arithmetic. Solidity primarily deals with integers, and using 100 as a divisor might result in rounding errors due to limited precision. By using 10000, developers can achieve greater precision in their calculations.
+
+This function 5 times calculates percentages from the same value. Several cases of rounding down will lead to the dust left in the contract. To avoid this issue use 10000 as a divisor and 10000 as 100%.
+
+Also, there are 5 division operations in the payArtist() function. In some cases it can lead to 0 payments, to prevent this the numerator should be more or equal to 100:
+
+     artistRoyalties1 = royalties * collectionArtistPrimaryAddresses[colId].add1Percentage / 100;
+     artistRoyalties2 = royalties * collectionArtistPrimaryAddresses[colId].add2Percentage / 100;
+     artistRoyalties3 = royalties * collectionArtistPrimaryAddresses[colId].add3Percentage / 100;
+     teamRoyalties1 = royalties * _teamperc1 / 100;
+     teamRoyalties2 = royalties * _teamperc2 / 100;
+
 
 ### [QA] It is not possible to retrieve the token balance from a specific collection 
 
