@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xb41a",
+  "risk": "2",
+  "title": "in function emergencyWithdraw() contracts balance is not updated and call status is not checked. [ FILENAME : RandomizerRNG.sol ]",
+  "issueId": 1492,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1492"
+}
