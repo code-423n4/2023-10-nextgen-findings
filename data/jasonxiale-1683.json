@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "jasonxiale",
+  "risk": "2",
+  "title": "`MinterContract.burnToMint` lacks of check `setMintingCosts`",
+  "issueId": 1683,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1683"
+}
