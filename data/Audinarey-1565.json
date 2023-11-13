@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Audinarey",
+  "risk": "2",
+  "title": "cancelAllBids(...) cancels only caller's bid",
+  "issueId": 1565,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1565"
+}
