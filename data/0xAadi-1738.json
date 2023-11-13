@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xAadi",
+  "risk": "3",
+  "title": "The absence of a floor price in an auction allows an attacker to steal the NFT if there are no other participants, even with a minimal amount.",
+  "issueId": 1738,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1738"
+}
