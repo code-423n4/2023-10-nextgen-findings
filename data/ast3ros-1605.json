@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ast3ros",
+  "risk": "2",
+  "title": "Absence of Re-Request Mechanism for Random Hashes in Chainlink VRF Integration",
+  "issueId": 1605,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1605"
+}
