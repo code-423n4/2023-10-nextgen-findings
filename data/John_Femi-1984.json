@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "John_Femi",
+  "risk": "3",
+  "title": "Contract can be drained from the `claimAuction` contract",
+  "issueId": 1984,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1984"
+}
