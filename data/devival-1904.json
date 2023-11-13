@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "devival",
+  "risk": "3",
+  "title": "Highest bidder can both claim token and get his bid back by manipulating the last second of auction",
+  "issueId": 1904,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1904"
+}
