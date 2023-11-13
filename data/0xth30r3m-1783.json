@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xth30r3m",
+  "risk": "3",
+  "title": "Attacker can use `burnToMint()` to mint tokens without burning",
+  "issueId": 1783,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1783"
+}
