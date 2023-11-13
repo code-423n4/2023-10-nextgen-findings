@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "3th",
+  "risk": "3",
+  "title": "Error in `lastMintDate` calculation allows for excess minting of collections with periodic sales models",
+  "issueId": 1452,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1452"
+}
