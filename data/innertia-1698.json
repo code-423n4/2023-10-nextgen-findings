@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "innertia",
+  "risk": "2",
+  "title": "If _numberOfTokens is set to zero in mint, tokens are not received but msg.value is not returned.",
+  "issueId": 1698,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1698"
+}
