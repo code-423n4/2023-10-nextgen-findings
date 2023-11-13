@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Im_th3AK",
+  "risk": "2",
+  "title": "dubious typecast from bytes to bytes32.",
+  "issueId": 1943,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1943"
+}
