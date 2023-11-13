@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Udsen",
+  "risk": "2",
+  "title": "NO PROPER TRACKING OF MULTIPLE FUNCTION ADMINS IN THE `NextGenAdmins` CONTRACT COULD LEAD TO INCONSISTENCIES WHEN REMOVING ADMINS FROM FUNCTION ADMIN ROLES",
+  "issueId": 1868,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1868"
+}
