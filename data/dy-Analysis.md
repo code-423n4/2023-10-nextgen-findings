@@ -10,7 +10,7 @@ Operation of the NextGen protocol is highly dependent on administrators. The adm
 
 While it is common for protocols to have administrative functions and components that require active upkeep, more decentralized protocols empower users to do as much as possible, and the most decentralized protocols are designed to continue functioning even in the event that they are abandoned by developers. This is not the case for NextGen -- artists cannot create or configure their own collections, as all the functionality for this is available only to protocol administrators. This reduces artist control over their collections and ensures that the protocol will be unusable if abandoned by its developers.
 
-Even if the protocol admins behave entirely ethically and diligently maintain the protocol for its entire lifespan, there remains a risk of compromise. The compromise of an administrator account could have devastating effects on the protocol.
+Overall, rethinking the permission structure and workflows involved in creating a collection could increase the protocol's longevity and reduce the workload on NextGen administrators. Even if the protocol admins behave entirely ethically and diligently maintain the protocol for its entire lifespan, there remains a risk of compromise. The compromise of an administrator account could have devastating effects on the protocol.
 
 The lack of events for the majority of functionality could also contribute to a perception that the protocol is not transparently run.
 
@@ -102,6 +102,10 @@ If the purpose of this control is to limit the number of tokens a single user ca
 require(_numberOfTokens <= gencore.viewMaxAllowance(col), "Change no of tokens");
 ```
 
+### Collection generation script
+
+Function and collection admins could provide a collection script for collections. This script is intended to generate the token's artwork, but could contain malicious functionality. The function `retrieveGenerativeScript` outputs the collection script as part of a JavaScript string, which may be run in users' browsers. Care should thus be taken to ensure that collection scripts do not contain malicious JavaScript, such as keyloggers or code that attempts to interact with user wallets.
+
 ## Architectural recommendations
 
 This section provides a few high-level recommendations for streamlining NextGen's architecture and improving code quality.
@@ -143,6 +147,8 @@ The AuctionDemo contract could be greatly simplified, though at the expense of s
 While bidders would not be able to cancel their bids in this version of the contract, it would remove the requirement for complex logic in the contract's view functions, as the highest bid and bidder could be stored in a public mapping. It would also remove the requirement for complex logic in the `claimAuction` function, for the same reasons.
 
 In this way, the contract size could be reduced by approximately 50%.
+
+
 
 
 ### Time spent:
