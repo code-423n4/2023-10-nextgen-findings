@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "alphacipher",
+  "risk": "2",
+  "title": "Token Approval Not Cleared on NextGenCore::burn function ",
+  "issueId": 1559,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1559"
+}
