@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "bitsurfer",
+  "risk": "2",
+  "title": "Potential VRF service distruption due to open possibility of `fulfillRandomWords` to revert",
+  "issueId": 1402,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1402"
+}
