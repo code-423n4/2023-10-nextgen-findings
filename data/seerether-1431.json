@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "Minting the new token to the ownerOfToken instead of msg.sender is problematic",
+  "issueId": 1431,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1431"
+}
