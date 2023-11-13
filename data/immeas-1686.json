@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "immeas",
+  "risk": "2",
+  "title": "`MinterContract::payArtist` can result in double the intended payout",
+  "issueId": 1686,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1686"
+}
