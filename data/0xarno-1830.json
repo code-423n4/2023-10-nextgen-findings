@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xarno",
+  "risk": "2",
+  "title": "A request for a random number to `ARRNG` may sometimes fail, resulting in a `0` hash for certain tokenIds.",
+  "issueId": 1830,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1830"
+}
