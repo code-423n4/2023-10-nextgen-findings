@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "owadez",
+  "risk": "3",
+  "title": "bool result not checked for success after call",
+  "issueId": 1395,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1395"
+}
