@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "btk",
+  "risk": "3",
+  "title": "Attacker can manipulate the auction and win it paying just 1 wei",
+  "issueId": 1513,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1513"
+}
