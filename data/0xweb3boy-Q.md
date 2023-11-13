@@ -1,4 +1,36 @@
-# L-01 - Check-Effect-Interaction pattern is not followed and Re-entrancy is possible
+# L-01 Use of `subscriptionId` while the owner/admin can be changed may be risky for funds of previous owner's `subId`
+
+https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerVRF.sol#L56
+
+```solidity
+  function requestRandomWords(uint256 tokenid) public {
+        require(msg.sender == gencore);
+        uint256 requestId = COORDINATOR.requestRandomWords(
+            keyHash,
+            s_subscriptionId,
+            requestConfirmations,
+            callbackGasLimit,  
+            numWords
+        );
+        tokenToRequest[tokenid] = requestId;
+        requestToToken[requestId] = tokenid;
+    }
+```
+
+The contract is ownable and has a `subscriptionId` setUp in the `requestRandomWords()` function, the same owner is responsible for maintaining a minimum amount of the LINK tokens with the same  `subscriptionId` to `requestRandomWords()`, In case the admin1 decides to transfer the ownership to admin2 the `subscriptionId` will not be changed in that case, only the ownership of the contract is changed.
+
+### Before transferring the ownership
+Contract owner - admin1, subscriptionId of : admin1
+
+### After transferring the ownership
+Contract owner - admin2, subscriptionId of : admin1
+
+In this situation the old admin won't be aware of his funds being used for calling `requestRandomWords()` while the new admin keeps on calling it with the funds of old admin i.e `admin1`.
+
+The question arises if the admins are from the same team? I think there could be possibility of admins being from the different teams or the ownership being handled by the third party or so.
+
+
+# L-02 - Check-Effect-Interaction pattern is not followed and Re-entrancy is possible
 
 https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenCore.sol#L178C4-L185C6
 
@@ -13,7 +45,7 @@ https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenC
     }
 ```
 
-# L-02 `burnToMint()` fucntion is using `_burn()` but not checking if valid `_tokenId` is provided.
+# L-03 `burnToMint()` fucntion is using `_burn()` but not checking if valid `_tokenId` is provided.
 
 https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenCore.sol#L213-L224
 
@@ -36,6 +68,7 @@ While the function `_burn()` has a requirement to check that `tokenId` must exis
 
 +  require ((_tokenId >= collectionAdditionalData[_collectionID].reservedMinTokensIndex) && (_tokenId <= collectionAdditionalData[_collectionID].reservedMaxTokensIndex), "id err");
 ```
+
 
 
 
