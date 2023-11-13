@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "alexxander",
+  "risk": "3",
+  "title": "All Auctions can be drained (except 1) | Aggregate report of several issues in `AuctionDemo.sol`",
+  "issueId": 1899,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1899"
+}
