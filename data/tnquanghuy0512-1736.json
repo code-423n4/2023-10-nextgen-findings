@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "tnquanghuy0512",
+  "risk": "3",
+  "title": "DOS forever in `AuctionDemo.claimAuction()` lead to the NFT and its bids get stuck forever",
+  "issueId": 1736,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1736"
+}
