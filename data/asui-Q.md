@@ -8,3 +8,5 @@
 4. In the MinterContract in ```setCollectionPhases``` function add a check to make sure that the allow list minting period and the public minting period doesn't overlap. Otherwise if incase they overlap when users call mint they will go through the first if statement which is the allow list minting period and cannot mint until the allow list period is over even though the public minting period has started.
 
 5. When setting a collection cost, for mintpass tokens costs can be set to 0 so make sure that the collection's randomizer is the ```NextGenRandomizerNXT``` contract otherwise the protocol's LOOKS tokens(with chainlink vrf) and eth(for arrng) can be used up or drained for tokens with 0 values. 
+
+6. When minting a token the ```_saltfun_o``` can be removed form the ```airDropTokens```, ```mint```, ```burnToMint```, ```_mintProcessing``` and in the ```calculateTokenHash``` function in all the randomizer contracts since they are never even used.  
