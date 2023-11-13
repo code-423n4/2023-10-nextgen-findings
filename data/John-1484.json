@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "John",
+  "risk": "2",
+  "title": "The \"claimAuction\" function in \"AuctionDemo.sol\" faces issues with an unsuccessful transfer due to lacking authorization.",
+  "issueId": 1484,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1484"
+}
