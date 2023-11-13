@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "lsaudit",
+  "risk": "3",
+  "title": "`AuctionDemo.sol` - Malicious bidder may DoS the whole Auction",
+  "issueId": 1755,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1755"
+}
