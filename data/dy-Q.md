@@ -23,7 +23,8 @@
 3. [MinterContract.sol#320,321](https://github.com/code-423n4/2023-10-nextgen/blob/08a56bacd286ee52433670f3bb73a0e4a4525dd4/smart-contracts/MinterContract.sol#L320-L321): A `require` could be added to the `initializeExternalBurnOrSwap` to ensure `_tokmax > _tokmin`.
 4. [MinterContract.sol#361](https://github.com/code-423n4/2023-10-nextgen/blob/08a56bacd286ee52433670f3bb73a0e4a4525dd4/smart-contracts/MinterContract.sol#L361): `* 1` is unnecessary and can be removed.
 5. [MinterContract.sol#373](https://github.com/code-423n4/2023-10-nextgen/blob/08a56bacd286ee52433670f3bb73a0e4a4525dd4/smart-contracts/MinterContract.sol#L373): Instead of storing the team's primary and secondary splits, these could be calculated when needed by subtracting the artist's split from 100.
-6.  [MinterContract.sol#417](https://github.com/code-423n4/2023-10-nextgen/blob/08a56bacd286ee52433670f3bb73a0e4a4525dd4/smart-contracts/MinterContract.sol#L417) The word "grater" in the `require` statement should be spelt "greater".
+6. [MinterContract.sol#417](https://github.com/code-423n4/2023-10-nextgen/blob/08a56bacd286ee52433670f3bb73a0e4a4525dd4/smart-contracts/MinterContract.sol#L417): The word "grater" in the `require` statement should be spelt "greater".
+7. MinterContract.sol#[389](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L389),[403](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L403): `status` must already be `false` per the `require` statement at the top of both `proposePrimaryAddressesAndPercentages` and `proposeSecondaryAddressesAndPercentages`, so setting it to `false` again is unnecessary. These lines can be removed.
 
 ### `XRandoms`
 
