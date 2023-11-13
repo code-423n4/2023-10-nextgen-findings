@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "oakcobalt",
+  "risk": "3",
+  "title": "Malicious bidder can get bidding funds refunds twice, stealing other bidders or owner's funds",
+  "issueId": 1677,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1677"
+}
