@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "cryptonue",
+  "risk": "2",
+  "title": "Calculating getting price when minting is susceptible to precision loss due to division before multiplication",
+  "issueId": 1566,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1566"
+}
