@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Madalad",
+  "risk": "2",
+  "title": "Holder of token that is being auctioned can DoS `claimAuction` by not approving the `AuctionDemo` contract",
+  "issueId": 1751,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1751"
+}
