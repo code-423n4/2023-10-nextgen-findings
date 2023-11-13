@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "pontifex",
+  "risk": "3",
+  "title": "DoS of the `auctionDemo.claimAuction` function",
+  "issueId": 1792,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1792"
+}
