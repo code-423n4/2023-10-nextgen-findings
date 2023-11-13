@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "devival",
+  "risk": "2",
+  "title": "`RandomizerRNG` contract keeps the whole refund amount from `arrngConroller` instead of refunding to the caller",
+  "issueId": 1889,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1889"
+}
