@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "phoenixV110",
+  "risk": "3",
+  "title": "A malicious user can DOS the auction by executing `participateToAuction()` and `cancelBid()` repeatedly. ",
+  "issueId": 1651,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1651"
+}
