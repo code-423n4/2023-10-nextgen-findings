@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "nuthan2x",
+  "risk": "3",
+  "title": "MinterContract.mint ::  Overpayment of native ETH is not refunded to buyer ",
+  "issueId": 1399,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1399"
+}
