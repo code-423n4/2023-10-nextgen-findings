@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "drextron",
+  "risk": "2",
+  "title": "Collection contracts don't update supply-related state variables upon burning tokens",
+  "issueId": 1461,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1461"
+}
