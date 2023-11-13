@@ -77,7 +77,7 @@ Example: In MinterContract,
 
 5. The auction contract could be heavily improved in terms of refunds. Changing from the current state of refunds in the function `claimAuction` to a Pull over push pattern where every bidder can get a refund at any time from the functions `cancelBid` && `cancelAllBids` (except for the winner if he claims the reward), can significantly reduce the errors in the contract.
 
-6. In the auction contract consider improving the logic of the function `returnHighestBidder`. As of now the `highBid` is not getting updated and it always compare to 0. This works for now as the mapping `mapping (uint256 => auctionInfoStru[]) public auctionInfoData` is sorted, but can lead to many issues in the future if logic changes.
+6. In the auction contract consider improving the logic of the function `returnHighestBidder`. As of now the `highBid` is not getting updated and the function always compares `auctionInfoData[_tokenid][i].bid` to 0. This works for now as the mapping `mapping (uint256 => auctionInfoStru[]) public auctionInfoData` is sorted, but can lead to many issues in the future if logic changes.
 
 
 ## Codebase Quality Analysis
@@ -100,6 +100,8 @@ A malicious function admin can reset the MinterContract balance to zero anytime 
 #### Time Spent
 Around 10 days.
 96 Hours.
+
+
 
 
 
