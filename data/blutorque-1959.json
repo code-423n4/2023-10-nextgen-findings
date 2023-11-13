@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "blutorque",
+  "risk": "3",
+  "title": "MinterContract::burnToMint() do not mint any token for burner for the case where current circulationSupply greater than eq to totalSupply, make user pay ETH for nothing. ",
+  "issueId": 1959,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1959"
+}
