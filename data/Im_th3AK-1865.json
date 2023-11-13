@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Im_th3AK",
+  "risk": "2",
+  "title": "Solidity's integer division truncates. Thus, performing division before multiplication can lead to precision loss.",
+  "issueId": 1865,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1865"
+}
