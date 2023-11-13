@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Bube",
+  "risk": "2",
+  "title": "Weak randomness in the `RandomizerNXT::calculateTokenHash`, `XRandoms::randomNumber`, `XRandoms::randomWord` functions results in anyone being able to determine the random hash for the `NextGenCore` contract",
+  "issueId": 1701,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1701"
+}
