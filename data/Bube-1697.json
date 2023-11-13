@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Bube",
+  "risk": "3",
+  "title": "Reentrnacy vulnerability in `_safeMint` function",
+  "issueId": 1697,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1697"
+}
