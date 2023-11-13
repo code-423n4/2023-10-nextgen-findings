@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "phoenixV110",
+  "risk": "3",
+  "title": "The collectionCirculationSupply can bypass collectionTotalSupply",
+  "issueId": 1667,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1667"
+}
