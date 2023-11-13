@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Im_th3AK",
+  "risk": "2",
+  "title": "Ether to be stuck in the contract forever, or make it vulnerable to attacks such as denial-of-service or reentrancy.",
+  "issueId": 1745,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1745"
+}
