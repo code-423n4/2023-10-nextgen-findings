@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ilchovski",
+  "risk": "3",
+  "title": "Core Contract Minting Reentrancy allows to mint more than the collection specified mint limit per address",
+  "issueId": 1928,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1928"
+}
