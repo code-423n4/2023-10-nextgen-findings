@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Neon2835",
+  "risk": "3",
+  "title": "block.timestamp may be manipulated by miners of the blockchain, so it cannot effectively restrict the time period for NFT minting",
+  "issueId": 1832,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1832"
+}
