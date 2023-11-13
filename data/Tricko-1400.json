@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Tricko",
+  "risk": "3",
+  "title": "Attacker can block auction claim by using fallback that reverts.",
+  "issueId": 1400,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1400"
+}
