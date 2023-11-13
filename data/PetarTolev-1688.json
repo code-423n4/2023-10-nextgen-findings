@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "PetarTolev",
+  "risk": "3",
+  "title": "Randomizers will not produce a valid hash value",
+  "issueId": 1688,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1688"
+}
