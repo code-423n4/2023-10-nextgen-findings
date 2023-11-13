@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "0xMango",
+  "risk": "3",
+  "title": "Last bidder can steal listed nft & get his funds back via reentrancy.",
+  "issueId": 1929,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1929"
+}
