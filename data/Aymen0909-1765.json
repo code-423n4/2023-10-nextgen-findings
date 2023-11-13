@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Aymen0909",
+  "risk": "2",
+  "title": "`burnOrSwapExternalToMint` doesn't check that `retrieveTokensMintedPublicPerAddress` && `retrieveTokensMintedALPerAddress` are less that minting limit `viewMaxAllowance`",
+  "issueId": 1765,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1765"
+}
