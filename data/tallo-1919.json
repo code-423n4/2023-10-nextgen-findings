@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "tallo",
+  "risk": "2",
+  "title": "```updateAdminContract``` function admins can escalate their own privileges to that of global admin",
+  "issueId": 1919,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1919"
+}
