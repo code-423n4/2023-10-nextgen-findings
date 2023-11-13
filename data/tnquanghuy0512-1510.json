@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "tnquanghuy0512",
+  "risk": "2",
+  "title": "Arrng's request can be failed leading to multiple tokenIds can have empty hashes",
+  "issueId": 1510,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1510"
+}
