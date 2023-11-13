@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "btk",
+  "risk": "2",
+  "title": "A collection may withdraw more funds than allocated due to functions overlaps",
+  "issueId": 1550,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1550"
+}
