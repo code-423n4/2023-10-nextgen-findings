@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Udsen",
+  "risk": "3",
+  "title": "IN THE `MinterContract.mint` FUNCTION, THE MERKLE LEAF VALUES FOR THE WHITELIST MINTING (VIA MERKLE ROOT VERIFICATION) CAN BE 64 BYTES LONG BEFORE HASHING WHICH CAN LEAD TO HASH COLLISIONS WITH THE INTERNAL NODES OF THE MERKLE TREE ",
+  "issueId": 1818,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1818"
+}
