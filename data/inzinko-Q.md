@@ -1,5 +1,7 @@
 ## The updateImagesAndAttributes Function, assumes a certain way of arranging data 
 
+https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/NextGenCore.sol#L281-L288
+
 This function assumes that the way tokens id are arranged in the array and the way image and attributes are matched against each other, which means it expects that any token id at a particular index should represent the same index images in the images array and the same attributes in the attributes array.
 
 ```solidity
