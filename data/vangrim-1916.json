@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "vangrim",
+  "risk": "2",
+  "title": "NextGenCore#burnToMint#burn - A malicious user could increase burnAmount on arbitrary collection by holding any random token.",
+  "issueId": 1916,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1916"
+}
