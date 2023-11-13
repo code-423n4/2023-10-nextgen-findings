@@ -15,6 +15,8 @@ https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenC
 
 # L-02 `burnToMint()` fucntion is using `_burn()` but not checking if valid `_tokenId` is provided.
 
+https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenCore.sol#L213-L224
+
 While the function `_burn()` has a requirement to check that `tokenId` must exist. but in the function `burnToMint()` there is no check in place to ensure the existence of a valid `tokenId` as a parameter.
 
 ```solidity
@@ -30,7 +32,10 @@ While the function `_burn()` has a requirement to check that `tokenId` must exis
         }
     }
 ```
+```diff
 
++  require ((_tokenId >= collectionAdditionalData[_collectionID].reservedMinTokensIndex) && (_tokenId <= collectionAdditionalData[_collectionID].reservedMaxTokensIndex), "id err");
+```
 
 
 
