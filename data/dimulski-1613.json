@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "dimulski",
+  "risk": "2",
+  "title": "Malicious user can grief mintAndAuction when the collection uses periodic sale model",
+  "issueId": 1613,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1613"
+}
