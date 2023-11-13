@@ -58,4 +58,56 @@ function returnHighestBid(uint256 _tokenid) public view returns (uint256) {
     }
 ```
 
-https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/AuctionDemo.sol#L65
+https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/AuctionDemo.sol#L65.
+
+
+#### [L-03] Function ``returnHighestBid`` Doesn't Return The highestBid Index. 
+
+Function ``returnHighestBid``. does not return the index of the highest bid, only the amount. This means that the caller of the function cannot know who made the highest bid, which is important for the auction logic to return the index of the user because it can help identify the bidder who made the highest bid. The index can be used to access the bidder’s address and other information from the ``auctionInfoData``. 
+
+```
+function returnHighestBid(uint256 _tokenid) public view returns (uint256) {
+        uint256 index;
+        if (auctionInfoData[_tokenid].length > 0) {
+            uint256 highBid = 0;
+            for (uint256 i=0; i< auctionInfoData[_tokenid].length; i++) {
+                if (auctionInfoData[_tokenid][i].bid > highBid && auctionInfoData[_tokenid][i].status == true) {
+                    highBid = auctionInfoData[_tokenid][i].bid;
+                    index = i;
+                }
+            }
+            if (auctionInfoData[_tokenid][index].status == true) {
+                return highBid;
+            } else {
+                return 0;
+            }
+        } else {
+            return 0;
+        }
+    }
+```
+
+https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/AuctionDemo.sol#L87
+
+
+#####[L-04] Check ``returnHighestBidder`` Array Before Looping. 
+
+Function ``returnHighestBidder`` does not check if the ``auctionInfoData[_tokenid]`` array is greater than zero before looping through it. This could result in an error if the array is empty, as the index variable would be undefined and the function would try to access an invalid element of the array.Adding a condition or a require statement to check if the array is not empty before looping through will create a positive impact on the function. Preventing the function from throwing an error or reverting the transaction if the array is empty, which could cause inconvenience and frustration for the users. It will also improve the security and efficiency of the function, as it will not waste gas or resources on an invalid operation. 
+
+```
+ function returnHighestBidder(uint256 _tokenid) public view returns (address) {
+        uint256 highBid = 0;
+        uint256 index;
+        for (uint256 i=0; i< auctionInfoData[_tokenid].length; i++) {
+            if (auctionInfoData[_tokenid][i].bid > highBid && auctionInfoData[_tokenid][i].status == true) {
+                index = i;
+            }
+        }
+        if (auctionInfoData[_tokenid][index].status == true) {
+                return auctionInfoData[_tokenid][index].bidder;
+            } else {
+                revert("No Active Bidder");
+        }
+    }
+```
+https://github.com/code-423n4/2023-10-nextgen/blob/8b518196629faa37eae39736837b24926fd3c07c/smart-contracts/AuctionDemo.sol#L87
