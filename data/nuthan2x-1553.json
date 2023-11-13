@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "nuthan2x",
+  "risk": "2",
+  "title": "MinterContract.mint :: Cannot mint if sales option is changed from 1 or 2 to 3 ",
+  "issueId": 1553,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1553"
+}
