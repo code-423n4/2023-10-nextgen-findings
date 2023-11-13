@@ -3,21 +3,21 @@
 ### Gas Optimizations
 | |Issue|Contexts|
 |-|:-|:-|
-| GAS-01 | Unnecessary state update in `proposePrimaryAddressesAndPercentage` function  | 1 |
-| GAS-02 | `mintIndex` can be calculated once in the contract globally so that each function can use `mintIndex`| 4 | 
-| GAS-03 | `tokensMintedAllowlistAddress`, `tokensMintedPerAddress`, `tokensAirdropPerAddress` mappings can be combined into one mapping reducing gas cost of the protocol  | 1 |
-| GAS-04 | Redundant checks are implemented several functions which are not required, costing extra gas| 3 |
+| GAS-01 | Unnecessary state updates in `proposePrimaryAddressesAndPercentage` function  | 1 |
+| GAS-02 | `mintIndex` can be calculated once and used across the function lifecycle | 4 | 
+| GAS-03 | `tokensMintedAllowlistAddress`, `tokensMintedPerAddress`, `tokensAirdropPerAddress` mappings can be combined into one mapping to reduce gas cost for the protocol  | 1 |
+| GAS-04 | Redundant checks are implemented in several functions which are not required, taking extra gas | 3 |
 
 Total: 9 contexts over 4 issues
 
 ## Gas Optimizations
-### GAS-01: Unnecessary state update in `proposePrimaryAddressesAndPercentage` function
-`collectionArtistPrimaryAddresses[_collectionID].status` is already `false` the function changes the state to `false` again. Removing the statement could save gas.
+### GAS-01: Unnecessary state updates in `proposePrimaryAddressesAndPercentage` function
+`collectionArtistPrimaryAddresses[_collectionID].status` is already checked to be `false` when the function runs thereby attempting to change the state to `false` again is unnecessary.
 
 Context: MinterContract::proposePrimaryAddressesAndPercentage
 ```solidity
 function proposePrimaryAddressesAndPercentages(uint256 _collectionID, address _primaryAdd1, address _primaryAdd2, address _primaryAdd3, uint256 _add1Percentage, uint256 _add2Percentage, uint256 _add3Percentage) public ArtistOrAdminRequired(_collectionID, this.proposePrimaryAddressesAndPercentages.selector) {
-        require (collectionArtistPrimaryAddresses[_collectionID].status == false, "Already approved");
+ @>     require (collectionArtistPrimaryAddresses[_collectionID].status == false, "Already approved");
         require (_add1Percentage + _add2Percentage + _add3Percentage == collectionRoyaltiesPrimarySplits[_collectionID].artistPercentage, "Check %");
         collectionArtistPrimaryAddresses[_collectionID].primaryAdd1 = _primaryAdd1;
         collectionArtistPrimaryAddresses[_collectionID].primaryAdd2 = _primaryAdd2;
@@ -32,7 +32,7 @@ function proposePrimaryAddressesAndPercentages(uint256 _collectionID, address _p
 Context: MinterContract::proposeSecondaryAddressesAndPercentage
 ```solidity
     function proposeSecondaryAddressesAndPercentages(uint256 _collectionID, address _secondaryAdd1, address _secondaryAdd2, address _secondaryAdd3, uint256 _add1Percentage, uint256 _add2Percentage, uint256 _add3Percentage) public ArtistOrAdminRequired(_collectionID, this.proposeSecondaryAddressesAndPercentages.selector) {
-        require (collectionArtistSecondaryAddresses[_collectionID].status == false, "Already approved");
+@>        require (collectionArtistSecondaryAddresses[_collectionID].status == false, "Already approved");
         require (_add1Percentage + _add2Percentage + _add3Percentage == collectionRoyaltiesSecondarySplits[_collectionID].artistPercentage, "Check %");
         collectionArtistSecondaryAddresses[_collectionID].secondaryAdd1 = _secondaryAdd1;
         collectionArtistSecondaryAddresses[_collectionID].secondaryAdd2 = _secondaryAdd2;
@@ -45,15 +45,16 @@ Context: MinterContract::proposeSecondaryAddressesAndPercentage
 ```
 
 
-### GAS-02: `mintIndex` can be calculated once in the contract globally so that each function can use `mintIndex`
-`mintIndex` is calculated as `gencore.viewTokensIndexMin(_collectionID) + gencore.viewCirSupply(_collectionID)`, which is used in several functions. `mintIndex` can be calculated globally and that can reduce the gas consumption.
+### GAS-02: `mintIndex` can be calculated once and used across the function lifecycle
+`mintIndex` is derived from `gencore.viewTokensIndexMin(_collectionID) + gencore.viewCirSupply(_collectionID)`, which is then used in the function. Keep in mind `collectionTokenMintIndex` does the exact same thing and is already declared now left unused. Sticking to just one of these two will save on gas.
+
 Context: MinterContract::airDropTokens
 ```solidity
-191   uint256 mintIndex = gencore.viewTokensIndexMin(_collectionID) + gencore.viewCirSupply(_collectionID);
+189   uint256 mintIndex = gencore.viewTokensIndexMin(_collectionID) + gencore.viewCirSupply(_collectionID);
 ```
 Context: MinterContract::mint
 ```solidity
-238    uint256 mintIndex = gencore.viewTokensIndexMin(col) + gencore.viewCirSupply(col);
+237    uint256 mintIndex = gencore.viewTokensIndexMin(col) + gencore.viewCirSupply(col);
 ```
 Context: MinterContract::burnToMint
 ```solidity
@@ -64,8 +65,8 @@ Context: MinterContract::mintAndAuction
 ```solidity
 284    uint256 mintIndex = gencore.viewTokensIndexMin(_collectionID) + gencore.viewCirSupply(_collectionID);
 ```
-### GAS-03: `tokensMintedAllowlistAddress`, `tokensMintedPerAddress`, `tokensAirdropPerAddress` mappings can be combined into one mapping reducing gas cost of the protocol.
-Contracts uses many mappings such as `tokensMintedAllowlistAddress`, `tokensMintedPerAddress`, `tokensAirdropPerAddress`, which can be combined and save gas.
+### GAS-03: `tokensMintedAllowlistAddress`, `tokensMintedPerAddress`, `tokensAirdropPerAddress` mappings can be combined into one mapping to reduce gas cost for the protocol
+The protocol's declaration of mappings such as `tokensMintedAllowlistAddress`, `tokensMintedPerAddress`, `tokensAirdropPerAddress`, can be combined to save gas.
 
 Context: NextGenCore
 ```solidity
@@ -78,8 +79,8 @@ Context: NextGenCore
     mapping (uint256 => mapping (address => uint256)) private tokensAirdropPerAddress;
 ```
 
-### GAS-04: Redundant checks are implemented several functions which are not required, costing extra gas
-Reduntanct checks in these contexts are unnecessary as these conditions are already true. 
+### GAS-04: Redundant checks are implemented in several functions which are not required, taking extra gas
+Redundant checks in these contexts are unnecessary as these conditions are already true. 
 
 Context: AuctionDemo::returnHighestBid
 ```solidity
@@ -133,10 +134,3 @@ Context: NextGenCore::airDropTokens
         }
     }
 ```
-
-
-
-
-
-
-
