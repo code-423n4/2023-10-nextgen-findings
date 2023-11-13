@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Tricko",
+  "risk": "3",
+  "title": "Variable-length argument `_tokenData` allows attackers to generate merkle proofs from values that are not leaves.",
+  "issueId": 1732,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1732"
+}
