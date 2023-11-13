@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "bird-flu",
+  "risk": "2",
+  "title": "If block.timestamp == publicEndTime, getPrice can return the wrong price",
+  "issueId": 1385,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1385"
+}
