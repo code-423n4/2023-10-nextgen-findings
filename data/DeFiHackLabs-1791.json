@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "DeFiHackLabs",
+  "risk": "2",
+  "title": "Merkle Calculation Mismatch Triggers 'Invalid Proof' in burnOrSwapExternalToMint",
+  "issueId": 1791,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1791"
+}
