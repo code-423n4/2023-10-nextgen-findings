@@ -72,10 +72,13 @@ A malicious function admin can reset the MinterContract balance to zero anytime 
  
 ## System Risks 
 1. As protocol uses onchain randomizer such as Chainlink. There are some of the ways that miners or validators can potentially manipulate randomness generation. [Link](https://docs.chain.link/vrf/v2/security#overview) to Chainlink VRF security considerations.
-2. 
+2. Smart contracts can have vulnerabilities related to its logic, access errors that can be exploited by the attackers. We recommend adding fixes that are being identified by the warden of Code4rena.
+3. Due to external dependencies in some functions such as `mint`, read only reentrancy or price manipulations can be possible.
 #### Time Spent
 Around 10 days.
 96 Hours.
+
+
 
 
 
