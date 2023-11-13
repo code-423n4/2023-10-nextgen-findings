@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "turvy_fuzz",
+  "risk": "2",
+  "title": "collection admin can still change delegation Address by calling setCollectionCosts()",
+  "issueId": 2042,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/2042"
+}
