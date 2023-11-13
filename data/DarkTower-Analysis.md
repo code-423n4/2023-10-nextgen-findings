@@ -6,7 +6,7 @@ This analysis report goes over the various components and sections of the NextGe
 #### Findings Summary
 Severity  | Instances 
 ------------- | -------------
-Medium  | 7
+Medium  | 6
 High | 1
 Low | 3
 Gas | 4
@@ -100,6 +100,8 @@ A malicious function admin can reset the MinterContract balance to zero anytime 
 #### Time Spent
 Around 10 days.
 96 Hours.
+
+
 
 
 
