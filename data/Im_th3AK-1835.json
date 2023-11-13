@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Im_th3AK",
+  "risk": "2",
+  "title": "pess-nft-approve-warning auctionDemo claimAuction parameter from is not related to msg.sender",
+  "issueId": 1835,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1835"
+}
