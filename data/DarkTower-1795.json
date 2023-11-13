@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "DarkTower",
+  "risk": "2",
+  "title": "`NextGenMinterContract::mint` can be reentered for sales option 3 to mint many NFTs in a single period and bypass `viewMaxAllowance` for any sales option",
+  "issueId": 1795,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1795"
+}
