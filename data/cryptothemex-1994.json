@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "cryptothemex",
+  "risk": "3",
+  "title": "Re-enterancy in `AuctionDemo` contract",
+  "issueId": 1994,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1994"
+}
