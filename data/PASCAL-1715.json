@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "PASCAL",
+  "risk": "3",
+  "title": "claimAuction() will not refund users that did not win the auction after auction has ended.",
+  "issueId": 1715,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1715"
+}
