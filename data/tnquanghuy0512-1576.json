@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "tnquanghuy0512",
+  "risk": "2",
+  "title": "One second overlapped in `participateToAuction()` and `claimAuction()` lead to users can bid after the NFT is claimed and can't receive back the bid fund",
+  "issueId": 1576,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1576"
+}
