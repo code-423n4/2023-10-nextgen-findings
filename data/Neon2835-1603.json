@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Neon2835",
+  "risk": "3",
+  "title": "The ETH that the user participates in the auction may be locked forever in some special scenarios",
+  "issueId": 1603,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1603"
+}
