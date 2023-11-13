@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "Udsen",
+  "risk": "3",
+  "title": "A MALICIOUS USER CAN STEAL THE FUNDS FROM THE `AuctionDemo` CONTRACT VIA DOUBLE SPENDING BY CALLING THE `claimAuction` AND BACKRUNNING IT WITH `cancelBid` TRANSACTION",
+  "issueId": 1788,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1788"
+}
