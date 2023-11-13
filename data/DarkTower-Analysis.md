@@ -57,7 +57,7 @@ Example: In MinterContract,
         (bool success5, ) = payable(tm2).call{value: teamRoyalties2}("");
 ```
 
-2. The storage mappings and variables can be moved to one single contract so that risk of making mistake using them. We recommend adding these mappings, variables, constants in one contracts.
+2. The storage mappings and variables can be moved to one single contract so that risk of making mistake using them. We recommend adding these mappings, variables, constants in one contract.
 
 4. Many important functions lacks event emissions which can reduce off-chain interactions. We recommend adding events in functions. Example: MinterContract::setCollectionCosts
 ``` solidity
@@ -74,6 +74,8 @@ Example: In MinterContract,
  		        setMintingCosts[_collectionID] = true;
  		    }  
 ```
+
+
 ## Codebase Quality Analysis
 Overall, the quality of the codebase is good. The covered tests are looking good. 
 Category  | Comments | Results
@@ -94,6 +96,8 @@ A malicious function admin can reset the MinterContract balance to zero anytime 
 #### Time Spent
 Around 10 days.
 96 Hours.
+
+
 
 
 
