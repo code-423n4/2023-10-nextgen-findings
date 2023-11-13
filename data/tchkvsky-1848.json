@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "tchkvsky",
+  "risk": "2",
+  "title": "Calling `MinterContract.mint()` with higher amount for public fixed price sale will result in contract receiving excessive ETH",
+  "issueId": 1848,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/1848"
+}
