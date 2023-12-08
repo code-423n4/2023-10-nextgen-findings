@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "gumgumzum",
+  "risk": "3",
+  "title": "Usage of _safeMint in NextGenCore@_mintProcessing allows an attacker to reenter when onERC721Received is called",
+  "issueId": 2050,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/2050"
+}
