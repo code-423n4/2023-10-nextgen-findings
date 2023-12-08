@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "xAriextz",
+  "risk": "3",
+  "title": "Reentrancy in mint function leads to various problems",
+  "issueId": 2048,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/2048"
+}
