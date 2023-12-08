@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "sl1",
+  "risk": "3",
+  "title": "Multiple re-entrancy issues allowing stealing of funds and bypassing protocol mint limits",
+  "issueId": 2049,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/2049"
+}
