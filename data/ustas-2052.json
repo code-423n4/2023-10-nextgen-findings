@@ -1,0 +1,8 @@
+{
+  "contest": 302,
+  "handle": "ustas",
+  "risk": "3",
+  "title": "Reentrancy in `NextGenMinterContract.mint()` allows exceeding max allowance and concurrent use of NFTs in `NextGenMinterContract.burnToMint()`",
+  "issueId": 2052,
+  "issueUrl": "https://github.com/code-423n4/2023-10-nextgen-findings/issues/2052"
+}
