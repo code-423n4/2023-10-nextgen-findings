@@ -1470,7 +1470,7 @@ Users that mint on the last `block.timstamp` mint at an unexpected price and for
 
 You can see the logs of the test with this image:
 
-![Image](https://i.goopics.net/5kayuu.png)
+*Note: to view the image, please see the original submission [here](https://github.com/code-423n4/2023-10-nextgen-findings/issues/1275).*
 
 Here's the [gist](https://gist.github.com/AxelAramburu/c10597b5ff60616b8a15d091f88de8da) if you want to execute the PoC directly.
 You can execute the test with this command:
@@ -2013,9 +2013,8 @@ Error
 > - Collection A opens up the periodic sale for a public run, wanting to maintain the 10 ETH per NFT price.
 > 
 > To fix this:
-> 
-> - #381 would need to update its price calculation to use solely the circulating supply minted via the periodic sale.
-> - #380 would need to **reset its `lastMintDate` entirely**.
+> - Issue 381 would need to update its price calculation to use solely the circulating supply minted via the periodic sale.
+> - Issue 380 would need to **reset its `lastMintDate` entirely**.
 > 
 > A fix for #380 does not fix #381 and vice versa. Both concern different parts of the code and require different alleviations.
 >
