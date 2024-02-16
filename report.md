@@ -1958,16 +1958,8 @@ With the current three steps, after the airdrop, `salesOption` 3 should start at
 
 However, when sales option 3 starts, [getPrice](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L536) will return 3 ETH instead of 1 ETH. This will cause the initial users to pay an inflated price, which was not intended by the owner and can harm their reputation. It's also unfair to the users, as these so-called special (whitelisted) users will pay increased prices.
 
-```
-$$
-\begin{align/ast}
-\text{collectionMintCost} + \left(\frac{\text{collectionMintCost}}{\text{rate}}\right) \times \text{cirSupply}  \\
-&= 1 \text{eth} + 0.1 \text{eth} \times 20 \\
-&= 1 \text{eth} + 2 \text{eth} \\
-&= 3 \text{eth}
-\end{align/ast}
-$$
-```
+*Note: see [original submission](https://github.com/code-423n4/2023-10-nextgen-findings/issues/381) for math breakdown provided.*
+
 
 ### POC
 
@@ -2060,17 +2052,12 @@ Hour 3 to 4 - 0.10 ETH - the final price.
 
 The equation for calculating `tDiff` using the provided variables is:
 
-```
-$$
-tDiff = \frac{{\text{block.timestamp} - \text{collectionPhases}\[\text{collectionId}].\text{allowlistStartTime}}}{{\text{collectionPhases}\[\text{collectionId}].\text{timePeriod}}}
-$$
-```
+*Note: see [original submission](https://github.com/code-423n4/2023-10-nextgen-findings/issues/271) for math breakdown provided.*
 
 We want the crossover when hour 2 switches to 3, which is when `(block.timestamp - collectionPhases[_collectionId].allowlistStartTime)` = 3 h or 10800 sec.
 
-$$
-tDiff = \frac{10800}{3600} = 3
-$$
+*Note: see [original submission](https://github.com/code-423n4/2023-10-nextgen-findings/issues/271) for math breakdown provided.*
+
 
 We plug in `tDiff` and the other variables into the [if](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L553).
 
@@ -2079,9 +2066,7 @@ if (((collectionPhases[_collectionId].collectionMintCost - collectionPhases[_col
                 / (collectionPhases[_collectionId].rate)) > tDiff) {
 ```
 
-$$
-\frac{0.49 \times 10^{18} - 0.1 \times 10^{18}}{0.1 \times 10^{18}} = \frac{0.39 \times 10^{18}}{0.1 \times 10^{18}} = 3
-$$
+*Note: see [original submission](https://github.com/code-423n4/2023-10-nextgen-findings/issues/271) for math breakdown provided.*
 
 We obtain 3 as the answer, which is due to rounding down, as we divide 0.39 by 0.1. Solidity only works with whole numbers, causing the [if](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L553) to fail as `3 > 3` is false. This leads to entering the else statement where the last price of 0.1 ETH is returned, effectively missing one step of the 4-hour decrease.
 
